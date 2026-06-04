@@ -1,0 +1,29 @@
+---
+import CvtLayout from "../../../layouts/CvtLayout.astro";
+
+const guides = [
+  { title: "Building a Trust Passport", status: "planned" },
+  { title: "Partner Integration Guide", status: "planned" },
+  { title: "Insurance Guide", status: "planned" },
+  { title: "Employment Guide", status: "planned" },
+  { title: "Consent Framework", status: "planned" },
+  { title: "Moderation Framework", status: "planned" },
+];
+---
+
+<CvtLayout title="Guides — CVT">
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h1 class="font-display text-4xl font-semibold text-white">Guides</h1>
+    <p class="mt-4 text-slate-400">How-to documents for integrators and operators.</p>
+    <ul class="mt-10 space-y-3">
+      {guides.map((g) => (
+        <li class="flex items-center justify-between rounded-lg border border-white/10 px-4 py-3">
+          <span class="text-slate-200">{g.title}</span>
+          <span class="text-xs uppercase tracking-wide text-slate-500">{g.status}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</CvtLayout>
+
+<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import CvtLayout from "../../../layouts/CvtLayout.astro";
+
+const docs = (await getCollection("cvtDocs")).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<CvtLayout title="Documents — CVT">
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h1 class="font-display text-4xl font-semibold text-white">Documents</h1>
+    <p class="mt-4 text-slate-400">Versioned specifications synced from the CVT product repository.</p>
+    <ul class="mt-10 divide-y divide-white/10 rounded-xl border border-white/10">
+      {docs.map((doc) => (
+        <li>
+          <a href={`/cvt/docs/${doc.id}`} class="flex items-start justify-between gap-4 px-5 py-4 transition hover:bg-white/5">
+            <div>
+              <p class="font-medium text-white">{doc.data.title}</p>
+              {doc.data.description && <p class="mt-1 text-sm text-slate-500">{doc.data.description}</p>}
+            </div>
+            {doc.data.version && <span class="shrink-0 text-xs text-teal-500">{doc.data.version}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</CvtLayout>
+
+<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

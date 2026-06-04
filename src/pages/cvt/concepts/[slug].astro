@@ -1,0 +1,21 @@
+---
+import CvtLayout from "../../../layouts/CvtLayout.astro";
+import { cvtConcepts } from "../../../lib/nav";
+
+export function getStaticPaths() {
+  return cvtConcepts.map((c) => ({ params: { slug: c.slug }, props: { concept: c } }));
+}
+
+const { concept } = Astro.props;
+---
+
+<CvtLayout title={`${concept.title} — CVT`}>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <a href="/cvt/concepts" class="text-sm text-teal-400 hover:underline">← All concepts</a>
+    <h1 class="mt-6 font-display text-4xl font-semibold text-white">{concept.title}</h1>
+    <p class="mt-6 text-lg text-slate-300">{concept.summary}</p>
+    <p class="mt-8 text-sm text-slate-500">Detailed rules and implementation notes are in the <a href="/cvt/docs/trust-profile" class="text-teal-400 hover:underline">Trust Profile</a> specification.</p>
+  </div>
+</CvtLayout>
+
+<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

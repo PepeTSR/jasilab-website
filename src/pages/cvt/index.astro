@@ -1,0 +1,76 @@
+---
+import CvtLayout from "../../layouts/CvtLayout.astro";
+import { cvtAppUrl } from "../../lib/nav";
+---
+
+<CvtLayout title="CVT — Connected Verification Trust" description="Registry and trust infrastructure for commercial mobility in Uganda.">
+  <section class="relative overflow-hidden border-b border-white/10">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/30 via-slate-950 to-slate-950" />
+    <div class="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
+      <p class="text-sm font-medium uppercase tracking-widest text-teal-400">Connected Verification Trust</p>
+      <h1 class="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-white sm:text-5xl">
+        Verify once. Build trust over time. Share standing with consent.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-slate-400">
+        CVT is a registry and trust platform for people and vehicles in Uganda — from boda rider verification today to portable Trust Passports for insurers and employers tomorrow.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/cvt/vision" class="rounded-full bg-teal-600 px-6 py-3 text-sm font-medium text-white hover:bg-teal-500">Read the vision</a>
+        <a href="/cvt/docs" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Technical docs</a>
+        <a href={cvtAppUrl} target="_blank" rel="noopener" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Live app ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h2 class="font-display text-2xl font-semibold text-white">What problem CVT solves</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h3 class="font-semibold text-teal-300">No shared record</h3>
+        <p class="mt-2 text-sm text-slate-400">Operators exist in informal networks. Insurers and employers cannot verify tenure, training, or conduct at scale.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h3 class="font-semibold text-teal-300">Rumour-based trust</h3>
+        <p class="mt-2 text-sm text-slate-400">Complaints and accusations spread without investigation. Reputation damage is often permanent.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h3 class="font-semibold text-teal-300">Credit before insurance</h3>
+        <p class="mt-2 text-sm text-slate-400">Markets default to CRB models. CVT prioritises insurer-grade facts and rehabilitation first.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-white/10 bg-slate-900/50">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 class="font-display text-2xl font-semibold text-white">Trust Passport</h2>
+      <p class="mt-4 max-w-3xl text-slate-400">
+        A Trust Passport is the owner-facing and partner-facing view of a verified subject's standing — profile, Trust Timeline, and trust level — filtered by consent and access tier. It is not a credit score or a safety guarantee.
+      </p>
+      <a href="/cvt/concepts/trust-passport" class="mt-6 inline-block text-sm text-teal-400 hover:underline">Learn about Trust Passport →</a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h2 class="font-display text-2xl font-semibold text-white">Three layers, one platform</h2>
+    <pre class="mt-8 overflow-x-auto rounded-xl border border-white/10 bg-slate-900 p-6 text-xs leading-relaxed text-teal-100/90 sm:text-sm">{`┌─────────────────────────────────────────────────────────────┐
+│  CVT Connect (channels)                                     │
+│  WhatsApp · PWA · partner APIs · insurer / employer UI      │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ reads
+┌───────────────────────────▼─────────────────────────────────┐
+│  CVT Trust Profile                                          │
+│  Profile + Timeline (trust_events) + Trust Level            │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ reads
+┌───────────────────────────▼─────────────────────────────────┐
+│  CVT Registry                                               │
+│  Register · verify · documents · complaints · plate lookup  │
+└─────────────────────────────────────────────────────────────┘`}</pre>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="/cvt/architecture" class="text-sm text-teal-400 hover:underline">Architecture overview →</a>
+      <a href="/cvt/docs/trust-architecture-v1" class="text-sm text-teal-400 hover:underline">Full architecture doc →</a>
+    </div>
+  </section>
+</CvtLayout>
+
+<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

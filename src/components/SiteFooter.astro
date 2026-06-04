@@ -1,0 +1,22 @@
+---
+import { cvtAppUrl } from "../lib/nav";
+---
+
+<footer class="border-t border-slate-200 bg-slate-50">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <div>
+      <p class="font-display text-lg font-semibold text-slate-900">JasiLab</p>
+      <p class="mt-1 max-w-md text-sm text-slate-600">Building trust infrastructure for informal economies — starting in Uganda.</p>
+    </div>
+    <div class="flex flex-wrap gap-4 text-sm">
+      <a href="/cvt" class="text-teal-700 hover:underline">CVT</a>
+      <a href="/research" class="text-slate-600 hover:text-slate-900">Research</a>
+      <a href="/contact" class="text-slate-600 hover:text-slate-900">Contact</a>
+      <a href={cvtAppUrl} class="text-slate-600 hover:text-slate-900" target="_blank" rel="noopener">CVT App ↗</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .font-display { font-family: "Fraunces", Georgia, serif; }
+</style>
