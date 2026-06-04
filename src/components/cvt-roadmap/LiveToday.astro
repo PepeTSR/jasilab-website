@@ -1,0 +1,30 @@
+---
+import { liveTodayItems } from "../../lib/cvt-roadmap";
+import { cvtAppUrl } from "../../lib/nav";
+---
+
+<section class="map-section" id="live-today">
+  <p class="map-kicker">What exists today</p>
+  <h2 class="map-heading">This is not theoretical</h2>
+  <p class="map-lead">CVT is live in Uganda. These capabilities are operational now — not slide-deck promises.</p>
+
+  <div class="mt-10 grid gap-6 sm:grid-cols-2">
+    {liveTodayItems.map((item) => (
+      <div class="rounded-2xl border border-teal-800/30 bg-teal-950/20 p-6">
+        <div class="flex items-start gap-3">
+          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-600/30 text-sm text-teal-300">✓</span>
+          <div>
+            <h3 class="font-semibold text-white">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{item.body}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-8 text-center">
+    <a href={cvtAppUrl} target="_blank" rel="noopener" class="text-sm font-medium text-teal-400 hover:underline">
+      Try the live registry at cvt.jasilab.net ↗
+    </a>
+  </p>
+</section>

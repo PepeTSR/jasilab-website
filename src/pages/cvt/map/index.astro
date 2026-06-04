@@ -4,7 +4,6 @@ import UserLayer from "../../../components/cvt-map/UserLayer.astro";
 import EcosystemMap from "../../../components/cvt-map/EcosystemMap.astro";
 import PassportMap from "../../../components/cvt-map/PassportMap.astro";
 import VisionMap from "../../../components/cvt-map/VisionMap.astro";
-import Roadmap from "../../../components/cvt-map/Roadmap.astro";
 import { cvtAppUrl } from "../../../lib/nav";
 
 const sections = [
@@ -12,7 +11,6 @@ const sections = [
   { id: "ecosystem", label: "Ecosystem" },
   { id: "trust-passport", label: "Trust Passport" },
   { id: "vision", label: "Vision" },
-  { id: "roadmap", label: "Roadmap" },
 ];
 ---
 
@@ -42,7 +40,14 @@ const sections = [
     <EcosystemMap />
     <PassportMap />
     <VisionMap />
-    <Roadmap />
+
+    <section class="rounded-2xl border border-white/10 bg-slate-900/40 px-6 py-10 text-center sm:px-10">
+      <h2 class="map-heading text-xl">Implementation roadmap</h2>
+      <p class="map-lead mx-auto mt-3">Eight phases — from vehicle verification to financial inclusion. What exists today, what comes next, and why it matters.</p>
+      <a href="/cvt/roadmap" class="mt-6 inline-block rounded-full bg-teal-600 px-6 py-3 text-sm font-medium text-white hover:bg-teal-500">
+        View the full roadmap →
+      </a>
+    </section>
   </div>
 
   <section class="border-t border-white/10 bg-slate-900/50">

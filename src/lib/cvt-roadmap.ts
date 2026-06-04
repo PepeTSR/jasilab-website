@@ -1,0 +1,150 @@
+export type RoadmapPhaseStatus = "live" | "building" | "planned";
+
+export type RoadmapPhase = {
+  number: number;
+  title: string;
+  subtitle?: string;
+  status: RoadmapPhaseStatus;
+  goal: string;
+  features: { label: string; done?: boolean; href?: string }[];
+  impact: string;
+};
+
+export const trustRoadmapPhases: RoadmapPhase[] = [
+  {
+    number: 1,
+    title: "Vehicle Verification",
+    subtitle: "Live today",
+    status: "live",
+    goal: "Know whether a vehicle and driver have been verified.",
+    features: [
+      { label: "WhatsApp number plate lookup", done: true },
+      { label: "Photo lookup", done: true },
+      { label: "Verification IDs", done: true },
+      { label: "Public verification responses", done: true },
+      { label: "Unknown plates automatically captured", done: true },
+    ],
+    impact: "Creates the first trusted registry and begins building coverage.",
+  },
+  {
+    number: 2,
+    title: "Incident Reporting",
+    status: "building",
+    goal: "Build accountability.",
+    features: [
+      { label: "Public reporting of dangerous driving", done: true },
+      { label: "Complaint moderation", done: true, href: "/cvt/guides/moderation-framework" },
+      { label: "Evidence collection", done: true },
+      { label: "Repeat incident tracking", done: true },
+      { label: "Investigation workflows", done: true },
+    ],
+    impact: "Move beyond identity into accountability.",
+  },
+  {
+    number: 3,
+    title: "Trust Profiles",
+    status: "building",
+    goal: "Reward good behaviour.",
+    features: [
+      { label: "Trust Passport", done: true, href: "/cvt/guides/building-a-trust-passport" },
+      { label: "Trust Timeline", done: true, href: "/cvt/concepts/trust-timeline" },
+      { label: "Trust Levels", done: true, href: "/cvt/concepts/trust-level" },
+      { label: "Good Standing", done: true, href: "/cvt/concepts/good-standing" },
+      { label: "Training signals", done: true },
+      { label: "Insurance signals", done: true, href: "/cvt/guides/insurance" },
+      { label: "Verification history", done: true },
+      { label: "Clean periods", done: true },
+    ],
+    impact: "Create portable reputations.",
+  },
+  {
+    number: 4,
+    title: "Partner Ecosystem",
+    status: "building",
+    goal: "Allow organisations to consume trust data with consent.",
+    features: [
+      { label: "Consent framework", done: true, href: "/cvt/guides/consent-framework" },
+      { label: "Soft Search", done: true, href: "/cvt/concepts/soft-search" },
+      { label: "Enhanced Search", done: true, href: "/cvt/concepts/enhanced-search" },
+      { label: "Hard Search (contracted insurers)", done: true, href: "/cvt/concepts/hard-search" },
+      { label: "Partner portal and APIs", done: true, href: "/cvt/guides/partner-integration" },
+    ],
+    impact: "Trust becomes useful beyond verification.",
+  },
+  {
+    number: 5,
+    title: "Skills and Opportunity Layer",
+    status: "planned",
+    goal: "Recognise people, not just vehicles.",
+    features: [
+      { label: "Education and certificates" },
+      { label: "Languages and trade skills" },
+      { label: "Employment history", href: "/cvt/guides/employment" },
+      { label: "Recommendations" },
+    ],
+    impact: "Help drivers access better jobs and opportunities.",
+  },
+  {
+    number: 6,
+    title: "Multi-category Registry",
+    status: "planned",
+    goal: "Expand beyond commercial transport.",
+    features: [
+      { label: "Private vehicles", href: "/cvt/docs/registry-categories" },
+      { label: "Taxis and special hire" },
+      { label: "Trucks and delivery riders" },
+      { label: "Other professions" },
+    ],
+    impact: "One identity across multiple roles.",
+  },
+  {
+    number: 7,
+    title: "Insurance Network",
+    status: "planned",
+    goal: "Connect trust to risk pooling.",
+    features: [
+      { label: "Insurance continuity tracking", href: "/cvt/guides/insurance" },
+      { label: "Claims history (partner agreements)" },
+      { label: "Underwriting support APIs" },
+    ],
+    impact: "Lower premiums for trusted drivers.",
+  },
+  {
+    number: 8,
+    title: "Financial Inclusion",
+    status: "planned",
+    goal: "Enable access to credit — carefully and with consent.",
+    features: [
+      { label: "Financing decision support", href: "/cvt/guides/consent-framework" },
+      { label: "Alternative trust signals" },
+      { label: "Possible CRB integration (long term, separate programme)" },
+    ],
+    impact: "Enable access to credit without skipping insurance-first principles.",
+  },
+];
+
+export const liveTodayItems = [
+  {
+    title: "WhatsApp Verification",
+    body: "Send a number plate to WhatsApp. Receive verification status, vehicle details, and trust indicators.",
+  },
+  {
+    title: "Automatic Coverage Expansion",
+    body: "Unknown plates are recorded. Repeated lookups and reports help grow the registry organically.",
+  },
+  {
+    title: "Complaint Capture",
+    body: "Reports against vehicles are captured and investigated through moderation workflows.",
+  },
+  {
+    title: "Database and AI Infrastructure",
+    body: "Registry, lookup, and trust compute systems are operational on cvt.jasilab.net.",
+  },
+];
+
+export const siteLayers = [
+  { label: "Vision", href: "/cvt/vision", desc: "Why trust infrastructure matters" },
+  { label: "Project Map", href: "/cvt/map", desc: "Visual ecosystem and user layer" },
+  { label: "Implementation Roadmap", href: "/cvt/roadmap", desc: "Phases — what exists, what's next" },
+  { label: "Technical Documents", href: "/cvt/docs", desc: "Specs for builders and partners" },
+] as const;

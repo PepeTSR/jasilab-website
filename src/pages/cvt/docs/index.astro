@@ -7,8 +7,8 @@ const docs = (await getCollection("cvtDocs")).sort((a, b) => (a.data.order ?? 99
 
 <CvtLayout title="Documents — CVT">
   <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="font-display text-4xl font-semibold text-white">Documents</h1>
-    <p class="mt-4 text-slate-400">Versioned specifications synced from the CVT product repository.</p>
+    <h1 class="font-display text-4xl font-semibold text-white">Technical documents</h1>
+    <p class="mt-4 text-slate-400">Specifications for builders and partners — synced from the CVT product repository. For the public-facing journey, see the <a href="/cvt/roadmap" class="text-teal-400 hover:underline">implementation roadmap</a>.</p>
     <ul class="mt-10 divide-y divide-white/10 rounded-xl border border-white/10">
       {docs.map((doc) => (
         <li>

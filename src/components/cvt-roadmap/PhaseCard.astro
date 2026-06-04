@@ -1,0 +1,72 @@
+---
+import type { RoadmapPhase } from "../../lib/cvt-roadmap";
+
+interface Props {
+  phase: RoadmapPhase;
+}
+
+const { phase } = Astro.props;
+
+const statusLabel = {
+  live: "Live today",
+  building: "In progress",
+  planned: "Planned",
+};
+
+const statusStyle = {
+  live: "border-teal-600/40 bg-teal-950/30 text-teal-300",
+  building: "border-amber-600/30 bg-amber-950/20 text-amber-200",
+  planned: "border-white/10 bg-white/[0.02] text-slate-400",
+};
+---
+
+<article class:list={["rounded-2xl border p-6 sm:p-8", statusStyle[phase.status]]} id={`phase-${phase.number}`}>
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-widest opacity-70">Phase {phase.number}</p>
+      <h3 class="mt-1 text-xl font-semibold text-white sm:text-2xl" style="font-family: var(--font-display)">
+        {phase.title}
+      </h3>
+      {phase.subtitle && <p class="mt-1 text-sm text-teal-400">{phase.subtitle}</p>}
+    </div>
+    <span class="rounded-full border border-current px-3 py-1 text-xs font-medium uppercase tracking-wide opacity-90">
+      {statusLabel[phase.status]}
+    </span>
+  </div>
+
+  <div class="mt-6 grid gap-6 lg:grid-cols-2">
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Goal</p>
+      <p class="mt-2 text-slate-200">{phase.goal}</p>
+
+      <p class="mt-6 text-xs font-semibold uppercase tracking-widest text-slate-500">Why it matters</p>
+      <p class="map-quote mt-2 !border-teal-700/50 !pl-4 !text-base !not-italic text-teal-100/80">{phase.impact}</p>
+    </div>
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Capabilities</p>
+      <ul class="mt-3 space-y-2">
+        {phase.features.map((f) => (
+          <li class="flex items-start gap-2 text-sm">
+            <span class:list={[
+              "mt-0.5 shrink-0",
+              f.done ? "text-teal-500" : phase.status === "planned" ? "text-slate-600" : "text-amber-500/70",
+            ]}>
+              {f.done ? "✓" : phase.status === "planned" ? "○" : "◐"}
+            </span>
+            {f.href ? (
+              <a href={f.href} class="text-slate-300 hover:text-teal-300 hover:underline">{f.label}</a>
+            ) : (
+              <span class="text-slate-400">{f.label}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+      {phase.number === 4 && (
+        <p class="mt-4 text-xs text-slate-500">
+          Partners: Insurers · Employers · Fleet operators · Banks · SACCOs
+        </p>
+      )}
+    </div>
+  </div>
+</article>
