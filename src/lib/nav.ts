@@ -14,6 +14,7 @@ export const productLinks = [
 
 export const cvtNav = [
   { href: "/cvt", label: "Home" },
+  { href: "/cvt/map", label: "Map" },
   { href: "/cvt/vision", label: "Vision" },
   { href: "/cvt/concepts", label: "Concepts" },
   { href: "/cvt/architecture", label: "Architecture" },

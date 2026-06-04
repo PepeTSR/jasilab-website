@@ -1,0 +1,54 @@
+---
+import MapNode from "./MapNode.astro";
+---
+
+<section class="map-section" id="ecosystem">
+  <p class="map-kicker">2 · Ecosystem map</p>
+  <h2 class="map-heading">CVT sits in the middle</h2>
+  <p class="map-lead">Every participant connects through verified registry and trust infrastructure — not parallel rumour networks.</p>
+
+  <div class="map-diagram ecosystem-grid mt-10">
+    <div class="ecosystem-row ecosystem-top flex justify-center">
+      <MapNode label="Insurers" href="/cvt/guides/insurance" />
+    </div>
+    <div class="ecosystem-row ecosystem-mid grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-8">
+      <div class="flex justify-end">
+        <MapNode label="Employers" href="/cvt/guides/employment" />
+      </div>
+      <MapNode label="CVT" sub="Connected Verification Trust" variant="hub" class="min-w-[9rem] sm:min-w-[11rem]" />
+      <div class="flex justify-start">
+        <MapNode label="Banks / MFIs" href="/cvt/guides/consent-framework" />
+      </div>
+    </div>
+    <div class="ecosystem-spine mx-auto flex flex-col items-center" aria-hidden="true">
+      <div class="h-6 w-px bg-teal-700/40"></div>
+    </div>
+    <div class="ecosystem-row flex justify-center">
+      <MapNode label="Fleet Operators" href="/cvt/guides/employment" />
+    </div>
+    <div class="ecosystem-spine mx-auto flex flex-col items-center" aria-hidden="true">
+      <div class="h-6 w-px bg-teal-700/40"></div>
+    </div>
+    <div class="ecosystem-row flex justify-center">
+      <MapNode label="Drivers" sub="Riders · Taxi · Hire" />
+    </div>
+    <div class="ecosystem-spine mx-auto flex flex-col items-center" aria-hidden="true">
+      <div class="h-6 w-px bg-teal-700/40"></div>
+    </div>
+    <div class="ecosystem-row flex justify-center">
+      <MapNode label="Vehicles" sub="Plates · Categories" />
+    </div>
+    <div class="ecosystem-spine mx-auto flex flex-col items-center" aria-hidden="true">
+      <div class="h-6 w-px bg-teal-700/40"></div>
+    </div>
+    <div class="ecosystem-row flex justify-center">
+      <MapNode label="The Public" variant="default" />
+    </div>
+    <div class="ecosystem-spine mx-auto flex flex-col items-center" aria-hidden="true">
+      <div class="h-6 w-px bg-teal-700/40"></div>
+    </div>
+    <div class="ecosystem-row flex justify-center">
+      <MapNode label="Training Providers" sub="Skills · Compliance" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import MapNode from "./MapNode.astro";
+---
+
+<section class="map-section" id="user-layer">
+  <p class="map-kicker">1 · The user layer</p>
+  <h2 class="map-heading">What people see</h2>
+  <p class="map-lead">Public channels that build toward portable standing — starting with the simplest interaction: a plate on WhatsApp.</p>
+
+  <div class="map-diagram mt-10">
+    <div class="flex justify-center">
+      <MapNode label="PUBLIC" variant="highlight" class="min-w-[8rem]" />
+    </div>
+    <div class="map-connector map-connector-down mx-auto h-8 w-px" aria-hidden="true"></div>
+    <div class="grid gap-4 sm:grid-cols-3 sm:gap-6">
+      <MapNode label="WhatsApp" sub="Lookup" href="/cvt/map#user-layer" />
+      <MapNode label="Passport" sub="& Profile" href="/cvt/concepts/trust-passport" />
+      <MapNode label="Reports" sub="& Feedback" href="/cvt/guides/moderation-framework" />
+    </div>
+    <div class="map-connector map-connector-merge mx-auto mt-0 h-10 w-full max-w-md" aria-hidden="true">
+      <svg class="h-full w-full" viewBox="0 0 400 40" preserveAspectRatio="none" fill="none">
+        <path d="M67 0 V20 H200 M333 0 V20 H200 M200 20 V40" stroke="currentColor" stroke-width="1" class="text-teal-700/50" />
+      </svg>
+    </div>
+    <div class="flex justify-center">
+      <MapNode label="Good Standing" variant="hub" href="/cvt/concepts/good-standing" class="min-w-[10rem]" />
+    </div>
+  </div>
+
+  <blockquote class="map-quote mt-10">
+    Know who's on the road. Build trust. Create opportunities.
+  </blockquote>
+</section>

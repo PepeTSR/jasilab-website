@@ -29,4 +29,12 @@
   .doc-content th { @apply bg-slate-50 font-semibold text-slate-900; }
   .doc-content hr { @apply my-8 border-slate-200; }
   .doc-content strong { @apply font-semibold text-slate-900; }
+
+  .map-kicker { @apply text-xs font-semibold uppercase tracking-widest text-teal-500; }
+  .map-heading { @apply mt-2 text-2xl font-semibold text-white sm:text-3xl; font-family: var(--font-display); }
+  .map-lead { @apply mt-3 max-w-2xl text-slate-400; }
+  .map-quote { @apply border-l-2 border-teal-600 pl-5 text-lg italic text-teal-100/90; }
+  .map-section { scroll-margin-top: 6rem; }
+  .ecosystem-grid { @apply relative rounded-2xl border border-white/10 bg-slate-900/40 p-6 sm:p-10; }
+  .ecosystem-row { @apply py-1; }
 }

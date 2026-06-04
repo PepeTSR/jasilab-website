@@ -1,5 +1,6 @@
 ---
 import CvtLayout from "../../layouts/CvtLayout.astro";
+import UserLayer from "../../components/cvt-map/UserLayer.astro";
 import { cvtAppUrl } from "../../lib/nav";
 ---
 
@@ -9,16 +10,25 @@ import { cvtAppUrl } from "../../lib/nav";
     <div class="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
       <p class="text-sm font-medium uppercase tracking-widest text-teal-400">Connected Verification Trust</p>
       <h1 class="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-white sm:text-5xl">
-        Verify once. Build trust over time. Share standing with consent.
+        Know who's on the road. Build trust. Create opportunities.
       </h1>
       <p class="mt-6 max-w-2xl text-lg text-slate-400">
-        CVT is a registry and trust platform for people and vehicles in Uganda — from boda rider verification today to portable Trust Passports for insurers and employers tomorrow.
+        CVT is a registry and trust platform for people and vehicles in Uganda — from WhatsApp plate lookup today to portable Trust Passports for insurers and employers tomorrow.
       </p>
       <div class="mt-10 flex flex-wrap gap-4">
-        <a href="/cvt/vision" class="rounded-full bg-teal-600 px-6 py-3 text-sm font-medium text-white hover:bg-teal-500">Read the vision</a>
-        <a href="/cvt/docs" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Technical docs</a>
+        <a href="/cvt/map" class="rounded-full bg-teal-600 px-6 py-3 text-sm font-medium text-white hover:bg-teal-500">Explore the CVT Map</a>
+        <a href="/cvt/vision" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Read the vision</a>
         <a href={cvtAppUrl} target="_blank" rel="noopener" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-slate-200 hover:bg-white/5">Live app ↗</a>
       </div>
+    </div>
+  </section>
+
+  <section class="border-b border-white/10 bg-slate-950">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <UserLayer />
+      <p class="mt-8 text-center">
+        <a href="/cvt/map" class="text-sm font-medium text-teal-400 hover:underline">See the full map — ecosystem, passport, roadmap →</a>
+      </p>
     </div>
   </section>
 
@@ -46,7 +56,10 @@ import { cvtAppUrl } from "../../lib/nav";
       <p class="mt-4 max-w-3xl text-slate-400">
         A Trust Passport is the owner-facing and partner-facing view of a verified subject's standing — profile, Trust Timeline, and trust level — filtered by consent and access tier. It is not a credit score or a safety guarantee.
       </p>
-      <a href="/cvt/concepts/trust-passport" class="mt-6 inline-block text-sm text-teal-400 hover:underline">Learn about Trust Passport →</a>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="/cvt/map#trust-passport" class="text-sm text-teal-400 hover:underline">Trust Passport map →</a>
+        <a href="/cvt/concepts/trust-passport" class="text-sm text-teal-400 hover:underline">Concept explainer →</a>
+      </div>
     </div>
   </section>
 
@@ -67,6 +80,7 @@ import { cvtAppUrl } from "../../lib/nav";
 │  Register · verify · documents · complaints · plate lookup  │
 └─────────────────────────────────────────────────────────────┘`}</pre>
     <div class="mt-8 flex flex-wrap gap-4">
+      <a href="/cvt/map#vision" class="text-sm text-teal-400 hover:underline">Long-term vision →</a>
       <a href="/cvt/architecture" class="text-sm text-teal-400 hover:underline">Architecture overview →</a>
       <a href="/cvt/docs/trust-architecture-v1" class="text-sm text-teal-400 hover:underline">Full architecture doc →</a>
     </div>
