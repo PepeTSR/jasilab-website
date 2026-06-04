@@ -1,25 +1,21 @@
 ---
+import { getCollection } from "astro:content";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 
-const guides = [
-  { title: "Building a Trust Passport", status: "planned" },
-  { title: "Partner Integration Guide", status: "planned" },
-  { title: "Insurance Guide", status: "planned" },
-  { title: "Employment Guide", status: "planned" },
-  { title: "Consent Framework", status: "planned" },
-  { title: "Moderation Framework", status: "planned" },
-];
+const guides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
-<CvtLayout title="Guides — CVT">
+<CvtLayout title="Guides — CVT" description="How-to documents for integrators, insurers, employers, and CVT operators.">
   <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
     <h1 class="font-display text-4xl font-semibold text-white">Guides</h1>
-    <p class="mt-4 text-slate-400">How-to documents for integrators and operators.</p>
-    <ul class="mt-10 space-y-3">
-      {guides.map((g) => (
-        <li class="flex items-center justify-between rounded-lg border border-white/10 px-4 py-3">
-          <span class="text-slate-200">{g.title}</span>
-          <span class="text-xs uppercase tracking-wide text-slate-500">{g.status}</span>
+    <p class="mt-4 text-slate-400">How-to documents for integrators and operators. Full specifications live in <a href="/cvt/docs" class="text-teal-400 hover:underline">Documents</a>.</p>
+    <ul class="mt-10 divide-y divide-white/10 rounded-xl border border-white/10">
+      {guides.map((guide) => (
+        <li>
+          <a href={`/cvt/guides/${guide.id}`} class="block px-5 py-4 transition hover:bg-white/5">
+            <p class="font-medium text-white">{guide.data.title}</p>
+            {guide.data.description && <p class="mt-1 text-sm text-slate-500">{guide.data.description}</p>}
+          </a>
         </li>
       ))}
     </ul>

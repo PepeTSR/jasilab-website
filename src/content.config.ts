@@ -11,4 +11,13 @@ const cvtDocs = defineCollection({
   }),
 });
 
-export const collections = { cvtDocs };
+const cvtGuides = defineCollection({
+  loader: glob({ base: "./src/content/cvt/guides", pattern: "**/*.md" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    order: z.number().default(99),
+  }),
+});
+
+export const collections = { cvtDocs, cvtGuides };
