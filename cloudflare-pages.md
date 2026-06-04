@@ -1,13 +1,12 @@
-# Cloudflare Pages build settings (Dashboard → Workers & Pages → jasilab-website → Settings → Builds)
+# Cloudflare Workers Builds (Dashboard → Workers & Pages → jasilab-website → Settings → Builds)
 #
 # Production branch: main
-# Framework preset:   Astro (or None)
 # Build command:      npm run build
-# Build output dir:   dist
-# Root directory:     /
-# Node.js version:    22  (from .node-version)
+# Deploy command:     npx wrangler deploy
+# Path (root):        /   (leave empty if repo root — do NOT put "dist" here)
 #
-# Custom domains: jasilab.net, www.jasilab.net
+# Output directory is set in wrangler.toml → [assets] directory = "./dist"
+# Do NOT use pages_build_output_dir or `wrangler pages deploy` on Workers Builds.
 #
 # Deploy via GitHub:
 #   1. Push this repo to GitHub (e.g. github.com/<org>/jasilab-website)
