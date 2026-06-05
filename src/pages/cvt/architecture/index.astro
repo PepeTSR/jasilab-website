@@ -2,10 +2,15 @@
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 ---
 
-<CvtLayout title="Architecture — CVT">
+<CvtLayout title="Architecture — CVT" description="Technical overview of the CVT platform for builders and partners.">
   <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="font-display text-4xl font-semibold text-white">Architecture</h1>
-    <p class="mt-6 text-slate-300">CVT separates immutable facts from versioned interpretation. Registry events flow into <code class="rounded bg-white/10 px-1.5 py-0.5 text-teal-200">trust_events</code>; the policy engine produces snapshots and passport views filtered by partner tier and consent.</p>
+    <p class="text-sm font-medium uppercase tracking-widest text-teal-400">For technical readers</p>
+    <h1 class="mt-3 font-display text-4xl font-semibold text-white">Platform architecture</h1>
+    <p class="mt-6 text-slate-300 leading-relaxed">
+      CVT separates immutable facts from versioned interpretation. Registry events flow into
+      <code class="rounded bg-white/10 px-1.5 py-0.5 text-teal-200">trust_events</code>;
+      the policy engine produces snapshots and passport views filtered by partner tier and consent.
+    </p>
 
     <ul class="mt-8 space-y-3 text-slate-400">
       <li><strong class="text-slate-200">Event model</strong> — append-only facts; reversals add compensating events</li>
@@ -14,7 +19,29 @@ import CvtLayout from "../../../layouts/CvtLayout.astro";
       <li><strong class="text-slate-200">Database</strong> — Supabase Postgres; riders registry + trust tables</li>
     </ul>
 
-    <a href="/cvt/docs/trust-architecture-v1" class="mt-10 inline-block rounded-full bg-teal-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-500">Read Trust Architecture v1</a>
+    <div class="mt-12 space-y-6 border-t border-white/10 pt-12 text-slate-400 leading-relaxed">
+      <h2 class="font-display text-xl font-semibold text-white">What CVT is today</h2>
+      <p>
+        CVT is a Commercial Verification Terminal built first as an admin portal for boda boda rider verification in Uganda. It lets approved staff sign in, register riders, capture consent, upload and review documents, manage verification status, handle complaints, and generate public QR verification profiles. The current MVP is focused on staff/admin workflows: rider lists, rider detail views, complaint management, and placeholder pages for SACCOs, stages, and staff administration. It also supports a demo mode when Supabase isn't configured, so the app can still be explored without live backend setup.
+      </p>
+      <p>
+        It's built with Next.js, TypeScript, Tailwind CSS, and Supabase for auth, Postgres, and storage. The design is mobile-first and low-bandwidth aware, and it's explicitly not a ride-hailing app, even though a separate CVT Connect layer can use the registry for dispatch channels like WhatsApp. The system emphasizes auditability, privacy, and role-based access, with stricter controls for sensitive rider data and public verification output.
+      </p>
+
+      <h2 class="font-display text-xl font-semibold text-white pt-4">What makes it unusual</h2>
+      <p>
+        CVT is not just a registry — it's being shaped into a broader trust platform. The architecture separates raw verified facts, a versioned Trust Profile, and channel layers like Connect, so the same core record can power public verification, partner searches, and future use cases without rewriting history. That facts-vs-interpretation split keeps immutable events intact while trust level and standing evolve through policy-driven recomputation.
+      </p>
+      <p>
+        It also handles trust and disclosure carefully — avoiding the trap of turning verification into a safety promise or a vague risk score. Instead it uses explainable, positive-dominant trust signals, staged access tiers, consent-bound partner searches, and sealed or moderated records where needed. In plain terms: a serious accountability system, not a dashboard pretending to know who's "safe."
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href="/cvt/docs/trust-architecture-v1" class="rounded-full bg-teal-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-500">Trust Architecture v1</a>
+      <a href="/cvt/docs/trust-profile" class="rounded-full border border-white/20 px-5 py-2.5 text-sm text-slate-200 hover:bg-white/5">Trust Profile spec</a>
+      <a href="/cvt/guides/partner-integration" class="rounded-full border border-white/20 px-5 py-2.5 text-sm text-slate-200 hover:bg-white/5">API reference</a>
+    </div>
   </div>
 </CvtLayout>
 

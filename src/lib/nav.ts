@@ -7,7 +7,7 @@ export const jasiLabNav = [
 ] as const;
 
 export const productLinks = [
-  { href: "/cvt", label: "CVT", tagline: "Connected Verification Trust — registry and trust infrastructure for mobility." },
+  { href: "/cvt", label: "CVT", tagline: "Verify drivers and vehicles through WhatsApp — build transport reputation over time." },
   { href: "/products/hay", label: "HAY", tagline: "Coming soon." },
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
 ] as const;
@@ -35,3 +35,23 @@ export const cvtConcepts = [
 ] as const;
 
 export const cvtAppUrl = "https://cvt.jasilab.net";
+
+/** Update when public WhatsApp number is published */
+export const cvtWhatsAppUrl = "/contact";
+
+export const cvtLiveFeatures = [
+  "WhatsApp plate lookup",
+  "Driver verification",
+  "Report unsafe behaviour",
+  "Build transport reputation",
+] as const;
+
+export const cvtDocFooterLinks = [
+  { href: "/cvt/vision", label: "Vision", desc: "Why trust infrastructure matters" },
+  { href: "/cvt/docs/trust-profile", label: "Trust Profile", desc: "Specification" },
+  { href: "/cvt/docs/trust-architecture-v1", label: "Trust Architecture", desc: "Technical blueprint" },
+  { href: "/cvt/guides/partner-integration", label: "API Reference", desc: "Partner integration" },
+  { href: "/cvt/roadmap", label: "Roadmap", desc: "Phases and timeline" },
+  { href: "/cvt/docs", label: "Data Models", desc: "Registry and trust specs" },
+  { href: "/cvt/guides", label: "Guides", desc: "How-to for integrators" },
+] as const;
