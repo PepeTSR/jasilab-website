@@ -36,8 +36,7 @@ export const cvtConcepts = [
 
 export const cvtAppUrl = "https://cvt.jasilab.net";
 
-/** Update when public WhatsApp number is published */
-export const cvtWhatsAppUrl = "/contact";
+export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
 export const cvtLiveFeatures = [
   "WhatsApp plate lookup",
