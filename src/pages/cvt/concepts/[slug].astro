@@ -10,12 +10,10 @@ const { concept } = Astro.props;
 ---
 
 <CvtLayout title={`${concept.title} — CVT`}>
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <a href="/cvt/concepts" class="text-sm text-teal-400 hover:underline">← All concepts</a>
-    <h1 class="mt-6 font-display text-4xl font-semibold text-white">{concept.title}</h1>
-    <p class="mt-6 text-lg text-slate-300">{concept.summary}</p>
-    <p class="mt-8 text-sm text-slate-500">Detailed rules and implementation notes are in the <a href="/cvt/docs/trust-profile" class="text-teal-400 hover:underline">Trust Profile</a> specification.</p>
-  </div>
+  <section class="section-band max-w-3xl">
+    <a href="/cvt/concepts" class="btn-ghost !px-0 !py-0 !text-sm">← All concepts</a>
+    <h1 class="display-lg mt-6">{concept.title}</h1>
+    <p class="mt-6 text-lg text-body">{concept.summary}</p>
+    <p class="mt-8 text-sm text-mute">Detailed rules and implementation notes are in the <a href="/cvt/docs/trust-profile">Trust Profile</a> specification.</p>
+  </section>
 </CvtLayout>
-
-<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

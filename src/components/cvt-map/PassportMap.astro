@@ -7,27 +7,27 @@ import MapNode from "./MapNode.astro";
   <h2 class="map-heading">The product explained</h2>
   <p class="map-lead">One portable surface — three pillars today, more signal layers tomorrow.</p>
 
-  <div class="map-diagram mt-10 rounded-2xl border border-white/10 bg-slate-900/40 p-6 sm:p-10">
+  <div class="ecosystem-grid mt-10">
     <div class="flex justify-center">
       <MapNode label="Trust Passport" variant="hub" class="min-w-[11rem]" href="/cvt/guides/building-a-trust-passport" />
     </div>
-    <div class="mx-auto mt-2 h-8 w-px bg-teal-700/40" aria-hidden="true"></div>
+    <div class="mx-auto mt-2 h-8 w-px bg-hairline" aria-hidden="true"></div>
     <div class="grid gap-4 sm:grid-cols-3">
       <MapNode label="Trust Profile" href="/cvt/concepts/trust-profile" />
       <MapNode label="Trust Timeline" href="/cvt/concepts/trust-timeline" />
       <MapNode label="Trust Level" href="/cvt/concepts/trust-level" />
     </div>
-    <div class="mx-auto mt-2 h-8 w-full max-w-md">
+    <div class="mx-auto mt-2 h-8 w-full max-w-md text-hairline">
       <svg class="h-full w-full" viewBox="0 0 400 32" preserveAspectRatio="none" fill="none" aria-hidden="true">
-        <path d="M67 0 V16 H200 M333 0 V16 H200 M200 16 V32" stroke="currentColor" stroke-width="1" class="text-teal-700/50" />
+        <path d="M67 0 V16 H200 M333 0 V16 H200 M200 16 V32" stroke="currentColor" stroke-width="1" />
       </svg>
     </div>
     <div class="flex justify-center">
       <MapNode label="Good Standing" variant="highlight" href="/cvt/concepts/good-standing" class="min-w-[10rem]" />
     </div>
 
-    <p class="mt-8 text-center text-xs font-medium uppercase tracking-widest text-slate-500">Future additions</p>
-    <div class="mx-auto mt-4 h-6 w-px bg-white/10" aria-hidden="true"></div>
+    <p class="mt-8 text-center eyebrow-mono !text-[11px] !tracking-[0.2em] text-mute">Future additions</p>
+    <div class="mx-auto mt-4 h-6 w-px bg-hairline" aria-hidden="true"></div>
     <div class="mt-4 grid gap-3 sm:grid-cols-3">
       <MapNode label="Skills & Qualifications" variant="future" />
       <MapNode label="Employment History" variant="future" />

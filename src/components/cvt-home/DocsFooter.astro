@@ -2,26 +2,21 @@
 import { cvtDocFooterLinks } from "../../lib/nav";
 ---
 
-<section class="border-t border-white/10 bg-slate-950">
-  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <p class="map-kicker">Documentation</p>
-    <h2 class="map-heading">Go deeper</h2>
-    <p class="map-lead">Architecture, policies, and APIs — for builders, partners, and researchers.</p>
+<section class="section-band section-divider border-t border-hairline">
+  <p class="map-kicker">Documentation</p>
+  <h2 class="map-heading">Go deeper</h2>
+  <p class="map-lead">Architecture, policies, and APIs — for builders, partners, and researchers.</p>
 
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {cvtDocFooterLinks.map((link) => (
-        <a
-          href={link.href}
-          class="group rounded-xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-teal-700/40 hover:bg-white/[0.06]"
-        >
-          <p class="font-medium text-white group-hover:text-teal-200">{link.label}</p>
-          <p class="mt-1 text-sm text-slate-500">{link.desc}</p>
-        </a>
-      ))}
-    </div>
-
-    <p class="mt-10 text-center text-sm text-slate-500">
-      <a href="/cvt/architecture" class="text-teal-400 hover:underline">For technical readers — platform architecture overview →</a>
-    </p>
+  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {cvtDocFooterLinks.map((link) => (
+      <a href={link.href} class="card-feature group block">
+        <p class="font-semibold text-ink-strong group-hover:text-primary-soft">{link.label}</p>
+        <p class="mt-1 text-sm text-mute">{link.desc}</p>
+      </a>
+    ))}
   </div>
+
+  <p class="mt-10 text-center">
+    <a href="/cvt/architecture" class="btn-ghost !text-sm">For technical readers — platform architecture →</a>
+  </p>
 </section>

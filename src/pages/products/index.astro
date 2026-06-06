@@ -4,18 +4,16 @@ import { productLinks } from "../../lib/nav";
 ---
 
 <JasiLabLayout title="Products — JasiLab">
-  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <h1 class="font-display text-4xl font-semibold text-slate-900">Products</h1>
-    <p class="mt-4 max-w-2xl text-slate-600">Systems built from JasiLab research — each product has its own documentation and roadmap.</p>
-    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+  <section class="section-band">
+    <h1 class="display-lg">Products</h1>
+    <p class="mt-4 max-w-2xl text-body">Systems built from JasiLab research — each product has its own documentation and roadmap.</p>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
       {productLinks.map((p) => (
-        <a href={p.href} class="rounded-2xl border border-slate-200 p-8 transition hover:border-teal-300 hover:shadow-md">
-          <h2 class="font-display text-2xl font-semibold text-slate-900">{p.label}</h2>
-          <p class="mt-3 text-slate-600">{p.tagline}</p>
+        <a href={p.href} class="card-feature group block">
+          <h2 class="text-2xl font-semibold text-ink-strong group-hover:text-primary-soft">{p.label}</h2>
+          <p class="mt-3 text-body">{p.tagline}</p>
         </a>
       ))}
     </div>
-  </div>
+  </section>
 </JasiLabLayout>
-
-<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

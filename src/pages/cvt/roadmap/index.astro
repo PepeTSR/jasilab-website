@@ -17,44 +17,35 @@ const sections = [
   title="Building Trust Infrastructure for Mobility — CVT"
   description="Starting with vehicle verification and growing into portable trust profiles that reward good behaviour and unlock opportunity."
 >
-  <section class="relative overflow-hidden border-b border-white/10">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/25 via-slate-950 to-slate-950" />
-    <div class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <p class="text-sm font-medium uppercase tracking-widest text-teal-400">Implementation roadmap</p>
-      <h1 class="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight text-white sm:text-5xl">
-        Building trust infrastructure for mobility
-      </h1>
-      <p class="mt-5 max-w-2xl text-lg text-slate-400">
-        Starting with vehicle verification and growing into portable trust profiles that reward good behaviour and unlock opportunity.
-      </p>
+  <section class="section-band border-b border-hairline">
+    <p class="eyebrow-mono">Implementation roadmap</p>
+    <h1 class="display-xl mt-4 max-w-3xl">Building trust infrastructure for mobility</h1>
+    <p class="map-lead mt-5">
+      Starting with vehicle verification and growing into portable trust profiles that reward good behaviour and unlock opportunity.
+    </p>
 
-      <div class="mt-10 flex flex-wrap items-center gap-2 text-sm text-slate-500">
-        {siteLayers.map((layer, i) => (
-          <>
-            {i > 0 && <span class="text-slate-700" aria-hidden="true">→</span>}
-            <a
-              href={layer.href}
-              class:list={[
-                "rounded-full border px-3 py-1.5 transition",
-                layer.href === "/cvt/roadmap"
-                  ? "border-teal-600/50 bg-teal-950/40 text-teal-200"
-                  : "border-white/10 text-slate-400 hover:border-white/20 hover:text-white",
-              ]}
-            >
-              {layer.label}
-            </a>
-          </>
-        ))}
-      </div>
-
-      <nav class="mt-6 flex flex-wrap gap-2">
-        {sections.map((s) => (
-          <a href={`#${s.id}`} class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-teal-600/50 hover:text-teal-200">
-            {s.label}
+    <div class="mt-10 flex flex-wrap items-center gap-2 text-sm">
+      {siteLayers.map((layer, i) => (
+        <>
+          {i > 0 && <span class="text-mute" aria-hidden="true">→</span>}
+          <a
+            href={layer.href}
+            class:list={[
+              "anchor-pill",
+              layer.href === "/cvt/roadmap" && "border-primary/40 bg-canvas-soft text-primary-soft",
+            ]}
+          >
+            {layer.label}
           </a>
-        ))}
-      </nav>
+        </>
+      ))}
     </div>
+
+    <nav class="mt-6 flex flex-wrap gap-2">
+      {sections.map((s) => (
+        <a href={`#${s.id}`} class="anchor-pill">{s.label}</a>
+      ))}
+    </nav>
   </section>
 
   <div class="mx-auto max-w-6xl space-y-24 px-4 py-16 sm:px-6 sm:py-20">
@@ -76,34 +67,30 @@ const sections = [
       <p class="map-kicker">Two audiences</p>
       <h2 class="map-heading">Public story · Builder depth</h2>
       <div class="mt-10 grid gap-6 sm:grid-cols-2">
-        <div class="rounded-2xl border border-white/10 bg-slate-900/30 p-6">
-          <h3 class="text-lg font-semibold text-white">Public</h3>
-          <p class="mt-2 text-sm text-slate-400">Problem · Solution · Roadmap · Why it matters</p>
-          <ul class="mt-4 space-y-2 text-sm text-slate-300">
-            <li><a href="/cvt" class="hover:text-teal-300">CVT home</a></li>
-            <li><a href="/cvt/map" class="hover:text-teal-300">Project map</a></li>
-            <li><a href="/cvt/vision" class="hover:text-teal-300">Vision</a></li>
-            <li><a href="/cvt/concepts" class="hover:text-teal-300">Concepts</a></li>
+        <div class="card-soft">
+          <h3 class="text-lg font-semibold text-ink-strong">Public</h3>
+          <p class="mt-2 text-sm text-mute">Problem · Solution · Roadmap · Why it matters</p>
+          <ul class="mt-4 space-y-2 text-sm text-body">
+            <li><a href="/cvt" class="hover:text-primary-soft">CVT home</a></li>
+            <li><a href="/cvt/map" class="hover:text-primary-soft">Project map</a></li>
+            <li><a href="/cvt/vision" class="hover:text-primary-soft">Vision</a></li>
+            <li><a href="/cvt/concepts" class="hover:text-primary-soft">Concepts</a></li>
           </ul>
         </div>
-        <div class="rounded-2xl border border-white/10 bg-slate-900/30 p-6">
-          <h3 class="text-lg font-semibold text-white">Builders & partners</h3>
-          <p class="mt-2 text-sm text-slate-400">Architecture · Policies · Specifications · API docs</p>
-          <ul class="mt-4 space-y-2 text-sm text-slate-300">
-            <li><a href="/cvt/docs" class="hover:text-teal-300">Technical documents</a></li>
-            <li><a href="/cvt/guides" class="hover:text-teal-300">Integration guides</a></li>
-            <li><a href="/cvt/docs/trust-profile" class="hover:text-teal-300">Trust Profile spec</a></li>
-            <li><a href="/cvt/docs/trust-architecture-v1" class="hover:text-teal-300">Architecture v1</a></li>
+        <div class="card-soft">
+          <h3 class="text-lg font-semibold text-ink-strong">Builders & partners</h3>
+          <p class="mt-2 text-sm text-mute">Architecture · Policies · Specifications · API docs</p>
+          <ul class="mt-4 space-y-2 text-sm text-body">
+            <li><a href="/cvt/docs" class="hover:text-primary-soft">Technical documents</a></li>
+            <li><a href="/cvt/guides" class="hover:text-primary-soft">Integration guides</a></li>
+            <li><a href="/cvt/docs/trust-profile" class="hover:text-primary-soft">Trust Profile spec</a></li>
+            <li><a href="/cvt/docs/trust-architecture-v1" class="hover:text-primary-soft">Architecture v1</a></li>
           </ul>
         </div>
       </div>
-      <p class="mt-8 text-center text-sm text-slate-500">
+      <p class="mt-8 text-center text-sm text-mute">
         jasilab.net is a public lab notebook — ideas and documents evolve; the story stays understandable.
       </p>
     </section>
   </div>
 </CvtLayout>
-
-<style>
-  .font-display { font-family: "Fraunces", Georgia, serif; }
-</style>

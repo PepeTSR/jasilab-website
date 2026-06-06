@@ -4,35 +4,29 @@ import { productLinks } from "../lib/nav";
 ---
 
 <JasiLabLayout title="JasiLab — Research & Products" description="JasiLab builds trust infrastructure for informal economies.">
-  <section class="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white">
-    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-      <p class="text-sm font-medium uppercase tracking-widest text-teal-700">Research · Products · Journal</p>
-      <h1 class="mt-4 max-w-3xl font-display text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl">
-        Trust infrastructure for economies that run on relationships, not records.
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg text-slate-600">
-        JasiLab researches and builds systems that turn verified facts into portable trust — starting with mobility in Uganda.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a href="/cvt" class="rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white hover:bg-slate-800">Explore CVT</a>
-        <a href="/research" class="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">Research</a>
-      </div>
+  <section class="section-band border-b border-hairline">
+    <p class="eyebrow-mono">Research · Products · Journal</p>
+    <h1 class="display-xl mt-4 max-w-3xl">
+      Trust infrastructure for economies that run on relationships, not records.
+    </h1>
+    <p class="lead mt-6 max-w-2xl">
+      JasiLab researches and builds systems that turn verified facts into portable trust — starting with mobility in Uganda.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="/cvt" class="btn-primary">Explore CVT</a>
+      <a href="/research" class="btn-outline">Research</a>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <h2 class="font-display text-2xl font-semibold text-slate-900">Products</h2>
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="section-band section-divider">
+    <h2 class="display-md">Products</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {productLinks.map((p) => (
-        <a href={p.href} class="group rounded-2xl border border-slate-200 p-6 transition hover:border-teal-300 hover:shadow-md">
-          <h3 class="font-display text-xl font-semibold text-slate-900 group-hover:text-teal-800">{p.label}</h3>
-          <p class="mt-2 text-sm text-slate-600">{p.tagline}</p>
+        <a href={p.href} class="card-feature group block">
+          <h3 class="text-xl font-semibold text-ink-strong group-hover:text-primary-soft">{p.label}</h3>
+          <p class="mt-2 text-sm text-body">{p.tagline}</p>
         </a>
       ))}
     </div>
   </section>
 </JasiLabLayout>
-
-<style>
-  .font-display { font-family: "Fraunces", Georgia, serif; }
-</style>

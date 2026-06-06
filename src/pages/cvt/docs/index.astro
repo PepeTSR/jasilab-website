@@ -6,23 +6,21 @@ const docs = (await getCollection("cvtDocs")).sort((a, b) => (a.data.order ?? 99
 ---
 
 <CvtLayout title="Documents — CVT">
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="font-display text-4xl font-semibold text-white">Technical documents</h1>
-    <p class="mt-4 text-slate-400">Specifications for builders and partners — synced from the CVT product repository. For the public-facing journey, see the <a href="/cvt/roadmap" class="text-teal-400 hover:underline">implementation roadmap</a>.</p>
-    <ul class="mt-10 divide-y divide-white/10 rounded-xl border border-white/10">
+  <section class="section-band max-w-3xl">
+    <h1 class="display-lg">Technical documents</h1>
+    <p class="mt-4 text-body">Specifications for builders and partners — synced from the CVT product repository. For the public-facing journey, see the <a href="/cvt/roadmap">implementation roadmap</a>.</p>
+    <ul class="mt-10 divide-y divide-hairline rounded-md border border-hairline">
       {docs.map((doc) => (
         <li>
-          <a href={`/cvt/docs/${doc.id}`} class="flex items-start justify-between gap-4 px-5 py-4 transition hover:bg-white/5">
+          <a href={`/cvt/docs/${doc.id}`} class="flex items-start justify-between gap-4 px-5 py-4 transition hover:bg-canvas-soft">
             <div>
-              <p class="font-medium text-white">{doc.data.title}</p>
-              {doc.data.description && <p class="mt-1 text-sm text-slate-500">{doc.data.description}</p>}
+              <p class="font-semibold text-ink-strong">{doc.data.title}</p>
+              {doc.data.description && <p class="mt-1 text-sm text-mute">{doc.data.description}</p>}
             </div>
-            {doc.data.version && <span class="shrink-0 text-xs text-teal-500">{doc.data.version}</span>}
+            {doc.data.version && <span class="shrink-0 text-xs text-primary">{doc.data.version}</span>}
           </a>
         </li>
       ))}
     </ul>
-  </div>
+  </section>
 </CvtLayout>
-
-<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

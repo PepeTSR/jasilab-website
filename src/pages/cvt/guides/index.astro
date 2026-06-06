@@ -6,20 +6,18 @@ const guides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.order ?
 ---
 
 <CvtLayout title="Guides — CVT" description="How-to documents for integrators, insurers, employers, and CVT operators.">
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="font-display text-4xl font-semibold text-white">Guides</h1>
-    <p class="mt-4 text-slate-400">How-to documents for integrators and operators. Full specifications live in <a href="/cvt/docs" class="text-teal-400 hover:underline">Documents</a>.</p>
-    <ul class="mt-10 divide-y divide-white/10 rounded-xl border border-white/10">
+  <section class="section-band max-w-3xl">
+    <h1 class="display-lg">Guides</h1>
+    <p class="mt-4 text-body">How-to documents for integrators and operators. Full specifications live in <a href="/cvt/docs">Documents</a>.</p>
+    <ul class="mt-10 divide-y divide-hairline rounded-md border border-hairline">
       {guides.map((guide) => (
         <li>
-          <a href={`/cvt/guides/${guide.id}`} class="block px-5 py-4 transition hover:bg-white/5">
-            <p class="font-medium text-white">{guide.data.title}</p>
-            {guide.data.description && <p class="mt-1 text-sm text-slate-500">{guide.data.description}</p>}
+          <a href={`/cvt/guides/${guide.id}`} class="block px-5 py-4 transition hover:bg-canvas-soft">
+            <p class="font-semibold text-ink-strong">{guide.data.title}</p>
+            {guide.data.description && <p class="mt-1 text-sm text-mute">{guide.data.description}</p>}
           </a>
         </li>
       ))}
     </ul>
-  </div>
+  </section>
 </CvtLayout>
-
-<style>.font-display { font-family: "Fraunces", Georgia, serif; }</style>

@@ -15,14 +15,14 @@ const allDocs = (await getCollection("cvtDocs")).sort((a, b) => (a.data.order ??
 <CvtLayout title={`${doc.data.title} — CVT Docs`} description={doc.data.description}>
   <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 lg:flex-row lg:px-6">
     <aside class="lg:w-56 lg:shrink-0">
-      <p class="text-xs font-medium uppercase tracking-widest text-slate-500">Documents</p>
+      <p class="eyebrow-mono !text-[11px] !tracking-[0.2em] text-mute">Documents</p>
       <nav class="mt-4 space-y-1">
         {allDocs.map((d) => (
           <a
             href={`/cvt/docs/${d.id}`}
             class:list={[
-              "block rounded-md px-3 py-2 text-sm",
-              d.id === doc.id ? "bg-teal-900/40 text-teal-200" : "text-slate-400 hover:bg-white/5 hover:text-white",
+              "block rounded-sm px-3 py-2 text-sm",
+              d.id === doc.id ? "nav-link-active" : "nav-link",
             ]}
           >
             {d.data.title}
@@ -30,10 +30,10 @@ const allDocs = (await getCollection("cvtDocs")).sort((a, b) => (a.data.order ??
         ))}
       </nav>
     </aside>
-    <article class="min-w-0 flex-1 rounded-2xl border border-white/10 bg-white p-8 text-slate-800 shadow-xl sm:p-10">
-      <header class="mb-8 border-b border-slate-200 pb-6">
-        <a href="/cvt/docs" class="text-sm text-teal-700 hover:underline">← All documents</a>
-        {doc.data.version && <p class="mt-2 text-xs font-medium uppercase tracking-wide text-teal-600">{doc.data.version}</p>}
+    <article class="doc-panel min-w-0 flex-1">
+      <header class="mb-8 border-b border-hairline pb-6">
+        <a href="/cvt/docs" class="text-sm text-primary-deep hover:text-primary">← All documents</a>
+        {doc.data.version && <p class="mt-2 text-xs font-semibold uppercase tracking-widest text-primary">{doc.data.version}</p>}
       </header>
       <div class="doc-content">
         <Content />
