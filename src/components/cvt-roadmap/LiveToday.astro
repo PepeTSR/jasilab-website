@@ -1,12 +1,15 @@
 ---
 import { liveTodayItems } from "../../lib/cvt-roadmap";
 import { cvtAppUrl } from "../../lib/nav";
+import { cvtPilotLabel } from "../../lib/cvt-narrative";
 ---
 
 <section class="map-section" id="live-today">
-  <p class="map-kicker">What exists today</p>
-  <h2 class="map-heading">This is not theoretical</h2>
-  <p class="map-lead">CVT is live in Uganda. These capabilities are operational now — not slide-deck promises.</p>
+  <p class="map-kicker">{cvtPilotLabel}</p>
+  <h2 class="map-heading">What's live today</h2>
+  <p class="map-lead">
+    CVT is operational in Uganda — starting with commercial transport. These capabilities are real, not roadmap promises. They prove the model before it extends to plumbers, caregivers and other service providers.
+  </p>
 
   <div class="mt-10 grid gap-6 sm:grid-cols-2">
     {liveTodayItems.map((item) => (
@@ -26,5 +29,7 @@ import { cvtAppUrl } from "../../lib/nav";
     <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-ghost !text-sm">
       Try the live registry at cvt.jasilab.net ↗
     </a>
+    <span class="mx-2 text-mute">·</span>
+    <a href="/cvt#first-pilot" class="btn-ghost !text-sm">Transport pilot on jasilab.net →</a>
   </p>
 </section>

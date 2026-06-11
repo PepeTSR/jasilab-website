@@ -1,36 +1,130 @@
 ---
 import CvtLayout from "../../layouts/CvtLayout.astro";
+
+const serviceCategories = [
+  "Plumbers",
+  "Electricians",
+  "Mechanics",
+  "Nurses and caregivers",
+  "Nannies and domestic workers",
+  "Security personnel",
+  "Freelancers and small businesses",
+];
+
+const longTermItems = [
+  "A verified registry of people and services.",
+  "A timeline of trusted facts and achievements.",
+  "Consent-based sharing with employers, insurers and partners.",
+  "Positive incentives that reward long-term good standing.",
+  "Rehabilitation mechanisms so mistakes do not permanently destroy reputations.",
+];
 ---
 
-<CvtLayout title="Vision — CVT" description="Why trust infrastructure matters for Uganda, Africa, and informal economies.">
-  <section class="section-band max-w-3xl">
+<CvtLayout title="Vision — CVT" description="Why trust infrastructure matters for Uganda, Africa, and informal economies — transport as the first pilot, trust as the destination.">
+  <article class="section-band max-w-3xl">
     <p class="eyebrow-mono">Vision</p>
     <h1 class="display-lg mt-4">Why trust infrastructure matters</h1>
 
-    <div class="mt-10 space-y-8 text-body">
+    <div class="mt-12 space-y-12 text-body leading-relaxed">
       <section>
-        <h2 class="display-md !text-xl">Informal economies</h2>
-        <p class="mt-3 leading-relaxed">Most commercial mobility in Uganda runs on relationships — SACCOs, stages, word of mouth. That works locally but does not scale to insurers, national employers, or cross-border logistics. Trust infrastructure turns verified facts into portable standing.</p>
+        <h2 class="display-md !text-xl text-ink-strong">Informal economies</h2>
+        <div class="mt-4 space-y-4">
+          <p>
+            Much of economic activity across Uganda and Africa runs on relationships, referrals and reputation. Whether through SACCOs, stages, neighbourhood networks or word of mouth, trust exists—but it is local and difficult to transfer.
+          </p>
+          <p>
+            That works within communities, but it does not scale to insurers, employers, lenders, logistics firms or customers beyond a person's immediate network.
+          </p>
+          <p>
+            CVT transforms verified facts into portable trust, enabling people to carry their identity, qualifications and standing with them wherever opportunities arise.
+          </p>
+        </div>
       </section>
+
+      <hr class="border-hairline" />
+
       <section>
-        <h2 class="display-md !text-xl">Uganda & Africa</h2>
-        <p class="mt-3 leading-relaxed">CVT is designed for Ugandan registration realities: NIN-linked identity, category-specific verification, and channels people already use (WhatsApp, mobile web). The model extends across Africa where informal work dominates and credit bureaus reach only a fraction of the economy.</p>
+        <h2 class="display-md !text-xl text-ink-strong">Uganda and Africa</h2>
+        <div class="mt-4 space-y-4">
+          <p>CVT is designed for African realities.</p>
+          <p>
+            Identity systems, informal work and community-based relationships shape how people earn a living. Millions of people provide transport, trade, technical services, healthcare and domestic work without access to portable records or recognised reputations.
+          </p>
+          <p>
+            Built around channels people already use—WhatsApp, mobile phones and lightweight web experiences—CVT creates trusted digital identities that are accessible even in low-bandwidth environments.
+          </p>
+          <p>
+            Starting in Uganda, the model can extend across Africa, where informal work represents the majority of economic activity and traditional credit systems reach only a fraction of the population.
+          </p>
+        </div>
       </section>
-      <section>
-        <h2 class="display-md !text-xl">Insurance before credit</h2>
-        <p class="mt-3 leading-relaxed">Trust Profile v1 emphasises insurer-grade signals — active insurance, training, clean moderated record — before any CRB or credit-mix integration. Insurance unlocks mobility risk pooling; credit is a separate, regulated programme for v5+.</p>
+
+      <hr class="border-hairline" />
+
+      <section id="transport-pilot">
+        <h2 class="display-md !text-xl text-ink-strong">Transport is the first pilot</h2>
+        <div class="mt-4 space-y-4">
+          <p>Commercial mobility is CVT's starting point, not its destination.</p>
+          <p>
+            The first implementation focuses on boda bodas, taxis and special hire vehicles in Kampala. These sectors present clear trust challenges and benefit from verification, accountability and public visibility.
+          </p>
+          <p>Over time, the same infrastructure can support other categories of service providers, including:</p>
+          <ul class="ml-6 list-disc space-y-2">
+            {serviceCategories.map((item) => <li>{item}</li>)}
+          </ul>
+          <p>
+            Anyone providing a service to the public should be able to build a trusted profile and demonstrate their qualifications, experience and standing.
+          </p>
+        </div>
       </section>
+
+      <hr class="border-hairline" />
+
       <section>
-        <h2 class="display-md !text-xl">Long-term vision</h2>
-        <p class="mt-3 leading-relaxed">What LinkedIn did for formal employment networks, CVT can do for mobility and commercial operators: a verified registry, a timeline of facts, and consent-gated sharing with partners — with rehabilitation built in so complaints do not permanently destroy reputations.</p>
+        <h2 class="display-md !text-xl text-ink-strong">Insurance before credit</h2>
+        <div class="mt-4 space-y-4">
+          <p>
+            Trust Profile v1 emphasises insurer-grade signals—verification, training, insurance continuity and moderated conduct—before any credit or bureau integration.
+          </p>
+          <p>Insurance enables risk pooling and creates incentives for responsible behaviour.</p>
+          <p>Credit scoring is a separate, highly regulated programme and remains outside the scope of early versions of CVT.</p>
+        </div>
+      </section>
+
+      <hr class="border-hairline" />
+
+      <section>
+        <h2 class="display-md !text-xl text-ink-strong">Long-term vision</h2>
+        <div class="mt-4 space-y-4">
+          <p>What LinkedIn did for professional networks, CVT aims to do for trust in everyday work.</p>
+          <p>CVT provides:</p>
+          <ul class="ml-6 list-disc space-y-2">
+            {longTermItems.map((item) => <li>{item}</li>)}
+          </ul>
+          <p>The goal is not to replace relationships, but to make trust portable.</p>
+        </div>
+      </section>
+
+      <hr class="border-hairline" />
+
+      <section class="green-divider-band !border-x-0 !px-0">
+        <h2 class="display-md !text-xl text-ink-strong">Our belief</h2>
+        <div class="mt-4 space-y-4">
+          <p>People should own their reputation.</p>
+          <p>Trust should be earned, explainable and transferable.</p>
+          <p class="pt-2">
+            Transport is not our business.<br />
+            <strong class="text-xl text-primary-soft">Trust, visibility and accountability are.</strong>
+          </p>
+        </div>
       </section>
     </div>
 
     <div class="mt-12 flex flex-wrap gap-3 border-t border-hairline pt-8">
+      <a href="/cvt#first-pilot" class="btn-primary !py-2.5 !text-sm">See the transport pilot</a>
       <a href="/cvt/map" class="btn-outline !py-2.5 !text-sm">Project map</a>
-      <a href="/cvt/roadmap" class="btn-primary !py-2.5 !text-sm">Implementation roadmap</a>
-      <a href="/cvt/docs/vision" class="btn-outline !py-2.5 !text-sm">Full vision doc</a>
+      <a href="/cvt/roadmap" class="btn-outline !py-2.5 !text-sm">Implementation roadmap</a>
       <a href="/cvt/concepts" class="btn-outline !py-2.5 !text-sm">Explore concepts</a>
     </div>
-  </section>
+  </article>
 </CvtLayout>

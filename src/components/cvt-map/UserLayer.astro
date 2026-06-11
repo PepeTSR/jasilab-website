@@ -1,11 +1,14 @@
 ---
 import MapNode from "./MapNode.astro";
+import { cvtPilotLabel } from "../../lib/cvt-narrative";
 ---
 
 <section class="map-section" id="user-layer">
-  <p class="map-kicker">1 · The user layer</p>
-  <h2 class="map-heading">What people see</h2>
-  <p class="map-lead">Public channels that build toward portable standing — starting with the simplest interaction: a plate on WhatsApp.</p>
+  <p class="map-kicker">1 · {cvtPilotLabel}</p>
+  <h2 class="map-heading">What people see today</h2>
+  <p class="map-lead">
+    The transport pilot's public channels — starting with the simplest interaction: a plate on WhatsApp. The same pattern will extend to other service providers as new categories join the platform.
+  </p>
 
   <div class="map-diagram mt-10">
     <div class="flex justify-center">
@@ -13,7 +16,7 @@ import MapNode from "./MapNode.astro";
     </div>
     <div class="map-connector map-connector-down mx-auto h-8 w-px" aria-hidden="true"></div>
     <div class="grid gap-4 sm:grid-cols-3 sm:gap-6">
-      <MapNode label="WhatsApp" sub="Lookup" href="/cvt/map#user-layer" />
+      <MapNode label="WhatsApp" sub="Lookup" href="/cvt#first-pilot" />
       <MapNode label="Passport" sub="& Profile" href="/cvt/concepts/trust-passport" />
       <MapNode label="Reports" sub="& Feedback" href="/cvt/guides/moderation-framework" />
     </div>
@@ -28,6 +31,10 @@ import MapNode from "./MapNode.astro";
   </div>
 
   <blockquote class="map-quote mt-10">
-    Know who's on the road. Build trust. Create opportunities.
+    The pilot proves the model on the road. The platform makes trust portable everywhere people work.
   </blockquote>
+
+  <p class="mt-6">
+    <a href="/cvt/vision#transport-pilot" class="btn-ghost !px-0 !text-sm">Read why transport is the first pilot →</a>
+  </p>
 </section>

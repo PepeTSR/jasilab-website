@@ -5,27 +5,40 @@ import EcosystemMap from "../../../components/cvt-map/EcosystemMap.astro";
 import PassportMap from "../../../components/cvt-map/PassportMap.astro";
 import VisionMap from "../../../components/cvt-map/VisionMap.astro";
 import { cvtAppUrl } from "../../../lib/nav";
+import { cvtJourneySteps } from "../../../lib/cvt-narrative";
 
 const sections = [
-  { id: "user-layer", label: "User layer" },
+  { id: "user-layer", label: "First pilot" },
   { id: "ecosystem", label: "Ecosystem" },
   { id: "trust-passport", label: "Trust Passport" },
-  { id: "vision", label: "Vision" },
+  { id: "vision", label: "Full vision" },
 ];
 ---
 
-<CvtLayout title="The CVT Map — Connected Verification Trust" description="Visual map of CVT — from WhatsApp lookup to mobility reputation infrastructure for Africa.">
+<CvtLayout title="The CVT Map — Connected Verification Terminal" description="Visual map of CVT — from the transport pilot to portable trust infrastructure for Africa.">
   <section class="section-band border-b border-hairline">
     <p class="eyebrow-mono">The CVT Map</p>
-    <h1 class="display-xl mt-4 max-w-3xl">How a plate lookup becomes trust infrastructure</h1>
+    <h1 class="display-xl mt-4 max-w-3xl">From transport pilot to trust infrastructure</h1>
     <p class="map-lead mt-5">
-      One page to see the user experience, the ecosystem, the Trust Passport, and the long-term vision — from WhatsApp to opportunities across Africa.
+      Commercial transport in Kampala is where CVT starts. This map shows how today's plate lookup connects to the Trust Passport, partner ecosystem, and long-term vision for service providers across Africa.
     </p>
-    <nav class="mt-8 flex flex-wrap gap-2">
+
+    <nav class="mt-8 flex flex-wrap gap-2" aria-label="Map sections">
       {sections.map((s) => (
         <a href={`#${s.id}`} class="anchor-pill">{s.label}</a>
       ))}
     </nav>
+
+    <ol class="mt-10 flex flex-wrap gap-2 text-sm">
+      {cvtJourneySteps.map((step, i) => (
+        <>
+          {i > 0 && <span class="text-mute self-center" aria-hidden="true">→</span>}
+          <li>
+            <a href={step.href} class="anchor-pill">{step.title}</a>
+          </li>
+        </>
+      ))}
+    </ol>
   </section>
 
   <div class="mx-auto max-w-6xl space-y-24 px-4 py-16 sm:px-6 sm:py-20">
@@ -36,7 +49,7 @@ const sections = [
 
     <section class="card-soft px-6 py-10 text-center sm:px-10">
       <h2 class="display-md">Implementation roadmap</h2>
-      <p class="map-lead mx-auto mt-3">Eight phases — from vehicle verification to financial inclusion. What exists today, what comes next, and why it matters.</p>
+      <p class="map-lead mx-auto mt-3">Eight phases — from the transport pilot through trust profiles, new categories, insurance and inclusion.</p>
       <a href="/cvt/roadmap" class="btn-primary mt-6">View the full roadmap →</a>
     </section>
   </div>
@@ -45,11 +58,11 @@ const sections = [
     <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
       <div>
         <p class="text-lg font-semibold text-ink-strong">Explore further</p>
-        <p class="mt-1 text-sm text-mute">Docs, guides, and the live registry.</p>
+        <p class="mt-1 text-sm text-mute">Start with the vision essay, or try the live transport pilot.</p>
       </div>
       <div class="flex flex-wrap gap-3">
         <a href="/cvt/vision" class="btn-outline !py-2.5 !text-sm">Vision essay</a>
-        <a href="/cvt/guides" class="btn-outline !py-2.5 !text-sm">Guides</a>
+        <a href="/cvt#first-pilot" class="btn-outline !py-2.5 !text-sm">Transport pilot</a>
         <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2.5 !text-sm">Live app ↗</a>
       </div>
     </div>

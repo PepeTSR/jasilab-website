@@ -14,7 +14,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
   {
     number: 1,
     title: "Vehicle Verification",
-    subtitle: "Live today",
+    subtitle: "First pilot · Live today",
     status: "live",
     goal: "Know whether a vehicle and driver have been verified.",
     features: [
@@ -24,7 +24,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
       { label: "Public verification responses", done: true },
       { label: "Unknown plates automatically captured", done: true },
     ],
-    impact: "Creates the first trusted registry and begins building coverage.",
+    impact: "Creates the first trusted registry in transport — the template for other service categories.",
   },
   {
     number: 2,
@@ -82,7 +82,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
       { label: "Employment history", href: "/cvt/guides/employment" },
       { label: "Recommendations" },
     ],
-    impact: "Help drivers access better jobs and opportunities.",
+    impact: "Help people access better jobs and opportunities — beyond transport.",
   },
   {
     number: 6,
@@ -90,7 +90,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     status: "planned",
     goal: "Expand beyond commercial transport.",
     features: [
-      { label: "Private vehicles", href: "/cvt/docs/registry-categories" },
+      { label: "Private vehicles", href: "/cvt/roadmap#phases" },
       { label: "Taxis and special hire" },
       { label: "Trucks and delivery riders" },
       { label: "Other professions" },
@@ -125,8 +125,8 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
 
 export const liveTodayItems = [
   {
-    title: "WhatsApp Verification",
-    body: "Send a number plate to WhatsApp. Receive verification status, vehicle details, and trust indicators.",
+    title: "WhatsApp verification (transport)",
+    body: "Send a number plate to WhatsApp. Receive verification status, vehicle details, and trust indicators. This is the public face of the first pilot.",
   },
   {
     title: "Automatic Coverage Expansion",
@@ -143,8 +143,8 @@ export const liveTodayItems = [
 ];
 
 export const siteLayers = [
-  { label: "Vision", href: "/cvt/vision", desc: "Why trust infrastructure matters" },
-  { label: "Project Map", href: "/cvt/map", desc: "Visual ecosystem and user layer" },
-  { label: "Implementation Roadmap", href: "/cvt/roadmap", desc: "Phases — what exists, what's next" },
-  { label: "Technical Documents", href: "/cvt/docs", desc: "Specs for builders and partners" },
+  { label: "Vision", href: "/cvt/vision", desc: "Why portable trust matters" },
+  { label: "First pilot", href: "/cvt#first-pilot", desc: "Commercial transport — live today" },
+  { label: "Project Map", href: "/cvt/map", desc: "From pilot to full platform" },
+  { label: "Roadmap", href: "/cvt/roadmap", desc: "What's live and what comes next" },
 ] as const;

@@ -1,0 +1,28 @@
+---
+import { cvtJourneySteps } from "../../lib/cvt-narrative";
+---
+
+<section class="section-band section-divider border-t border-hairline" id="journey">
+  <p class="map-kicker">The journey</p>
+  <h2 class="display-md">From vision to what's live</h2>
+  <p class="map-lead">
+    Transport verification is where CVT starts — not where it ends. Follow the path from why trust infrastructure matters, through today's pilot, to the platform we're building.
+  </p>
+
+  <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {cvtJourneySteps.map((item) => (
+      <li>
+        <a href={item.href} class="card-feature group flex h-full flex-col">
+          <p class="code-chip w-fit">{item.step}</p>
+          <h3 class="mt-3 font-semibold text-ink-strong group-hover:text-primary-soft">{item.title}</h3>
+          <p class="mt-2 flex-1 text-sm text-body">{item.desc}</p>
+          <span class="mt-4 text-sm text-primary">Read more →</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+
+  <p class="mt-8 text-center">
+    <a href="/cvt/map" class="btn-outline !text-sm">See the full project map →</a>
+  </p>
+</section>

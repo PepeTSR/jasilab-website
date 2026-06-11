@@ -8,7 +8,7 @@ const guides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.order ?
 <CvtLayout title="Guides — CVT" description="How-to documents for integrators, insurers, employers, and CVT operators.">
   <section class="section-band max-w-3xl">
     <h1 class="display-lg">Guides</h1>
-    <p class="mt-4 text-body">How-to documents for integrators and operators. Full specifications live in <a href="/cvt/docs">Documents</a>.</p>
+    <p class="mt-4 text-body">Policy and integration overviews for operators and partners. Detailed specifications are available under partner agreement.</p>
     <ul class="mt-10 divide-y divide-hairline rounded-md border border-hairline">
       {guides.map((guide) => (
         <li>

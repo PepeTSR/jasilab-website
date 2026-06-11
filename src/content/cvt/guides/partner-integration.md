@@ -97,7 +97,7 @@ Without `application_reference`, entitled partners receive Soft/Enhanced only.
 | **Enhanced Search** | Employers, logistics | Counts + severity + recovery period. Still no narratives or complainant identity. |
 | **Hard Search** | Contracted insurers, vetted fleet | Category + severity + month + status per conduct event. Never complainant or evidence. |
 
-SACCOs: **Soft only**. Employers: **never Hard**. See party matrix in [Trust Profile](/cvt/docs/trust-profile).
+SACCOs: **Soft only**. Employers: **never Hard**. See party matrix in [Trust Profile](/cvt/concepts/trust-profile).
 
 ## Partner portal
 
@@ -145,4 +145,4 @@ Hard Search additionally requires per-query justification and writes to `partner
 - [Consent Framework](/cvt/guides/consent-framework)
 - [Insurance Guide](/cvt/guides/insurance)
 - [Employment Guide](/cvt/guides/employment)
-- [Trust Profile specification](/cvt/docs/trust-profile)
+- [Trust Profile specification](/cvt/concepts/trust-profile)

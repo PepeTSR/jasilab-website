@@ -93,6 +93,6 @@ When presenting a passport:
 
 ## Further reading
 
-- [Trust Profile specification](/cvt/docs/trust-profile)
-- [Trust Architecture v1](/cvt/docs/trust-architecture-v1)
+- [Trust Profile concept](/cvt/concepts/trust-profile)
+- [Trust Architecture overview](/cvt/concepts/trust-passport)
 - [Consent Framework](/cvt/guides/consent-framework)

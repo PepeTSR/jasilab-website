@@ -1,16 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-const cvtDocs = defineCollection({
-  loader: glob({ base: "./src/content/cvt/docs", pattern: "**/*.md" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-    version: z.string().optional(),
-    order: z.number().default(99),
-  }),
-});
-
 const cvtGuides = defineCollection({
   loader: glob({ base: "./src/content/cvt/guides", pattern: "**/*.md" }),
   schema: z.object({
@@ -20,4 +10,4 @@ const cvtGuides = defineCollection({
   }),
 });
 
-export const collections = { cvtDocs, cvtGuides };
+export const collections = { cvtGuides };

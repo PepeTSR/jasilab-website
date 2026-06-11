@@ -1,14 +1,16 @@
 ---
-import { cvtDocFooterLinks } from "../../lib/nav";
+import { cvtExploreLinks } from "../../lib/nav";
 ---
 
 <section class="section-band section-divider border-t border-hairline">
-  <p class="map-kicker">Documentation</p>
-  <h2 class="map-heading">Go deeper</h2>
-  <p class="map-lead">Architecture, policies, and APIs — for builders, partners, and researchers.</p>
+  <p class="map-kicker">Explore CVT</p>
+  <h2 class="map-heading">Learn more</h2>
+  <p class="map-lead">
+    The public story — vision, pilot, concepts and guides. Detailed specifications are available to partners under agreement.
+  </p>
 
   <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {cvtDocFooterLinks.map((link) => (
+    {cvtExploreLinks.map((link) => (
       <a href={link.href} class="card-feature group block">
         <p class="font-semibold text-ink-strong group-hover:text-primary-soft">{link.label}</p>
         <p class="mt-1 text-sm text-mute">{link.desc}</p>
@@ -16,7 +18,7 @@ import { cvtDocFooterLinks } from "../../lib/nav";
     ))}
   </div>
 
-  <p class="mt-10 text-center">
-    <a href="/cvt/architecture" class="btn-ghost !text-sm">For technical readers — platform architecture →</a>
+  <p class="mt-10 text-center text-sm text-mute">
+    Partner or insurer enquiries: <a href="mailto:hello@jasilab.net" class="text-primary-deep hover:text-primary">hello@jasilab.net</a>
   </p>
 </section>

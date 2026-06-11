@@ -7,7 +7,7 @@ export const jasiLabNav = [
 ] as const;
 
 export const productLinks = [
-  { href: "/cvt", label: "CVT", tagline: "Verify drivers and vehicles through WhatsApp — build transport reputation over time." },
+  { href: "/cvt", label: "CVT", tagline: "Public trust platform for mobile identities — starting with commercial transport in Uganda." },
   { href: "/products/hay", label: "HAY", tagline: "Coming soon." },
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
 ] as const;
@@ -18,7 +18,7 @@ export const cvtNav = [
   { href: "/cvt/map", label: "Map" },
   { href: "/cvt/roadmap", label: "Roadmap" },
   { href: "/cvt/guides", label: "Guides" },
-  { href: "/cvt/docs", label: "Documents" },
+  { href: "/cvt/concepts", label: "Concepts" },
   { href: "/cvt/blog", label: "Blog" },
 ] as const;
 
@@ -38,19 +38,11 @@ export const cvtAppUrl = "https://cvt.jasilab.net";
 
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
-export const cvtLiveFeatures = [
-  "WhatsApp plate lookup",
-  "Driver verification",
-  "Report unsafe behaviour",
-  "Build transport reputation",
-] as const;
-
-export const cvtDocFooterLinks = [
-  { href: "/cvt/vision", label: "Vision", desc: "Why trust infrastructure matters" },
-  { href: "/cvt/docs/trust-profile", label: "Trust Profile", desc: "Specification" },
-  { href: "/cvt/docs/trust-architecture-v1", label: "Trust Architecture", desc: "Technical blueprint" },
-  { href: "/cvt/guides/partner-integration", label: "API Reference", desc: "Partner integration" },
-  { href: "/cvt/roadmap", label: "Roadmap", desc: "Phases and timeline" },
-  { href: "/cvt/docs", label: "Data Models", desc: "Registry and trust specs" },
-  { href: "/cvt/guides", label: "Guides", desc: "How-to for integrators" },
+export const cvtExploreLinks = [
+  { href: "/cvt/vision", label: "Vision", desc: "Why portable trust matters — transport is the first pilot" },
+  { href: "/cvt/map", label: "Project map", desc: "From pilot to full platform" },
+  { href: "/cvt/roadmap", label: "Roadmap", desc: "What's live and what comes next" },
+  { href: "/cvt/concepts", label: "Concepts", desc: "Plain-language explainers" },
+  { href: "/cvt/guides", label: "Guides", desc: "Policies and integration overview" },
+  { href: "/cvt#first-pilot", label: "Transport pilot", desc: "Try WhatsApp plate lookup" },
 ] as const;

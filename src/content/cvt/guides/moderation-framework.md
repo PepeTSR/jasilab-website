@@ -148,4 +148,4 @@ Passengers and riders on Connect see **trust level** and **Good Standing** badge
 - [Consent Framework](/cvt/guides/consent-framework)
 - [Insurance Guide](/cvt/guides/insurance) — Hard Search conduct rows
 - [Employment Guide](/cvt/guides/employment) — what employers never see
-- [Trust Profile specification](/cvt/docs/trust-profile)
+- [Trust Profile specification](/cvt/concepts/trust-profile)

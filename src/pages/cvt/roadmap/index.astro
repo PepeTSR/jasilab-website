@@ -6,7 +6,7 @@ import PhaseCard from "../../../components/cvt-roadmap/PhaseCard.astro";
 import { trustRoadmapPhases, siteLayers } from "../../../lib/cvt-roadmap";
 
 const sections = [
-  { id: "live-today", label: "Live today" },
+  { id: "live-today", label: "Transport pilot" },
   { id: "project-map", label: "Project map" },
   { id: "phases", label: "Phases" },
   { id: "audiences", label: "Audiences" },
@@ -14,14 +14,14 @@ const sections = [
 ---
 
 <CvtLayout
-  title="Building Trust Infrastructure for Mobility — CVT"
-  description="Starting with vehicle verification and growing into portable trust profiles that reward good behaviour and unlock opportunity."
+  title="Building Trust Infrastructure — CVT"
+  description="Transport is the first pilot. Starting with vehicle verification and growing into portable trust for service providers across the informal and formal economy."
 >
   <section class="section-band border-b border-hairline">
     <p class="eyebrow-mono">Implementation roadmap</p>
-    <h1 class="display-xl mt-4 max-w-3xl">Building trust infrastructure for mobility</h1>
+    <h1 class="display-xl mt-4 max-w-3xl">Building trust infrastructure</h1>
     <p class="map-lead mt-5">
-      Starting with vehicle verification and growing into portable trust profiles that reward good behaviour and unlock opportunity.
+      Transport is the first pilot — starting with vehicle verification in Kampala and growing into portable trust profiles that reward good behaviour and unlock opportunity.
     </p>
 
     <div class="mt-10 flex flex-wrap items-center gap-2 text-sm">
@@ -79,12 +79,12 @@ const sections = [
         </div>
         <div class="card-soft">
           <h3 class="text-lg font-semibold text-ink-strong">Builders & partners</h3>
-          <p class="mt-2 text-sm text-mute">Architecture · Policies · Specifications · API docs</p>
+          <p class="mt-2 text-sm text-mute">Guides · Concepts · Partner enquiries</p>
           <ul class="mt-4 space-y-2 text-sm text-body">
-            <li><a href="/cvt/docs" class="hover:text-primary-soft">Technical documents</a></li>
             <li><a href="/cvt/guides" class="hover:text-primary-soft">Integration guides</a></li>
-            <li><a href="/cvt/docs/trust-profile" class="hover:text-primary-soft">Trust Profile spec</a></li>
-            <li><a href="/cvt/docs/trust-architecture-v1" class="hover:text-primary-soft">Architecture v1</a></li>
+            <li><a href="/cvt/concepts" class="hover:text-primary-soft">Concept explainers</a></li>
+            <li><a href="/cvt/guides/partner-integration" class="hover:text-primary-soft">Partner overview</a></li>
+            <li><a href="mailto:hello@jasilab.net" class="hover:text-primary-soft">Request technical specs</a></li>
           </ul>
         </div>
       </div>

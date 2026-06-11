@@ -134,4 +134,4 @@ Recommended approach:
 - [Partner Integration Guide](/cvt/guides/partner-integration)
 - [Consent Framework](/cvt/guides/consent-framework)
 - [Moderation Framework](/cvt/guides/moderation-framework)
-- [Trust Profile specification](/cvt/docs/trust-profile)
+- [Trust Profile specification](/cvt/concepts/trust-profile)

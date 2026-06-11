@@ -1,5 +1,6 @@
 ---
 import MapNode from "../cvt-map/MapNode.astro";
+import { cvtPilotLabel } from "../../lib/cvt-narrative";
 
 const steps = [
   { title: "Take photo", desc: "Photograph the number plate" },
@@ -10,10 +11,10 @@ const steps = [
 ---
 
 <section class="section-band section-divider border-y border-hairline">
-  <p class="map-kicker">Try it now</p>
-  <h2 class="map-heading">The magic in four steps</h2>
+  <p class="map-kicker">{cvtPilotLabel} · Try it now</p>
+  <h2 class="map-heading">The pilot in four steps</h2>
   <p class="map-lead">
-    No app install. No account. Send a plate — get an answer. Unknown plates are captured automatically, so every lookup grows the transport database.
+    No app install. No account. Send a plate — get an answer. This is how the transport pilot meets the public today; every lookup also feeds the trust registry that will serve other service providers.
   </p>
 
   <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -30,13 +31,14 @@ const steps = [
   </div>
 
   <p class="mt-8 max-w-2xl text-sm text-body">
-    <strong class="text-ink">Why this matters:</strong> repeated lookups and reports accumulate into history and trust signals over time — value for the public immediately, reputation infrastructure over the long run.
+    <strong class="text-ink">Why this matters:</strong> repeated lookups and reports accumulate into history and trust signals — immediate value on the road, and the foundation for portable reputation across the economy.
   </p>
 </section>
 
 <section class="map-section section-band">
-  <p class="map-kicker">The network</p>
-  <h2 class="map-heading">How it all connects</h2>
+  <p class="map-kicker">Pilot · The network</p>
+  <h2 class="map-heading">How transport connects to trust infrastructure</h2>
+  <p class="map-lead">Today's user path — from a plate on WhatsApp to standing that employers and insurers can rely on.</p>
 
   <div class="ecosystem-grid mx-auto mt-10 max-w-lg">
     <div class="flex flex-col items-center gap-0">

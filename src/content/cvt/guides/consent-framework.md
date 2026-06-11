@@ -150,4 +150,4 @@ Revocation does not delete audit logs of past accesses.
 
 - [Partner Integration Guide](/cvt/guides/partner-integration)
 - [Moderation Framework](/cvt/guides/moderation-framework)
-- [Trust Profile specification](/cvt/docs/trust-profile)
+- [Trust Profile specification](/cvt/concepts/trust-profile)
