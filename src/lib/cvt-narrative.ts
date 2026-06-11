@@ -5,7 +5,7 @@ export const cvtPlatformTagline = "Trust. Visibility. Accountability.";
 export const cvtPilotLabel = "First pilot: commercial transport";
 
 export const cvtPilotSummary =
-  "CVT is live in Kampala with boda bodas, taxis and special hire. WhatsApp plate lookup, rider verification and incident reporting are the entry point — proving the model before it extends to other service providers.";
+  "CVT is live in Kampala with boda riders, taxis and special hire. WhatsApp plate lookup, staff-operated verification, Trust Passport, and incident reporting are operational — proving the model before it extends to other service providers.";
 
 export const cvtJourneySteps = [
   {
@@ -36,7 +36,7 @@ export const cvtJourneySteps = [
 
 export const cvtPilotCapabilities = [
   "WhatsApp plate lookup",
-  "Rider & vehicle verification",
+  "Boda, taxi & special hire registry",
+  "Trust Passport & partner search",
   "Public incident reporting",
-  "Trust profiles (in progress)",
 ] as const;

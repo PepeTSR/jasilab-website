@@ -20,16 +20,18 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     features: [
       { label: "WhatsApp number plate lookup", done: true },
       { label: "Photo lookup", done: true },
-      { label: "Verification IDs", done: true },
+      { label: "Verification IDs (CVT-RDR, CVT-TAX, CVT-SPH)", done: true },
       { label: "Public verification responses", done: true },
       { label: "Unknown plates automatically captured", done: true },
+      { label: "Boda rider registry", done: true },
+      { label: "Taxi and special hire registry", done: true },
     ],
     impact: "Creates the first trusted registry in transport — the template for other service categories.",
   },
   {
     number: 2,
     title: "Incident Reporting",
-    status: "building",
+    status: "live",
     goal: "Build accountability.",
     features: [
       { label: "Public reporting of dangerous driving", done: true },
@@ -43,7 +45,8 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
   {
     number: 3,
     title: "Trust Profiles",
-    status: "building",
+    subtitle: "Live on cvt.jasilab.net",
+    status: "live",
     goal: "Reward good behaviour.",
     features: [
       { label: "Trust Passport", done: true, href: "/cvt/guides/building-a-trust-passport" },
@@ -60,6 +63,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
   {
     number: 4,
     title: "Partner Ecosystem",
+    subtitle: "APIs live · partner onboarding in progress",
     status: "building",
     goal: "Allow organisations to consume trust data with consent.",
     features: [
@@ -68,6 +72,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
       { label: "Enhanced Search", done: true, href: "/cvt/concepts/enhanced-search" },
       { label: "Hard Search (contracted insurers)", done: true, href: "/cvt/concepts/hard-search" },
       { label: "Partner portal and APIs", done: true, href: "/cvt/guides/partner-integration" },
+      { label: "Production partner integrations" },
     ],
     impact: "Trust becomes useful beyond verification.",
   },
@@ -88,12 +93,11 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     number: 6,
     title: "Multi-category Registry",
     status: "planned",
-    goal: "Expand beyond commercial transport.",
+    goal: "Expand beyond the transport pilot into other vehicle types and professions.",
     features: [
-      { label: "Private vehicles", href: "/cvt/roadmap#phases" },
-      { label: "Taxis and special hire" },
-      { label: "Trucks and delivery riders" },
-      { label: "Other professions" },
+      { label: "Commercial vehicles (trucks, buses, fleet)", href: "/cvt/roadmap#phases" },
+      { label: "Private (non-commercial) vehicle owners", href: "/cvt/roadmap#phases" },
+      { label: "Other service professions (plumbers, caregivers, etc.)" },
     ],
     impact: "One identity across multiple roles.",
   },
@@ -129,16 +133,24 @@ export const liveTodayItems = [
     body: "Send a number plate to WhatsApp. Receive verification status, vehicle details, and trust indicators. This is the public face of the first pilot.",
   },
   {
-    title: "Automatic Coverage Expansion",
+    title: "Multi-category transport registry",
+    body: "Staff-operated verification for boda riders, taxis and special hire — with public verification IDs such as CVT-RDR-2026-000042.",
+  },
+  {
+    title: "Trust Passport & partner search",
+    body: "Public trust passports, consent-gated partner APIs (Soft, Enhanced, Hard Search), and a partner portal on cvt.jasilab.net.",
+  },
+  {
+    title: "Automatic coverage expansion",
     body: "Unknown plates are recorded. Repeated lookups and reports help grow the registry organically.",
   },
   {
-    title: "Complaint Capture",
-    body: "Reports against vehicles are captured and investigated through moderation workflows.",
+    title: "Complaint capture & moderation",
+    body: "Reports against vehicles are captured and investigated through two-stage moderation workflows before trust is affected.",
   },
   {
-    title: "Database and AI Infrastructure",
-    body: "Registry, lookup, and trust compute systems are operational on cvt.jasilab.net.",
+    title: "Registry & trust infrastructure",
+    body: "Database, lookup, and trust compute systems are operational on cvt.jasilab.net.",
   },
 ];
 
