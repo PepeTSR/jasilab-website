@@ -1,10 +1,19 @@
 ---
-import { cvtAppUrl, cvtWhatsAppUrl, getCvtNav, type CvtNavItem } from "../lib/nav";
+import { cvtAppUrl, getCvtHeaderCta, getCvtNav, type CvtNavItem } from "../lib/nav";
 import { cvtHomeHref, isActiveCvtNav, isCvtRootSite } from "../lib/site";
+import { isSuperhumanTheme, isTeslaTheme, isProductTheme } from "../lib/cvt-theme";
 
 const current = Astro.url.pathname;
-const cvtNav = getCvtNav();
+const cvtNav = getCvtNav(current);
+const headerCta = getCvtHeaderCta(current);
 const homeHref = cvtHomeHref();
+const isHome =
+  current === "/" ||
+  current === homeHref ||
+  current === "/cvt" ||
+  current === "/cvt/";
+const heroNav = isTeslaTheme && isHome;
+const lightNav = isSuperhumanTheme && !isHome;
 
 function navLinkProps(item: CvtNavItem) {
   if (item.external) {
@@ -14,12 +23,26 @@ function navLinkProps(item: CvtNavItem) {
 }
 ---
 
-<header class="nav-bar sticky top-0 z-50">
+<header
+  class:list={[
+    "nav-bar sticky top-0 z-50",
+    isSuperhumanTheme && (lightNav ? "nav-bar--light" : "nav-bar--dark"),
+    heroNav && "nav-bar--hero",
+  ]}
+>
   <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
     {isCvtRootSite ? (
       <a href={homeHref} class="group flex flex-col gap-0.5">
-        <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
-        <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
+        {isSuperhumanTheme ? (
+          <span class="sh-wordmark">CVT</span>
+        ) : isTeslaTheme ? (
+          <span class="tesla-wordmark">CVT</span>
+        ) : (
+          <>
+            <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
+            <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
+          </>
+        )}
       </a>
     ) : (
       <div class="flex items-center gap-3">
@@ -35,7 +58,7 @@ function navLinkProps(item: CvtNavItem) {
           {...navLinkProps(item)}
           class:list={[
             item.external ? "nav-link" : isActiveCvtNav(current, item.href, homeHref) ? "nav-link-active" : "nav-link",
-            item.external && "text-primary-deep",
+            item.external && !heroNav && "text-primary-deep",
           ]}
         >
           {item.label}{item.external ? " ↗" : ""}
@@ -45,12 +68,20 @@ function navLinkProps(item: CvtNavItem) {
 
     {isCvtRootSite ? (
       <div class="hidden shrink-0 gap-2 sm:flex">
-        <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
-          Try lookup
-        </a>
-        <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline !py-2 !text-sm">
-          Registry ↗
-        </a>
+        {isProductTheme ? (
+          <a href={headerCta.href} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
+            {headerCta.label}
+          </a>
+        ) : (
+          <>
+            <a href={headerCta.href} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
+              {headerCta.label}
+            </a>
+            <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline !py-2 !text-sm">
+              Registry ↗
+            </a>
+          </>
+        )}
       </div>
     ) : (
       <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline hidden shrink-0 !py-2 !text-sm sm:inline-flex">

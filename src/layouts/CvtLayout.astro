@@ -3,23 +3,62 @@ import BaseLayout from "./BaseLayout.astro";
 import CvtHeader from "../components/CvtHeader.astro";
 import CvtFooter from "../components/CvtFooter.astro";
 import CvtMobileBar from "../components/CvtMobileBar.astro";
-import { isCvtRootSite } from "../lib/site";
+import ProductClosingCta from "../components/cvt-shell/ProductClosingCta.astro";
+import ShTealCta from "../components/cvt-shell/ShTealCta.astro";
+import { cvtHomeHref, isCvtRootSite } from "../lib/site";
+import { isSuperhumanTheme, isTeslaTheme, isProductTheme } from "../lib/cvt-theme";
+
+if (isSuperhumanTheme) {
+  await import("../styles/cvt-superhuman.css");
+}
+if (isTeslaTheme) {
+  await import("../styles/cvt-tesla.css");
+}
 
 interface Props {
   title: string;
   description?: string;
+  closingCta?: "default" | "enterprise";
 }
 
-const { title, description } = Astro.props;
+const { title, description, closingCta = "default" } = Astro.props;
+
+const homeHref = cvtHomeHref();
+const current = Astro.url.pathname;
+const isHome =
+  current === "/" ||
+  current === homeHref ||
+  current === "/cvt" ||
+  current === "/cvt/";
 ---
 
-<BaseLayout title={title} description={description}>
-  <div class="flex min-h-screen flex-col bg-canvas">
+<BaseLayout
+  title={title}
+  description={description}
+  lightTheme={isProductTheme}
+  skipInterFont={isTeslaTheme}
+>
+  <div
+    class:list={[
+      "flex min-h-screen flex-col bg-canvas",
+      isSuperhumanTheme && "theme-superhuman",
+      isSuperhumanTheme && !isHome && "theme-superhuman--subpage",
+      isTeslaTheme && "theme-tesla",
+      isTeslaTheme && !isHome && "theme-tesla--subpage",
+    ]}
+  >
     <CvtHeader />
-    <main class="flex-1 pb-20 sm:pb-0">
+    <main class:list={["flex-1", isCvtRootSite && !isTeslaTheme && "pb-20 sm:pb-0"]}>
       <slot />
+      {isProductTheme && !isHome && (
+        closingCta === "enterprise" ? (
+          <ShTealCta variant="enterprise" />
+        ) : (
+          <ProductClosingCta />
+        )
+      )}
     </main>
     <CvtFooter />
-    {isCvtRootSite && <CvtMobileBar />}
+    {isCvtRootSite && !isTeslaTheme && <CvtMobileBar />}
   </div>
 </BaseLayout>

@@ -1,13 +1,16 @@
 ---
-import "../styles/global.css";
 import { isCvtRootSite } from "../lib/site";
 
 interface Props {
   title: string;
   description?: string;
+  /** Superhuman / Tesla light marketing themes */
+  lightTheme?: boolean;
+  /** Tesla uses system fonts only */
+  skipInterFont?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lightTheme = false, skipInterFont = false } = Astro.props;
 const defaultDescription = isCvtRootSite
   ? "CVT — trust platform for mobile identities. Verify a plate on WhatsApp in Uganda."
   : "JasiLab — research and products for trust infrastructure.";
@@ -28,16 +31,27 @@ const canonical = new URL(pathname, Astro.site ?? "http://localhost:4321");
     <meta name="description" content={metaDescription} />
     {isCvtRootSite && <meta name="generator" content="cvt-website" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@9..144,400..700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    {!skipInterFont && (
+      <>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        {lightTheme ? (
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@9..32,460;9..32,540;9..32,700&display=swap"
+            rel="stylesheet"
+          />
+        ) : (
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@9..144,400..700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+            rel="stylesheet"
+          />
+        )}
+      </>
+    )}
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
   </head>
-  <body class="min-h-screen bg-canvas text-ink">
+  <body class:list={["min-h-screen", lightTheme ? "bg-white text-[#292827]" : "bg-canvas text-ink"]}>
     <slot />
   </body>
 </html>

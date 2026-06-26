@@ -1,0 +1,20 @@
+---
+import type { CvtProductStatus } from "../../lib/cvt-products";
+import { statusLabels } from "../../lib/cvt-products";
+
+interface Props {
+  status: CvtProductStatus;
+}
+
+const { status } = Astro.props;
+
+const statusClass: Record<CvtProductStatus, string> = {
+  live: "cvt-status--live",
+  building: "cvt-status--building",
+  pilot: "cvt-status--pilot",
+  planned: "cvt-status--planned",
+  concept: "cvt-status--concept",
+};
+---
+
+<span class:list={["cvt-status", statusClass[status]]}>{statusLabels[status]}</span>

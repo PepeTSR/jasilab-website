@@ -1,13 +1,15 @@
 ---
-import { cvtAppHostname, cvtAppUrl, cvtWhatsAppUrl, getCvtFooterNav, getCvtNav } from "../lib/nav";
+import { cvtAppHostname, cvtAppUrl, cvtWhatsAppUrl, getCvtFooterNav, getCvtNav, getCvtPrimaryCta } from "../lib/nav";
 import { cvtContactEmail, cvtMarketingUrl, isCvtRootSite, jasilabUrl } from "../lib/site";
 import { cvtPlatformTagline } from "../lib/cvt-narrative";
+import { isProductTheme, isSuperhumanTheme } from "../lib/cvt-theme";
 
-const nav = getCvtNav().filter((item) => item.label !== "Home");
+const nav = getCvtNav(Astro.url.pathname).filter((item) => item.label !== "Home");
 const platformLinks = nav.slice(0, 4);
 const resourceLinks = nav.slice(4);
 
-const mainNav = getCvtNav().filter((item) => item.label !== "Home" && item.label !== "Try lookup");
+const primaryCta = getCvtPrimaryCta(Astro.url.pathname);
+const mainNav = getCvtNav(Astro.url.pathname).filter((item) => item.label !== "Home" && item.label !== primaryCta.label);
 const footerNav = getCvtFooterNav();
 ---
 
@@ -29,9 +31,23 @@ const footerNav = getCvtFooterNav();
           <ul class="space-y-2 text-sm">
             {mainNav.map((item) => (
               <li>
-                <a href={item.href} class="text-body hover:text-primary-soft">{item.label}</a>
+                <a
+                  href={item.href}
+                  class="text-body hover:text-primary-soft"
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener" : undefined}
+                >
+                  {item.label}{item.external ? " ↗" : ""}
+                </a>
               </li>
             ))}
+            {isProductTheme && (
+              <li>
+                <a href={primaryCta.href} class="text-body hover:text-primary-soft" target="_blank" rel="noopener">
+                  {primaryCta.label} ↗
+                </a>
+              </li>
+            )}
             <li>
               <a href={cvtWhatsAppUrl} class="text-body hover:text-primary-soft" target="_blank" rel="noopener">
                 WhatsApp lookup ↗

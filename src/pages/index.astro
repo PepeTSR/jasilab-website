@@ -1,7 +1,18 @@
 ---
 import JasiLabLayout from "../layouts/JasiLabLayout.astro";
 import { productLinks } from "../lib/nav";
+import { isCvtRootSite } from "../lib/site";
+
+const isDevCvtRoot = import.meta.env.DEV && isCvtRootSite;
 ---
+
+{isDevCvtRoot && (
+  <script is:inline>
+    if (location.pathname === "/" || location.pathname === "") {
+      location.replace("/cvt/" + location.hash + location.search);
+    }
+  </script>
+)}
 
 <JasiLabLayout title="JasiLab — Research & Products" description="JasiLab builds trust infrastructure for informal economies.">
   <section class="section-band border-b border-hairline">

@@ -34,6 +34,7 @@ function rewriteHtml(html) {
     .replace(/href="\/cvt\//g, 'href="/')
     .replace(/href="\/cvt"/g, 'href="/"')
     .replace(/href="\/cvt#/g, 'href="/#')
+    .replace(/src="\/cvt\//g, 'src="/')
     .replace(/https:\/\/cvt\.co\.ug\/cvt\/?/g, "https://cvt.co.ug/")
     .replace(/https:\/\/cvt\.co\.ug\/cvt\//g, "https://cvt.co.ug/")
     .replace(/content="https:\/\/jasilab\.net\/cvt/g, 'content="https://cvt.co.ug')
@@ -74,7 +75,8 @@ function writeRedirects(routes) {
   writeFileSync(join(out, "_redirects"), `${lines.join("\n")}\n`);
 }
 
-walk(out);
+const themeLabel = process.argv[2] ?? "default";
+writeFileSync(join(out, ".cvt-build-theme"), `${themeLabel}\n`);
 
 const indexHtml = readFileSync(join(out, "index.html"), "utf8");
 if (!indexHtml.includes("CVT — Trust")) {
@@ -96,5 +98,19 @@ for (const rel of required) {
     process.exit(1);
   }
 }
+
+if (themeLabel === "superhuman" || themeLabel === "tesla") {
+  if (!existsSync(join(out, "platform/index.html"))) {
+    console.error(`dist-cvt missing platform/index.html for ${themeLabel} theme`);
+    process.exit(1);
+  }
+  const platformHtml = readFileSync(join(out, "platform/index.html"), "utf8");
+  if (/Redirecting to/i.test(platformHtml)) {
+    console.error(`platform/index.html redirects — ${themeLabel} theme build misconfigured`);
+    process.exit(1);
+  }
+}
+
+walk(out);
 
 console.log(`Packaged CVT site → dist-cvt/ (${routes.length + 1} routes)`);

@@ -1,0 +1,178 @@
+---
+import { cvtPublicAsset } from "../../lib/site";
+import { getCvtPrimaryCta } from "../../lib/nav";
+
+const primaryCta = getCvtPrimaryCta();
+
+const heroVisual = cvtPublicAsset("hero-puzzle-connect.png");
+
+const stepCount = 4;
+---
+
+<section class="sh-scroll" data-sh-scroll aria-label="CVT product intro">
+  <div class="sh-scroll__track" data-sh-scroll-track style={`--sh-steps: ${stepCount}`}>
+    <div class="sh-scroll__pin" data-sh-scroll-pin>
+      <div class="sh-scroll__backdrop" aria-hidden="true"></div>
+
+      <div class="sh-scroll__grid">
+        <div class="sh-scroll__panels" data-sh-scroll-panels>
+          <!-- Step 0: CVT Verify hero -->
+          <article class="sh-scroll__step is-active" data-sh-step="0">
+            <p class="sh-hero__eyebrow">CVT Verify · Flagship product</p>
+            <h1 class="sh-hero__title">Trust infrastructure for people who provide services</h1>
+            <p class="sh-hero__lead">
+              One platform — many products. Verify is live in Kampala commercial transport today.
+            </p>
+            <div class="sh-hero__cta">
+              <a href={primaryCta.href} target="_blank" rel="noopener" class="sh-btn-pill">{primaryCta.label}</a>
+            </div>
+            <p class="sh-scroll__hint" aria-hidden="true">Scroll</p>
+          </article>
+
+          <!-- Step 1: CVT Connect -->
+          <article class="sh-scroll__step" data-sh-step="1" aria-hidden="true">
+            <p class="sh-hero__eyebrow">CVT Connect</p>
+            <div class="sh-mock sh-mock--chat">
+              <p class="sh-mock__prompt">
+                Send a plate photo to CVT on WhatsApp. I'll look up verification status and standing.
+              </p>
+              <div class="sh-mock__bubble sh-mock__bubble--user">UBD 123X</div>
+              <div class="sh-mock__bubble sh-mock__bubble--ai">
+                Checking registry… Boda · verified · Good Standing.
+              </div>
+            </div>
+          </article>
+
+          <!-- Step 2: CVT Verify registry -->
+          <article class="sh-scroll__step" data-sh-step="2" aria-hidden="true">
+            <p class="sh-hero__eyebrow">CVT Verify</p>
+            <div class="sh-mock sh-mock--inbox">
+              <div class="sh-mock__tabs">
+                <span class="is-active">Verified</span>
+                <span>Unknown</span>
+                <span>Flagged</span>
+              </div>
+              <ul class="sh-mock__list">
+                <li>
+                  <strong>UBD 123X</strong>
+                  <span>Boda · CVT-RDR-2026-000042</span>
+                  <em>Good Standing</em>
+                </li>
+                <li>
+                  <strong>UAX 456K</strong>
+                  <span>Taxi · registered</span>
+                  <em>Verified</em>
+                </li>
+                <li>
+                  <strong>UAH 789M</strong>
+                  <span>Special hire · insurance current</span>
+                  <em>Verified</em>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Step 3: CVT Passport -->
+          <article class="sh-scroll__step" data-sh-step="3" aria-hidden="true">
+            <p class="sh-hero__eyebrow">CVT Passport</p>
+            <div class="sh-mock sh-mock--passport">
+              <p class="sh-mock__kicker">Portable identity</p>
+              <h2 class="sh-mock__title">Portable standing, built from verified facts</h2>
+              <div class="sh-mock__passport-row">
+                <span>Trust Profile</span>
+                <span>+</span>
+                <span>Timeline</span>
+                <span>+</span>
+                <span>Level</span>
+              </div>
+              <p class="sh-mock__note">Share with employers, fleets or insurers — on your terms.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="sh-scroll__visual" aria-hidden="true">
+          <img src={heroVisual} alt="" loading="eager" decoding="async" />
+        </div>
+      </div>
+
+      <div class="sh-scroll__progress" aria-hidden="true" data-sh-scroll-dots>
+        {Array.from({ length: stepCount }, (_, i) => (
+          <span class:list={["sh-scroll__dot", i === 0 && "is-active"]} data-sh-dot={i} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initShScroll() {
+    const root = document.querySelector("[data-sh-scroll]");
+    if (!root) return;
+
+    const track = root.querySelector("[data-sh-scroll-track]");
+    const pin = root.querySelector("[data-sh-scroll-pin]");
+    const steps = [...root.querySelectorAll("[data-sh-step]")];
+    const dots = [...root.querySelectorAll("[data-sh-dot]")];
+    const themeRoot = root.closest(".theme-superhuman");
+    const stepCount = steps.length;
+
+    if (!track || !pin || stepCount === 0) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) {
+      track.classList.add("sh-scroll__track--static");
+      steps.forEach((step, i) => {
+        step.classList.toggle("is-active", i === 0);
+        step.removeAttribute("aria-hidden");
+      });
+      return;
+    }
+
+    let ticking = false;
+
+    function setStep(index) {
+      steps.forEach((step, i) => {
+        const active = i === index;
+        step.classList.toggle("is-active", active);
+        step.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === index);
+      });
+    }
+
+    function update() {
+      ticking = false;
+      const trackRect = track.getBoundingClientRect();
+      const trackHeight = track.offsetHeight;
+      const viewport = window.innerHeight;
+      const scrollable = Math.max(trackHeight - viewport, 1);
+
+      // Progress 0 when track top hits viewport top, 1 when track bottom hits viewport bottom
+      const scrolled = Math.min(Math.max(-trackRect.top, 0), scrollable);
+      const progress = scrolled / scrollable;
+      const index = Math.min(stepCount - 1, Math.floor(progress * stepCount));
+
+      setStep(index);
+
+      if (themeRoot) {
+        themeRoot.classList.toggle("sh-past-hero", progress >= 0.98);
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+  }
+
+  initShScroll();
+  document.addEventListener("astro:page-load", initShScroll);
+</script>

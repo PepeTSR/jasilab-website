@@ -1,0 +1,85 @@
+---
+import { isProductTheme } from "../../lib/cvt-theme";
+import { cvtAppUrl, cvtPath } from "../../lib/site";
+import CvtLayout from "../../layouts/CvtLayout.astro";
+import ProductGrid from "../../components/cvt-platform/ProductGrid.astro";
+import { cvtPlatformStatement, cvtProducts, platformLayers } from "../../lib/cvt-products";
+
+if (!isProductTheme) {
+  return Astro.redirect(cvtPath());
+}
+
+const live = cvtProducts.filter((p) => p.status === "live");
+const building = cvtProducts.filter((p) => p.status === "building" || p.status === "pilot");
+const future = cvtProducts.filter((p) => p.status === "planned" || p.status === "concept");
+---
+
+<CvtLayout
+  title="Platform — CVT"
+  description="The CVT platform and product ecosystem — public trust infrastructure with Verify, Connect, Passport and more."
+>
+  <section class="sh-section border-b border-hairline">
+    <div class="sh-section__inner">
+      <p class="sh-eyebrow sh-eyebrow--dark">Platform</p>
+      <h1 class="sh-display-xl sh-display-xl--dark">The CVT ecosystem</h1>
+      <p class="sh-lead sh-lead--dark max-w-3xl">{cvtPlatformStatement}</p>
+      <p class="mt-6 text-sm text-mute">
+        The live platform app — registration, lookup and registry — is at{" "}
+        <a href={cvtAppUrl} target="_blank" rel="noopener" class="font-semibold text-[#1b1938] underline underline-offset-2">
+          {cvtAppUrl.replace("https://", "")} ↗
+        </a>
+        . This page describes the product ecosystem on the marketing site.
+      </p>
+    </div>
+  </section>
+
+  <section class="sh-section sh-section--soft">
+    <div class="sh-section__inner">
+      <h2 class="sh-display-md">How it fits together</h2>
+      <div class="cvt-platform-diagram">
+        <div class="cvt-platform-diagram__box cvt-platform-diagram__box--primary">CVT Platform</div>
+        <div class="cvt-platform-diagram__connector">│</div>
+        <div class="cvt-platform-diagram__row">
+          {platformLayers.map((l) => (
+            <div class="cvt-platform-diagram__box">
+              <strong>{l.label}</strong>
+              <span>{l.desc}</span>
+            </div>
+          ))}
+        </div>
+        <div class="cvt-platform-diagram__connector">│</div>
+        <div class="cvt-platform-diagram__box">Trust Profiles</div>
+        <div class="cvt-platform-diagram__connector">│</div>
+        <div class="cvt-platform-diagram__row cvt-platform-diagram__row--products">
+          <span>Verify</span>
+          <span>Connect</span>
+          <span>Passport</span>
+          <span>Enterprise</span>
+          <span>API</span>
+          <span>+ more</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sh-section">
+    <div class="sh-section__inner">
+      <h2 class="sh-display-md">Live</h2>
+      <ProductGrid products={live} />
+    </div>
+  </section>
+
+  <section class="sh-section sh-section--soft">
+    <div class="sh-section__inner">
+      <h2 class="sh-display-md">In development & pilot</h2>
+      <ProductGrid products={building} />
+    </div>
+  </section>
+
+  <section class="sh-section">
+    <div class="sh-section__inner">
+      <h2 class="sh-display-md">Planned & concept</h2>
+      <ProductGrid products={future} />
+    </div>
+  </section>
+</CvtLayout>

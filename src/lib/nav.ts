@@ -1,4 +1,5 @@
 import { cvtAppUrl, cvtPath, isCvtRootSite } from "./site";
+import { isProductTheme, isSuperhumanTheme } from "./cvt-theme";
 
 export const jasiLabNav = [
   { href: "/research", label: "Research" },
@@ -25,15 +26,23 @@ export type CvtNavItem = {
 };
 
 /** Primary nav — short product nav on cvt.co.ug; full docs nav on jasilab.net/cvt */
-export function getCvtNav(): CvtNavItem[] {
+export function getCvtNav(pathname = ""): CvtNavItem[] {
   if (isCvtRootSite) {
-    return [
+    const items: CvtNavItem[] = [
       { href: cvtPath(), label: "Home" },
       { href: cvtPath("#how-it-works"), label: "How it works" },
-      { href: cvtPath("vision"), label: "Vision" },
-      { href: cvtPath("partners"), label: "Partners" },
-      { href: cvtWhatsAppUrl, label: "Try lookup", external: true },
     ];
+    if (isProductTheme) {
+      items.push({ href: cvtPath("platform"), label: "Platform" });
+      items.push({ href: cvtPath("guides"), label: "Guides" });
+    } else {
+      items.push({ href: cvtPath("vision"), label: "Vision" });
+    }
+    items.push(
+      { href: cvtPath("partners"), label: "Partners" },
+      getCvtPrimaryCta(pathname),
+    );
+    return items;
   }
 
   return [
@@ -50,6 +59,16 @@ export function getCvtNav(): CvtNavItem[] {
 /** Secondary links — footer on cvt.co.ug only */
 export function getCvtFooterNav(): CvtNavItem[] {
   if (!isCvtRootSite) return [];
+
+  if (isProductTheme) {
+    return [
+      { href: cvtPath("vision"), label: "Vision" },
+      { href: cvtPath("roadmap"), label: "Roadmap" },
+      { href: cvtPath("map"), label: "Map" },
+      { href: cvtPath("concepts"), label: "Concepts" },
+      { href: cvtAppUrl, label: "Registry app", external: true },
+    ];
+  }
 
   return [
     { href: cvtPath("guides"), label: "Guides" },
@@ -75,6 +94,43 @@ export const cvtConcepts = [
 export { cvtAppUrl };
 export const cvtWhatsAppPhone = "+256 792 497830";
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
+
+/** Public self-service registration wizard (locale-prefixed on cvt.ug). */
+export const cvtApplyWizardUrl = `${cvtAppUrl}/en/apply/wizard`;
+
+/** Enterprise partner portal on cvt.ug. */
+export const cvtEnterpriseUrl = `${cvtAppUrl}/enterprise`;
+
+export type CvtPrimaryCta = {
+  href: string;
+  label: string;
+  external: true;
+};
+
+export function getCvtEnterpriseCta(): CvtPrimaryCta {
+  return { href: cvtEnterpriseUrl, label: "Enterprise", external: true };
+}
+
+export function isPartnersPath(pathname: string): boolean {
+  const norm = pathname.replace(/\/$/, "") || "/";
+  return norm === "/partners" || norm.endsWith("/partners");
+}
+
+/** Primary action in header, hero, and mobile bar — superhuman dev uses Get verified. */
+export function getCvtPrimaryCta(pathname?: string): CvtPrimaryCta {
+  if (pathname && isPartnersPath(pathname)) {
+    return getCvtEnterpriseCta();
+  }
+  if (isProductTheme) {
+    return { href: cvtApplyWizardUrl, label: "Get verified", external: true };
+  }
+  return { href: cvtWhatsAppUrl, label: "Try lookup", external: true };
+}
+
+/** Top-right header button — Enterprise on Partners, otherwise primary CTA. */
+export function getCvtHeaderCta(pathname: string): CvtPrimaryCta {
+  return getCvtPrimaryCta(pathname);
+}
 
 export const cvtAppHostname = new URL(cvtAppUrl).hostname;
 

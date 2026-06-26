@@ -8,12 +8,20 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0 --port 4321",
     "dev:cvt": "PUBLIC_CVT_BASE= PUBLIC_SITE_URL=https://cvt.co.ug astro dev --host 0.0.0.0 --port 4322",
+    "dev:cvt:superhuman": "PUBLIC_CVT_BASE= PUBLIC_SITE_URL=https://cvt.co.ug PUBLIC_CVT_THEME=superhuman astro dev --host 0.0.0.0 --port 4324",
+    "dev:cvt:tesla": "PUBLIC_CVT_BASE= PUBLIC_SITE_URL=https://cvt.co.ug PUBLIC_CVT_THEME=tesla astro dev --host 0.0.0.0 --port 4325",
     "build": "astro build",
-    "build:cvt": "PUBLIC_CVT_BASE= PUBLIC_SITE_URL=https://cvt.co.ug astro build && node scripts/package-cvt-site.mjs",
+    "build:cvt": "node scripts/build-cvt.mjs default",
+    "build:cvt:superhuman": "node scripts/build-cvt.mjs superhuman",
+    "build:cvt:tesla": "node scripts/build-cvt.mjs tesla",
+    "verify:cvt:themes": "node scripts/verify-cvt-themes.mjs",
     "deploy": "wrangler deploy",
     "deploy:cvt": "npm run build:cvt && wrangler deploy --config wrangler.cvt.toml",
+    "deploy:cvt:superhuman": "npm run build:cvt:superhuman && wrangler deploy --config wrangler.cvt.toml",
+    "deploy:cvt:tesla": "npm run build:cvt:tesla && wrangler deploy --config wrangler.cvt.toml",
     "preview": "astro preview --host 0.0.0.0 --port 4321",
     "preview:cvt": "npm run build:cvt && npx wrangler dev --config wrangler.cvt.toml --port 4322",
+    "preview:cvt:superhuman": "npm run build:cvt:superhuman && npx wrangler dev --config wrangler.cvt.toml --port 4322",
     "astro": "astro"
   },
   "dependencies": {

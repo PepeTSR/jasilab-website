@@ -1,0 +1,128 @@
+---
+/** Tesla theme home — full product story + platform link (cvt.co.ug experimental skin). */
+import { cvtPath, cvtPublicAsset } from "../../lib/site";
+import { cvtApplyWizardUrl, getCvtPrimaryCta } from "../../lib/nav";
+import { cvtAppUrl } from "../../lib/site";
+import {
+  cvtPilotCapabilities,
+  cvtPilotLabel,
+  cvtPlatformTagline,
+} from "../../lib/cvt-narrative";
+import {
+  cvtHowItWorksSteps,
+  cvtTrustEarned,
+  cvtTrustPassportLead,
+} from "../../lib/cvt-home-content";
+import ShTealCta from "../cvt-shell/ShTealCta.astro";
+import WhatsAppLookupSteps from "./WhatsAppLookupSteps.astro";
+
+const primaryCta = getCvtPrimaryCta();
+const heroImage = cvtPublicAsset("hero-puzzle-connect.png");
+---
+
+<section class="tesla-hero">
+  <div class="tesla-hero__media" aria-hidden="true">
+    <img src={heroImage} alt="" loading="eager" decoding="async" />
+    <div class="tesla-hero__scrim"></div>
+  </div>
+
+  <div class="tesla-hero__content">
+    <h1 class="tesla-hero__title">CVT</h1>
+    <p class="tesla-hero__promo">Live in Kampala commercial transport</p>
+    <p class="tesla-hero__subtitle">{cvtPlatformTagline}</p>
+    <p class="tesla-hero__subtitle">One platform — many products. Verify riders and plates on WhatsApp today.</p>
+
+    <div class="tesla-hero__actions">
+      <a href={primaryCta.href} target="_blank" rel="noopener" class="btn-primary">{primaryCta.label}</a>
+      <a href={cvtPath("partners")} class="btn-outline">For partners</a>
+    </div>
+  </div>
+</section>
+
+<section id="whats-live" class="tesla-panel tesla-panel--ash scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">What's live</h2>
+    <p class="tesla-panel__lead">
+      {cvtPilotLabel} — verification, lookups and trust records on the registry at{" "}
+      <a href={cvtAppUrl} target="_blank" rel="noopener">cvt.ug</a>.
+    </p>
+
+    <ul class="mt-8 flex flex-wrap justify-center gap-2">
+      {cvtPilotCapabilities.map((f) => (
+        <li class="pill-tag">{f}</li>
+      ))}
+    </ul>
+
+    <WhatsAppLookupSteps />
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={cvtApplyWizardUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
+      <a href={cvtPath("platform")} class="btn-outline">Platform products</a>
+    </div>
+  </div>
+</section>
+
+<section id="platform" class="tesla-panel scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">The CVT platform</h2>
+    <p class="tesla-panel__lead">
+      Public trust infrastructure — Verify, Connect, Passport and more on one auditable layer.
+    </p>
+    <a href={cvtPath("platform")} class="btn-primary mt-8">Explore all products</a>
+  </div>
+</section>
+
+<section id="how-it-works" class="tesla-panel tesla-panel--ash scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">How it works</h2>
+    <p class="tesla-panel__lead">Five steps for any service provider. Commercial transport in Kampala runs them end-to-end today.</p>
+
+    <div class="tesla-steps">
+      {cvtHowItWorksSteps.map((step, i) => (
+        <div class="tesla-step">
+          <span class="tesla-step__num">{i + 1}</span>
+          <div>
+            <h3 class="tesla-step__title">{step.title}</h3>
+            <p class="tesla-step__body">{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="trust-infrastructure" class="tesla-panel scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">Trust Passport</h2>
+    <p class="tesla-panel__lead">{cvtTrustPassportLead}</p>
+
+    <div class="tesla-passport-row">
+      <span class="tesla-passport-chip">Trust Profile</span>
+      <span>+</span>
+      <span class="tesla-passport-chip">Trust Timeline</span>
+      <span>+</span>
+      <span class="tesla-passport-chip">Trust Level</span>
+      <span>=</span>
+      <span class="tesla-passport-chip tesla-passport-chip--emphasis">Trust Passport</span>
+    </div>
+
+    <p class="mt-8 text-center text-sm text-mute">Trust is earned through</p>
+    <div class="mt-4 flex flex-wrap justify-center gap-2">
+      {cvtTrustEarned.map((t) => (
+        <span class="pill-tag">{t}</span>
+      ))}
+    </div>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a href={cvtPath("vision")} class="btn-outline">Our vision</a>
+      <a href={cvtPath("guides/building-a-trust-passport")} class="btn-primary">Read the guide</a>
+    </div>
+  </div>
+</section>
+
+<ShTealCta showWhatsAppQr />
+
+<div class="tesla-chat-bar hidden sm:flex">
+  <span class="text-sm text-mute">CVT — verify a plate</span>
+  <a href={primaryCta.href} target="_blank" rel="noopener" class="btn-primary !min-w-0">{primaryCta.label}</a>
+</div>

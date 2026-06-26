@@ -1,37 +1,22 @@
 ---
-/** cvt.co.ug product home — short nav, WhatsApp QR, partners CTA. */
+/** cvt.co.ug product home — default dark theme. */
 import { cvtPath } from "../../lib/site";
 import WhatsAppLookupSteps from "./WhatsAppLookupSteps.astro";
 import WhatsAppQr from "./WhatsAppQr.astro";
 import VisionTeaser from "./VisionTeaser.astro";
-import { cvtWhatsAppUrl } from "../../lib/nav";
+import { cvtApplyWizardUrl } from "../../lib/nav";
 import { cvtAppUrl } from "../../lib/site";
-import { cvtPilotCapabilities, cvtPilotLabel, cvtPlatformTagline, cvtProductName } from "../../lib/cvt-narrative";
-
-const howItWorks = [
-  {
-    title: "Verify",
-    body: "Approved staff register people and assets, verify documents and maintain an auditable registry — today for boda, taxi and special hire in Kampala.",
-  },
-  {
-    title: "Lookup",
-    body: "Anyone checks verification status on channels people already use. WhatsApp plate lookup is live; unknown plates are captured into the network.",
-  },
-  {
-    title: "Build trust",
-    body: "Standing grows from verified history, training, insurance and conduct. Complaints only affect trust after moderation — not raw accusations.",
-  },
-  {
-    title: "Share with consent",
-    body: "Workers share Trust Profiles with employers, fleets or insurers. Individuals control what is disclosed and to whom.",
-  },
-  {
-    title: "Reward good behaviour",
-    body: "Long-term reputation and rehabilitation over punishment. Trust is explainable and evolves from verified facts.",
-  },
-];
-
-const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good conduct"];
+import {
+  cvtPilotCapabilities,
+  cvtPilotLabel,
+  cvtPlatformTagline,
+  cvtProductName,
+} from "../../lib/cvt-narrative";
+import {
+  cvtHowItWorksSteps,
+  cvtTrustEarned,
+  cvtTrustPassportLead,
+} from "../../lib/cvt-home-content";
 ---
 
 <section class="section-band border-b border-hairline">
@@ -45,7 +30,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
       </p>
 
       <div class="mt-10 flex flex-wrap gap-3">
-        <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Open WhatsApp</a>
+        <a href={cvtApplyWizardUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
         <a href={cvtPath("partners")} class="btn-outline">For partners</a>
       </div>
     </div>
@@ -78,7 +63,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     Five steps that apply to any service provider. Commercial transport in Kampala runs them end-to-end today.
   </p>
   <ol class="mt-10 max-w-3xl space-y-6">
-    {howItWorks.map((step, i) => (
+    {cvtHowItWorksSteps.map((step, i) => (
       <li class="flex gap-5">
         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border border-primary/40 bg-canvas text-sm font-semibold text-primary">
           {i + 1}
@@ -95,7 +80,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
 <section id="trust-infrastructure" class="section-band green-divider-band scroll-mt-20">
   <p class="map-kicker">The product</p>
   <h2 class="display-md">Trust Passport</h2>
-  <p class="map-lead">Not a hidden score — a passport built from verified facts. Today's transport registry feeds the trust layer that will serve other service providers.</p>
+  <p class="map-lead">{cvtTrustPassportLead}</p>
 
   <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
     <span class="card-feature !py-4 text-sm font-semibold">Trust Profile</span>
@@ -109,7 +94,9 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
 
   <p class="mt-8 text-center text-sm text-mute">Trust is earned through</p>
   <div class="mt-4 flex flex-wrap justify-center gap-2">
-    {trustEarned.map((t) => <span class="pill-tag">{t}</span>)}
+    {cvtTrustEarned.map((t) => (
+      <span class="pill-tag">{t}</span>
+    ))}
   </div>
   <p class="mt-8 text-center">
     <a href={cvtPath("guides/building-a-trust-passport")} class="btn-ghost !text-sm">How to build a Trust Passport →</a>

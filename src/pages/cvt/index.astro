@@ -2,7 +2,10 @@
 import CvtLayout from "../../layouts/CvtLayout.astro";
 import CvtHomeEmbedded from "../../components/cvt-home/CvtHomeEmbedded.astro";
 import CvtHomeProduct from "../../components/cvt-home/CvtHomeProduct.astro";
+import CvtHomeProductSuperhuman from "../../components/cvt-home/CvtHomeProductSuperhuman.astro";
+import CvtHomeProductTesla from "../../components/cvt-home/CvtHomeProductTesla.astro";
 import { isCvtRootSite } from "../../lib/site";
+import { isSuperhumanTheme, isTeslaTheme } from "../../lib/cvt-theme";
 ---
 
 <CvtLayout
@@ -13,5 +16,9 @@ import { isCvtRootSite } from "../../lib/site";
       : "CVT is a trust platform for mobile identities. Verify through WhatsApp, build reputation that travels with you — live in Kampala commercial transport."
   }
 >
-  {isCvtRootSite ? <CvtHomeProduct /> : <CvtHomeEmbedded />}
+  {isCvtRootSite ? (
+    isSuperhumanTheme ? <CvtHomeProductSuperhuman /> :
+    isTeslaTheme ? <CvtHomeProductTesla /> :
+    <CvtHomeProduct />
+  ) : <CvtHomeEmbedded />}
 </CvtLayout>

@@ -4,30 +4,42 @@ import { cvtLiveLabel } from "../../lib/cvt-narrative";
 
 interface Props {
   compact?: boolean;
+  /** Light card on the Superhuman teal closing band */
+  onTeal?: boolean;
 }
 
-const { compact = false } = Astro.props;
+const { compact = false, onTeal = false } = Astro.props;
 
-const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=1&color=00-d992&bgcolor=101010&data=${encodeURIComponent(cvtWhatsAppUrl)}`;
+const qrColors = onTeal
+  ? { fg: "1b1938", bg: "ffffff" }
+  : { fg: "00-d992", bg: "101010" };
+const qrSize = compact || onTeal ? 180 : 220;
+const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&margin=1&color=${qrColors.fg}&bgcolor=${qrColors.bg}&data=${encodeURIComponent(cvtWhatsAppUrl)}`;
 ---
 
 <div
   class:list={[
-    "flex flex-col items-center rounded-md border border-hairline bg-canvas-soft text-center",
-    compact ? "gap-2 p-4" : "gap-3 p-6",
+    "flex flex-col items-center text-center",
+    onTeal
+      ? "sh-teal-qr"
+      : "rounded-md border border-hairline bg-canvas-soft",
+    !onTeal && (compact ? "gap-2 p-4" : "gap-3 p-6"),
   ]}
 >
-  <p class="eyebrow-mono !text-[10px] !tracking-widest text-mute">{cvtLiveLabel}</p>
-  <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="block rounded-sm bg-canvas p-2">
+  {!onTeal && <p class="eyebrow-mono !text-[10px] !tracking-widest text-mute">{cvtLiveLabel}</p>}
+  {onTeal && <p class="sh-teal-qr__label">Try the WhatsApp lookup</p>}
+  <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class:list={["block", onTeal ? "sh-teal-qr__img-wrap" : "rounded-sm bg-canvas p-2"]}>
     <img
       src={qrSrc}
-      width="220"
-      height="220"
+      width={qrSize}
+      height={qrSize}
       alt="Scan to open CVT plate lookup on WhatsApp"
-      class="h-auto w-[min(220px,100%)]"
-      loading="eager"
+      class="h-auto w-[min(180px,100%)]"
+      loading="lazy"
     />
   </a>
-  <p class:list={["text-mute", compact ? "text-xs" : "text-sm"]}>Scan to verify a plate on WhatsApp</p>
-  <p class="text-xs text-body">{cvtWhatsAppPhone}</p>
+  <p class:list={[onTeal ? "sh-teal-qr__hint" : "text-mute", !onTeal && (compact ? "text-xs" : "text-sm")]}>
+    Scan to verify a plate on WhatsApp
+  </p>
+  <p class:list={[onTeal ? "sh-teal-qr__phone" : "text-xs text-body"]}>{cvtWhatsAppPhone}</p>
 </div>

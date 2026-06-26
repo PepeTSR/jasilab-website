@@ -1,0 +1,96 @@
+---
+/** Superhuman theme — scroll hero + platform product model */
+import ShScrollHero from "./ShScrollHero.astro";
+import PlatformHomeSection from "../cvt-platform/PlatformHomeSection.astro";
+import ShTealCta from "../cvt-shell/ShTealCta.astro";
+import WhatsAppLookupSteps from "./WhatsAppLookupSteps.astro";
+import VisionTeaser from "./VisionTeaser.astro";
+import { cvtApplyWizardUrl } from "../../lib/nav";
+import { cvtAppUrl, cvtPath } from "../../lib/site";
+import { cvtPilotCapabilities, cvtPilotLabel } from "../../lib/cvt-narrative";
+import {
+  cvtHowItWorksSteps,
+  cvtTrustEarned,
+  cvtTrustPassportLead,
+} from "../../lib/cvt-home-content";
+---
+
+<ShScrollHero />
+
+<PlatformHomeSection />
+
+<section id="whats-live" class="sh-section sh-section--muted scroll-mt-20">
+  <div class="sh-section__inner">
+    <p class="sh-eyebrow">Live now</p>
+    <h2 class="sh-display-xl">What's live — {cvtPilotLabel}</h2>
+    <p class="sh-lead max-w-3xl">
+      Boda bodas, taxis and special hire in Kampala. Verification, lookups and trust records are operational on the registry at{" "}
+      <a href={cvtAppUrl} target="_blank" rel="noopener" class="font-semibold underline underline-offset-2">cvt.ug</a>.
+    </p>
+
+    <ul class="sh-pills mt-8">
+      {cvtPilotCapabilities.map((f) => (
+        <li class="pill-tag-live"><span class="text-primary">✓</span> {f}</li>
+      ))}
+    </ul>
+
+    <WhatsAppLookupSteps />
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href={cvtApplyWizardUrl} target="_blank" rel="noopener" class="sh-btn-primary">Get verified</a>
+      <a href={cvtPath("platform")} class="sh-btn-outline">Platform products</a>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="sh-section scroll-mt-20">
+  <div class="sh-section__inner">
+    <h2 class="sh-display-xl">How the platform works</h2>
+    <p class="sh-lead">Five steps on the same trust layer — commercial transport in Kampala runs them end-to-end today.</p>
+
+    <div class="sh-steps">
+      {cvtHowItWorksSteps.map((step, i) => (
+        <article class="sh-step-row">
+          <span class="sh-step-row__num">{i + 1}</span>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="trust-infrastructure" class="sh-section sh-section--teal scroll-mt-20">
+  <div class="sh-section__inner">
+    <p class="sh-eyebrow sh-eyebrow--light">The product</p>
+    <h2 class="sh-display-xl sh-display-xl--light">Trust Passport</h2>
+    <p class="sh-lead sh-lead--light max-w-3xl">{cvtTrustPassportLead}</p>
+
+    <div class="sh-passport-row mt-8">
+      <span class="sh-passport-chip">Trust Profile</span>
+      <span class="sh-passport-op">+</span>
+      <span class="sh-passport-chip">Trust Timeline</span>
+      <span class="sh-passport-op">+</span>
+      <span class="sh-passport-chip">Trust Level</span>
+      <span class="sh-passport-op">=</span>
+      <span class="sh-passport-chip sh-passport-chip--emphasis">Trust Passport</span>
+    </div>
+
+    <p class="mt-8 text-center text-sm text-white/80">Trust is earned through</p>
+    <div class="mt-4 flex flex-wrap justify-center gap-2">
+      {cvtTrustEarned.map((t) => (
+        <span class="pill-tag">{t}</span>
+      ))}
+    </div>
+
+    <p class="mt-8 text-center">
+      <a href={cvtPath("guides/building-a-trust-passport")} class="sh-btn-on-teal">How to build a Trust Passport →</a>
+    </p>
+  </div>
+</section>
+
+<VisionTeaser />
+
+<ShTealCta showWhatsAppQr />

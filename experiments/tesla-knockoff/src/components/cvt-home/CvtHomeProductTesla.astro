@@ -1,0 +1,135 @@
+---
+import { cvtPath } from "../../lib/site";
+import { cvtWhatsAppUrl } from "../../lib/nav";
+import { cvtAppUrl } from "../../lib/site";
+import { cvtPilotCapabilities, cvtPilotLabel, cvtPlatformTagline } from "../../lib/cvt-narrative";
+
+const heroImage =
+  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=80";
+
+const liveImage =
+  "https://images.unsplash.com/photo-1593359677877-a4bb92f829d1?auto=format&fit=crop&w=1600&q=80";
+
+const trustImage =
+  "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1600&q=80";
+
+const howItWorks = [
+  {
+    title: "Verify",
+    body: "Staff register riders and vehicles, verify documents, and maintain an auditable registry in Kampala.",
+  },
+  {
+    title: "Lookup",
+    body: "Anyone checks status on WhatsApp. Unknown plates are captured into the network over time.",
+  },
+  {
+    title: "Build trust",
+    body: "Standing grows from verified history, training, insurance and conduct — not raw accusations.",
+  },
+  {
+    title: "Share with consent",
+    body: "Workers share Trust Profiles with employers, fleets or insurers on their own terms.",
+  },
+  {
+    title: "Reward good behaviour",
+    body: "Long-term reputation and rehabilitation over punishment. Trust evolves from verified facts.",
+  },
+];
+---
+
+<section class="tesla-hero">
+  <div class="tesla-hero__media" aria-hidden="true">
+    <img src={heroImage} alt="" loading="eager" decoding="async" />
+    <div class="tesla-hero__scrim"></div>
+  </div>
+
+  <div class="tesla-hero__content">
+    <h1 class="tesla-hero__title">CVT</h1>
+    <p class="tesla-hero__promo">Live in Kampala commercial transport</p>
+    <p class="tesla-hero__subtitle">{cvtPlatformTagline}</p>
+    <p class="tesla-hero__subtitle">Scan a plate on WhatsApp. Build portable trust that travels with you.</p>
+
+    <div class="tesla-hero__actions">
+      <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Try lookup</a>
+      <a href={cvtPath("partners")} class="btn-outline">For partners</a>
+    </div>
+  </div>
+</section>
+
+<section id="whats-live" class="tesla-panel tesla-panel--ash scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">What's live</h2>
+    <p class="tesla-panel__lead">{cvtPilotLabel} — verification, lookups and trust records on the registry at cvt.ug.</p>
+
+    <div class="tesla-cards">
+      <article class="tesla-category-card">
+        <img src={liveImage} alt="" loading="lazy" decoding="async" />
+        <span class="tesla-category-card__label">WhatsApp lookup</span>
+      </article>
+      <article class="tesla-category-card">
+        <img src={trustImage} alt="" loading="lazy" decoding="async" />
+        <span class="tesla-category-card__label">Trust registry</span>
+      </article>
+    </div>
+
+    <ul class="mt-8 flex flex-wrap justify-center gap-2">
+      {cvtPilotCapabilities.map((f) => (
+        <li class="pill-tag">{f}</li>
+      ))}
+    </ul>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Open WhatsApp</a>
+      <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline">Open registry</a>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="tesla-panel scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">How it works</h2>
+    <p class="tesla-panel__lead">Five steps for any service provider. Commercial transport in Kampala runs them end-to-end today.</p>
+
+    <div class="tesla-steps">
+      {howItWorks.map((step, i) => (
+        <div class="tesla-step">
+          <span class="tesla-step__num">{i + 1}</span>
+          <div>
+            <h3 class="tesla-step__title">{step.title}</h3>
+            <p class="tesla-step__body">{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="trust-infrastructure" class="tesla-panel tesla-panel--ash scroll-mt-20">
+  <div class="tesla-panel__inner">
+    <h2 class="tesla-panel__title">Trust Passport</h2>
+    <p class="tesla-panel__lead">
+      Not a hidden score — a passport built from verified facts. Today's transport registry feeds the trust layer for other service providers.
+    </p>
+
+    <div class="tesla-passport-row">
+      <span class="tesla-passport-chip">Trust Profile</span>
+      <span>+</span>
+      <span class="tesla-passport-chip">Trust Timeline</span>
+      <span>+</span>
+      <span class="tesla-passport-chip">Trust Level</span>
+      <span>=</span>
+      <span class="tesla-passport-chip tesla-passport-chip--emphasis">Trust Passport</span>
+    </div>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a href={cvtPath("vision")} class="btn-outline">Our vision</a>
+      <a href={cvtPath("guides/building-a-trust-passport")} class="btn-primary">Read the guide</a>
+    </div>
+  </div>
+</section>
+
+<div class="tesla-chat-bar hidden sm:flex">
+  <span class="text-sm text-mute">Ask about CVT</span>
+  <input class="tesla-chat-bar__input" type="text" placeholder="How do I verify a plate?" disabled />
+  <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary !min-w-0">Try lookup</a>
+</div>

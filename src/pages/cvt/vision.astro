@@ -1,6 +1,10 @@
 ---
 import { cvtPath } from "../../lib/site";
 import CvtLayout from "../../layouts/CvtLayout.astro";
+import { getCvtPrimaryCta } from "../../lib/nav";
+import { isProductTheme, isSuperhumanTheme } from "../../lib/cvt-theme";
+
+const primaryCta = getCvtPrimaryCta();
 
 const serviceCategories = [
   "Plumbers",
@@ -122,7 +126,14 @@ const longTermItems = [
     </div>
 
     <div class="mt-12 flex flex-wrap gap-3 border-t border-hairline pt-8">
-      <a href={cvtPath("#whats-live")} class="btn-primary !py-2.5 !text-sm">See what's live</a>
+      {isProductTheme ? (
+        <>
+          <a href={primaryCta.href} target="_blank" rel="noopener" class="btn-primary !py-2.5 !text-sm">{primaryCta.label}</a>
+          <a href={cvtPath("platform")} class="btn-outline !py-2.5 !text-sm">Platform products</a>
+        </>
+      ) : (
+        <a href={cvtPath("#whats-live")} class="btn-primary !py-2.5 !text-sm">See what's live</a>
+      )}
       <a href={cvtPath("map")} class="btn-outline !py-2.5 !text-sm">Project map</a>
       <a href={cvtPath("roadmap")} class="btn-outline !py-2.5 !text-sm">Implementation roadmap</a>
       <a href={cvtPath("concepts")} class="btn-outline !py-2.5 !text-sm">Explore concepts</a>

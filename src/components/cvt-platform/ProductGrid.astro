@@ -1,0 +1,39 @@
+---
+import type { CvtProduct } from "../../lib/cvt-products";
+import ProductStatusBadge from "./ProductStatusBadge.astro";
+
+interface Props {
+  products: CvtProduct[];
+  compact?: boolean;
+}
+
+const { products, compact = false } = Astro.props;
+---
+
+<div class="cvt-product-grid">
+  {products.map((product) => {
+    const Tag = product.href ? "a" : "article";
+    const linkProps = product.href
+      ? {
+          href: product.href,
+          ...(product.external ? { target: "_blank", rel: "noopener" } : {}),
+        }
+      : {};
+
+    return (
+      <Tag class:list={["cvt-product-card", product.href && "cvt-product-card--link"]} {...linkProps}>
+        <div class="cvt-product-card__head">
+          <h3 class="cvt-product-card__name">{product.name}</h3>
+          <ProductStatusBadge status={product.status} />
+        </div>
+        {!compact && <p class="cvt-product-card__tagline">{product.tagline}</p>}
+        <p class="cvt-product-card__purpose">{product.purpose}</p>
+        {product.href && (
+          <span class="cvt-product-card__more">
+            {product.external ? "Open ↗" : "Learn more →"}
+          </span>
+        )}
+      </Tag>
+    );
+  })}
+</div>

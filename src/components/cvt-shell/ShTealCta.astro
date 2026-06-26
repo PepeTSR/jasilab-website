@@ -1,0 +1,48 @@
+---
+import WhatsAppQr from "../cvt-home/WhatsAppQr.astro";
+import { cvtEnterpriseUrl, getCvtPrimaryCta } from "../../lib/nav";
+import { isTeslaTheme } from "../../lib/cvt-theme";
+
+interface Props {
+  variant?: "default" | "enterprise";
+  /** Show WhatsApp QR under Get verified (homepage) */
+  showWhatsAppQr?: boolean;
+}
+
+const { variant = "default", showWhatsAppQr = false } = Astro.props;
+const primaryCta = getCvtPrimaryCta();
+
+const enterprise = {
+  title: "CVT Enterprise",
+  body: "For employers, fleets and insurers — manage trusted workforces, consent-based searches and compliance dashboards.",
+  href: cvtEnterpriseUrl,
+  label: "Enterprise",
+};
+---
+
+<section class:list={["sh-teal-band", isTeslaTheme && "sh-teal-band--tesla"]}>
+  <div class="sh-teal-band__inner">
+    {variant === "enterprise" ? (
+      <>
+        <h2>{enterprise.title}</h2>
+        <p>{enterprise.body}</p>
+        <div class="sh-teal-band__cta flex flex-wrap justify-center gap-3">
+          <a href={enterprise.href} target="_blank" rel="noopener" class="sh-btn-on-teal">{enterprise.label}</a>
+        </div>
+      </>
+    ) : (
+      <>
+        <h2>Get verified on CVT</h2>
+        <p>Start the self-service registration wizard — live for commercial transport in Kampala.</p>
+        <div class="sh-teal-band__cta">
+          <a href={primaryCta.href} target="_blank" rel="noopener" class="sh-btn-on-teal">{primaryCta.label}</a>
+        </div>
+        {showWhatsAppQr && (
+          <div class="sh-teal-band__lookup">
+            <WhatsAppQr onTeal compact />
+          </div>
+        )}
+      </>
+    )}
+  </div>
+</section>
