@@ -76,6 +76,16 @@ function writeRedirects(routes) {
 
 walk(out);
 
+const indexHtml = readFileSync(join(out, "index.html"), "utf8");
+if (!indexHtml.includes("CVT — Trust")) {
+  console.error("dist-cvt/index.html is not the CVT homepage — check build:cvt output");
+  process.exit(1);
+}
+if (/HAY|CareHome|JasiLab — Research/i.test(indexHtml)) {
+  console.error("dist-cvt/index.html contains JasiLab product content — wrong assets packaged");
+  process.exit(1);
+}
+
 const routes = collectRoutes(out);
 writeRedirects(routes);
 
