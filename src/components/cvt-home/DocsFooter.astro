@@ -1,13 +1,14 @@
 ---
 import { getCvtExploreLinks } from "../../lib/nav";
+import { cvtContactEmail } from "../../lib/site";
 const exploreLinks = getCvtExploreLinks();
 ---
 
 <section class="section-band section-divider border-t border-hairline">
-  <p class="map-kicker">Explore CVT</p>
-  <h2 class="map-heading">Learn more</h2>
+  <p class="map-kicker">Explore</p>
+  <h2 class="map-heading">Go deeper</h2>
   <p class="map-lead">
-    The public story — vision, pilot, concepts and guides. Detailed specifications are available to partners under agreement.
+    Vision, roadmap, concepts and guides. Detailed technical specifications are available to partners under agreement.
   </p>
 
   <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -20,6 +21,6 @@ const exploreLinks = getCvtExploreLinks();
   </div>
 
   <p class="mt-10 text-center text-sm text-mute">
-    Partner or insurer enquiries: <a href="mailto:hello@jasilab.net" class="text-primary-deep hover:text-primary">hello@jasilab.net</a>
+    Partner or insurer enquiries: <a href={`mailto:${cvtContactEmail}`} class="text-primary-deep hover:text-primary">{cvtContactEmail}</a>
   </p>
 </section>

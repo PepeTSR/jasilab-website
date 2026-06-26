@@ -1,13 +1,17 @@
 import { cvtPath } from "./site";
 
-/** Shared narrative copy — platform vision with transport as the first pilot. */
+/** Shared narrative copy — CVT as a product; transport is the first live vertical. */
 
 export const cvtPlatformTagline = "Trust. Visibility. Accountability.";
 
-export const cvtPilotLabel = "First pilot: commercial transport";
+export const cvtProductName = "Connected Verification Terminal";
+
+export const cvtLiveLabel = "Live in Kampala";
+
+export const cvtPilotLabel = "Commercial transport";
 
 export const cvtPilotSummary =
-  "CVT is live in Kampala with boda riders, taxis and special hire. WhatsApp plate lookup, staff-operated verification, Trust Passport, and incident reporting are operational — proving the model before it extends to other service providers.";
+  "CVT is operational in Kampala with boda riders, taxis and special hire. WhatsApp plate lookup, staff-operated verification, Trust Passport, and incident reporting are live — proving the model before it extends to other service providers.";
 
 export function getCvtJourneySteps() {
   return [
@@ -19,9 +23,9 @@ export function getCvtJourneySteps() {
     },
     {
       step: "02",
-      title: "First pilot",
+      title: "What's live",
       desc: "Commercial transport in Kampala — plates, riders, WhatsApp lookup.",
-      href: cvtPath("#first-pilot"),
+      href: cvtPath("#whats-live"),
     },
     {
       step: "03",
@@ -32,7 +36,7 @@ export function getCvtJourneySteps() {
     {
       step: "04",
       title: "Roadmap",
-      desc: "Skills, new categories, insurance and inclusion — where it goes next.",
+      desc: "Skills, new categories, insurance and inclusion — where CVT goes next.",
       href: cvtPath("roadmap"),
     },
   ];

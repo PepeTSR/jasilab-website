@@ -16,7 +16,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
   {
     number: 1,
     title: "Vehicle Verification",
-    subtitle: "First pilot · Live today",
+    subtitle: "Live in Kampala",
     status: "live",
     goal: "Know whether a vehicle and driver have been verified.",
     features: [
@@ -159,8 +159,8 @@ export const liveTodayItems = [
 export function getSiteLayers() {
   return [
     { label: "Vision", href: cvtPath("vision"), desc: "Why portable trust matters" },
-    { label: "First pilot", href: cvtPath("#first-pilot"), desc: "Commercial transport — live today" },
-    { label: "Project Map", href: cvtPath("map"), desc: "From pilot to full platform" },
+    { label: "What's live", href: cvtPath("#whats-live"), desc: "Commercial transport in Kampala" },
+    { label: "Project map", href: cvtPath("map"), desc: "From transport to full platform" },
     { label: "Roadmap", href: cvtPath("roadmap"), desc: "What's live and what comes next" },
   ];
 }

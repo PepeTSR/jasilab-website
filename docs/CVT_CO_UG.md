@@ -22,6 +22,21 @@ CVT public marketing content moved from `jasilab.net/cvt` to **https://cvt.co.ug
 
 `public/_redirects` sends `/cvt` and `/cvt/*` to cvt.co.ug (301).
 
+## Troubleshooting
+
+**Homepage shows JasiLab (Research & Products), subpages 404**
+
+`cvt.co.ug` is attached to the wrong worker or `cvt-website` deployed with the default `wrangler.toml` (`dist/`) instead of `wrangler.cvt.toml` (`dist-cvt/`).
+
+1. **jasilab-website** → Settings → Domains — **remove** `cvt.co.ug` if listed
+2. **cvt-website** → Settings → Builds — confirm:
+   - Build: `npm run build:cvt`
+   - Deploy: `npx wrangler deploy --config wrangler.cvt.toml`
+3. Retry deployment on **cvt-website**
+4. **cvt-website** → Domains — add `cvt.co.ug` (only on this worker)
+
+Quick check after fix: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT — Trust**, not JasiLab.
+
 ## App vs marketing
 
 | URL | Purpose |

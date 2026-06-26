@@ -5,12 +5,13 @@ import ProjectMapStack from "../../../components/cvt-roadmap/ProjectMapStack.ast
 import LiveToday from "../../../components/cvt-roadmap/LiveToday.astro";
 import PhaseCard from "../../../components/cvt-roadmap/PhaseCard.astro";
 import { trustRoadmapPhases, getSiteLayers } from "../../../lib/cvt-roadmap";
+import { cvtContactEmail } from "../../../lib/site";
 
 const siteLayers = getSiteLayers();
 const roadmapHref = cvtPath("roadmap");
 
 const sections = [
-  { id: "live-today", label: "Transport pilot" },
+  { id: "live-today", label: "Live today" },
   { id: "project-map", label: "Project map" },
   { id: "phases", label: "Phases" },
   { id: "audiences", label: "Audiences" },
@@ -18,14 +19,14 @@ const sections = [
 ---
 
 <CvtLayout
-  title="Building Trust Infrastructure — CVT"
-  description="Transport is the first pilot. Starting with vehicle verification and growing into portable trust for service providers across the informal and formal economy."
+  title="Roadmap — CVT"
+  description="CVT is live in Kampala commercial transport. Here's what's operational and where the platform is headed next."
 >
   <section class="section-band border-b border-hairline">
-    <p class="eyebrow-mono">Implementation roadmap</p>
+    <p class="eyebrow-mono">Roadmap</p>
     <h1 class="display-xl mt-4 max-w-3xl">Building trust infrastructure</h1>
     <p class="map-lead mt-5">
-      Transport is the first pilot — starting with vehicle verification in Kampala and growing into portable trust profiles that reward good behaviour and unlock opportunity.
+      CVT launched in commercial transport — vehicle verification, incident reporting and Trust Passport are operational in Kampala. This roadmap shows what's live and what comes next.
     </p>
 
     <div class="mt-10 flex flex-wrap items-center gap-2 text-sm">
@@ -69,7 +70,7 @@ const sections = [
 
     <section class="map-section" id="audiences">
       <p class="map-kicker">Two audiences</p>
-      <h2 class="map-heading">Public story · Builder depth</h2>
+      <h2 class="map-heading">For everyone · For partners</h2>
       <div class="mt-10 grid gap-6 sm:grid-cols-2">
         <div class="card-soft">
           <h3 class="text-lg font-semibold text-ink-strong">Public</h3>
@@ -93,7 +94,7 @@ const sections = [
         </div>
       </div>
       <p class="mt-8 text-center text-sm text-mute">
-        jasilab.net is a public lab notebook — ideas and documents evolve; the story stays understandable.
+        Partner enquiries: <a href={`mailto:${cvtContactEmail}`} class="hover:text-primary-soft">{cvtContactEmail}</a>
       </p>
     </section>
   </div>

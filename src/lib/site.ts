@@ -12,6 +12,7 @@ export const publicSiteUrl =
 
 export const jasilabUrl = "https://jasilab.net";
 export const cvtMarketingUrl = "https://cvt.co.ug";
+export const cvtContactEmail = "hello@jasilab.net";
 
 /** Build an internal CVT path. Examples: cvtPath(), cvtPath('vision'), cvtPath('#first-pilot'). */
 export function cvtPath(subpath = ""): string {

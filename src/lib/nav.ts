@@ -12,7 +12,7 @@ export const productLinks = [
   {
     href: "https://cvt.co.ug",
     label: "CVT",
-    tagline: "Public trust platform for mobile identities — starting with commercial transport in Uganda.",
+    tagline: "Trust platform for mobile identities — live in Kampala commercial transport.",
   },
   { href: "/products/hay", label: "HAY", tagline: "Coming soon." },
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
@@ -48,11 +48,11 @@ export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
 export function getCvtExploreLinks() {
   return [
-    { href: cvtPath("vision"), label: "Vision", desc: "Why portable trust matters — transport is the first pilot" },
-    { href: cvtPath("map"), label: "Project map", desc: "From pilot to full platform" },
-    { href: cvtPath("roadmap"), label: "Roadmap", desc: "What's live and what comes next" },
+    { href: cvtPath("vision"), label: "Vision", desc: "Why portable trust matters for Uganda and beyond" },
+    { href: cvtPath("map"), label: "Project map", desc: "From transport to full platform" },
+    { href: cvtPath("roadmap"), label: "Roadmap", desc: "What's live and what's next" },
     { href: cvtPath("concepts"), label: "Concepts", desc: "Plain-language explainers" },
-    { href: cvtPath("guides"), label: "Guides", desc: "Policies and integration overview" },
-    { href: cvtPath("#first-pilot"), label: "Transport pilot", desc: "Try WhatsApp plate lookup" },
+    { href: cvtPath("guides"), label: "Guides", desc: "Policies and partner overview" },
+    { href: cvtPath("#whats-live"), label: "Try lookup", desc: "WhatsApp plate verification" },
   ];
 }
