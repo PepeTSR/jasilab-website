@@ -38,10 +38,13 @@ export function getCvtNav(pathname = ""): CvtNavItem[] {
     } else {
       items.push({ href: cvtPath("vision"), label: "Vision" });
     }
-    items.push(
-      { href: cvtPath("partners"), label: "Partners" },
-      getCvtPrimaryCta(pathname),
-    );
+    items.push({ href: cvtPath("partners"), label: "Partners" });
+
+    // Product themes: primary CTA lives in the header button (top-right), not inline nav.
+    if (!isProductTheme) {
+      items.push(getCvtPrimaryCta(pathname));
+    }
+
     return items;
   }
 

@@ -1,0 +1,52 @@
+---
+/** Superhuman dark mode toggle — indigo shell across all pages. */
+---
+
+<button
+  type="button"
+  class="sh-dark-toggle"
+  data-sh-dark-toggle
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+>
+  <span class="sh-dark-toggle__icon sh-dark-toggle__icon--moon" aria-hidden="true">◐</span>
+  <span class="sh-dark-toggle__icon sh-dark-toggle__icon--sun" aria-hidden="true">☀</span>
+  <span class="sh-dark-toggle__label" data-sh-dark-label>Dark</span>
+</button>
+
+<script>
+  const STORAGE_KEY = "cvt-sh-dark";
+
+  function isDark() {
+    return document.documentElement.classList.contains("sh-dark-mode");
+  }
+
+  function setDark(on: boolean) {
+    document.documentElement.classList.toggle("sh-dark-mode", on);
+    try {
+      localStorage.setItem(STORAGE_KEY, on ? "1" : "0");
+    } catch (_) {}
+    syncToggle();
+  }
+
+  function syncToggle() {
+    const dark = isDark();
+    document.querySelectorAll("[data-sh-dark-toggle]").forEach((btn) => {
+      btn.setAttribute("aria-pressed", dark ? "true" : "false");
+      const label = btn.querySelector("[data-sh-dark-label]");
+      if (label) label.textContent = dark ? "Light" : "Dark";
+    });
+  }
+
+  function initDarkToggle() {
+    document.querySelectorAll("[data-sh-dark-toggle]").forEach((btn) => {
+      if (btn.dataset.shDarkBound) return;
+      btn.dataset.shDarkBound = "1";
+      btn.addEventListener("click", () => setDark(!isDark()));
+    });
+    syncToggle();
+  }
+
+  initDarkToggle();
+  document.addEventListener("astro:page-load", initDarkToggle);
+</script>

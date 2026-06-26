@@ -1,0 +1,15 @@
+---
+/** Inline head script — apply dark mode before first paint (Superhuman only). */
+---
+<script is:inline>
+  (function () {
+    try {
+      var key = "cvt-sh-dark";
+      var stored = localStorage.getItem(key);
+      var dark =
+        stored === "1" ||
+        (stored === null && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      if (dark) document.documentElement.classList.add("sh-dark-mode");
+    } catch (_) {}
+  })();
+</script>

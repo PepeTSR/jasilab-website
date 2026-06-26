@@ -7,6 +7,7 @@ import ProductClosingCta from "../components/cvt-shell/ProductClosingCta.astro";
 import ShTealCta from "../components/cvt-shell/ShTealCta.astro";
 import { cvtHomeHref, isCvtRootSite } from "../lib/site";
 import { isSuperhumanTheme, isTeslaTheme, isProductTheme } from "../lib/cvt-theme";
+import { isPartnersPath } from "../lib/nav";
 
 if (isSuperhumanTheme) {
   await import("../styles/cvt-superhuman.css");
@@ -30,6 +31,7 @@ const isHome =
   current === homeHref ||
   current === "/cvt" ||
   current === "/cvt/";
+const onPartners = isPartnersPath(current);
 ---
 
 <BaseLayout
@@ -37,6 +39,7 @@ const isHome =
   description={description}
   lightTheme={isProductTheme}
   skipInterFont={isTeslaTheme}
+  superhumanDarkMode={isSuperhumanTheme}
 >
   <div
     class:list={[
@@ -50,7 +53,10 @@ const isHome =
     <CvtHeader />
     <main class:list={["flex-1", isCvtRootSite && !isTeslaTheme && "pb-20 sm:pb-0"]}>
       <slot />
-      {isProductTheme && !isHome && (
+      {isSuperhumanTheme && !isHome && (
+        <ShTealCta whatsappQrInline={onPartners} />
+      )}
+      {isTeslaTheme && !isHome && (
         closingCta === "enterprise" ? (
           <ShTealCta variant="enterprise" />
         ) : (

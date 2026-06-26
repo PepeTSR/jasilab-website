@@ -1,15 +1,17 @@
 ---
 import WhatsAppQr from "../cvt-home/WhatsAppQr.astro";
-import { cvtEnterpriseUrl, getCvtPrimaryCta } from "../../lib/nav";
+import { cvtEnterpriseUrl, cvtWhatsAppUrl, getCvtPrimaryCta } from "../../lib/nav";
 import { isTeslaTheme } from "../../lib/cvt-theme";
 
 interface Props {
   variant?: "default" | "enterprise";
   /** Show WhatsApp QR under Get verified (homepage) */
   showWhatsAppQr?: boolean;
+  /** Partners — QR beside Get verified instead of WhatsApp lookup link */
+  whatsappQrInline?: boolean;
 }
 
-const { variant = "default", showWhatsAppQr = false } = Astro.props;
+const { variant = "default", showWhatsAppQr = false, whatsappQrInline = false } = Astro.props;
 const primaryCta = getCvtPrimaryCta();
 
 const enterprise = {
@@ -34,8 +36,13 @@ const enterprise = {
       <>
         <h2>Get verified on CVT</h2>
         <p>Start the self-service registration wizard — live for commercial transport in Kampala.</p>
-        <div class="sh-teal-band__cta">
+        <div class:list={["sh-teal-band__cta flex flex-wrap justify-center gap-3", whatsappQrInline && "sh-teal-band__cta--split items-center"]}>
           <a href={primaryCta.href} target="_blank" rel="noopener" class="sh-btn-on-teal">{primaryCta.label}</a>
+          {whatsappQrInline ? (
+            <WhatsAppQr onTeal compact inline />
+          ) : (
+            <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="sh-btn-on-teal sh-btn-on-teal--ghost">WhatsApp lookup</a>
+          )}
         </div>
         {showWhatsAppQr && (
           <div class="sh-teal-band__lookup">

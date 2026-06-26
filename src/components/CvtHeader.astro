@@ -2,6 +2,7 @@
 import { cvtAppUrl, getCvtHeaderCta, getCvtNav, type CvtNavItem } from "../lib/nav";
 import { cvtHomeHref, isActiveCvtNav, isCvtRootSite } from "../lib/site";
 import { isSuperhumanTheme, isTeslaTheme, isProductTheme } from "../lib/cvt-theme";
+import ShDarkModeToggle from "./cvt-shell/ShDarkModeToggle.astro";
 
 const current = Astro.url.pathname;
 const cvtNav = getCvtNav(current);
@@ -30,7 +31,14 @@ function navLinkProps(item: CvtNavItem) {
     heroNav && "nav-bar--hero",
   ]}
 >
-  <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+  <div
+    class:list={[
+      "mx-auto max-w-6xl px-4 py-3 sm:px-8",
+      isSuperhumanTheme
+        ? "sh-header-bar"
+        : "flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between",
+    ]}
+  >
     {isCvtRootSite ? (
       <a href={homeHref} class="group flex flex-col gap-0.5">
         {isSuperhumanTheme ? (
@@ -67,7 +75,9 @@ function navLinkProps(item: CvtNavItem) {
     </nav>
 
     {isCvtRootSite ? (
-      <div class="hidden shrink-0 gap-2 sm:flex">
+      <div class:list={["flex shrink-0 items-center gap-2", isSuperhumanTheme && "sh-header-bar__cta"]}>
+        {isSuperhumanTheme && <ShDarkModeToggle />}
+        <div class="hidden gap-2 sm:flex">
         {isProductTheme ? (
           <a href={headerCta.href} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
             {headerCta.label}
@@ -82,6 +92,7 @@ function navLinkProps(item: CvtNavItem) {
             </a>
           </>
         )}
+        </div>
       </div>
     ) : (
       <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline hidden shrink-0 !py-2 !text-sm sm:inline-flex">

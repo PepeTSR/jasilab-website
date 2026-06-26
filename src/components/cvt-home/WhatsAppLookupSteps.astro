@@ -1,6 +1,13 @@
 ---
 import WhatsAppQr from "./WhatsAppQr.astro";
 
+interface Props {
+  /** Show WhatsApp QR beside the steps (default theme home). */
+  showQr?: boolean;
+}
+
+const { showQr = true } = Astro.props;
+
 const steps = [
   { title: "Take photo", desc: "Photograph the number plate" },
   { title: "Send on WhatsApp", desc: "Message CVT with the photo" },
@@ -9,8 +16,8 @@ const steps = [
 ];
 ---
 
-<div class="mt-10 grid gap-8 lg:grid-cols-[minmax(220px,260px)_1fr] lg:items-start">
-  <WhatsAppQr compact />
+<div class:list={["mt-10 grid gap-8", showQr && "lg:grid-cols-[minmax(220px,260px)_1fr] lg:items-start"]}>
+  {showQr && <WhatsAppQr compact />}
 
   <div class="grid gap-4 sm:grid-cols-2">
     {steps.map((step, i) => (

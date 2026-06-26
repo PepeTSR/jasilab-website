@@ -1,5 +1,7 @@
 ---
+import "../styles/global.css";
 import { isCvtRootSite } from "../lib/site";
+import ShDarkModeInit from "../components/cvt-shell/ShDarkModeInit.astro";
 
 interface Props {
   title: string;
@@ -8,9 +10,11 @@ interface Props {
   lightTheme?: boolean;
   /** Tesla uses system fonts only */
   skipInterFont?: boolean;
+  /** Superhuman — dark mode init script in head */
+  superhumanDarkMode?: boolean;
 }
 
-const { title, description, lightTheme = false, skipInterFont = false } = Astro.props;
+const { title, description, lightTheme = false, skipInterFont = false, superhumanDarkMode = false } = Astro.props;
 const defaultDescription = isCvtRootSite
   ? "CVT — trust platform for mobile identities. Verify a plate on WhatsApp in Uganda."
   : "JasiLab — research and products for trust infrastructure.";
@@ -50,6 +54,7 @@ const canonical = new URL(pathname, Astro.site ?? "http://localhost:4321");
     )}
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
+    {superhumanDarkMode && <ShDarkModeInit />}
   </head>
   <body class:list={["min-h-screen", lightTheme ? "bg-white text-[#292827]" : "bg-canvas text-ink"]}>
     <slot />

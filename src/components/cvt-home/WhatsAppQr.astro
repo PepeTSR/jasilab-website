@@ -6,9 +6,11 @@ interface Props {
   compact?: boolean;
   /** Light card on the Superhuman teal closing band */
   onTeal?: boolean;
+  /** Beside Get verified in teal CTA row (Partners) */
+  inline?: boolean;
 }
 
-const { compact = false, onTeal = false } = Astro.props;
+const { compact = false, onTeal = false, inline = false } = Astro.props;
 
 const qrColors = onTeal
   ? { fg: "1b1938", bg: "ffffff" }
@@ -21,13 +23,13 @@ const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSi
   class:list={[
     "flex flex-col items-center text-center",
     onTeal
-      ? "sh-teal-qr"
+      ? ["sh-teal-qr", inline && "sh-teal-qr--inline"]
       : "rounded-md border border-hairline bg-canvas-soft",
     !onTeal && (compact ? "gap-2 p-4" : "gap-3 p-6"),
   ]}
 >
   {!onTeal && <p class="eyebrow-mono !text-[10px] !tracking-widest text-mute">{cvtLiveLabel}</p>}
-  {onTeal && <p class="sh-teal-qr__label">Try the WhatsApp lookup</p>}
+  {onTeal && !inline && <p class="sh-teal-qr__label">Try the WhatsApp lookup</p>}
   <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class:list={["block", onTeal ? "sh-teal-qr__img-wrap" : "rounded-sm bg-canvas p-2"]}>
     <img
       src={qrSrc}
@@ -41,5 +43,5 @@ const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSi
   <p class:list={[onTeal ? "sh-teal-qr__hint" : "text-mute", !onTeal && (compact ? "text-xs" : "text-sm")]}>
     Scan to verify a plate on WhatsApp
   </p>
-  <p class:list={[onTeal ? "sh-teal-qr__phone" : "text-xs text-body"]}>{cvtWhatsAppPhone}</p>
+  {!inline && <p class:list={[onTeal ? "sh-teal-qr__phone" : "text-xs text-body"]}>{cvtWhatsAppPhone}</p>}
 </div>
