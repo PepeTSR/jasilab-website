@@ -59,6 +59,7 @@ export const cvtConcepts = [
 ] as const;
 
 export { cvtAppUrl };
+export const cvtWhatsAppPhone = "+256 792 497830";
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
 export const cvtAppHostname = new URL(cvtAppUrl).hostname;

@@ -7,7 +7,11 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "JasiLab — research and products for trust infrastructure." } = Astro.props;
+const { title, description } = Astro.props;
+const defaultDescription = isCvtRootSite
+  ? "CVT — trust platform for mobile identities. Verify a plate on WhatsApp in Uganda."
+  : "JasiLab — research and products for trust infrastructure.";
+const metaDescription = description ?? defaultDescription;
 
 let pathname = Astro.url.pathname;
 if (isCvtRootSite && pathname.startsWith("/cvt")) {
@@ -21,7 +25,8 @@ const canonical = new URL(pathname, Astro.site ?? "http://localhost:4321");
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
+    {isCvtRootSite && <meta name="generator" content="cvt-website" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

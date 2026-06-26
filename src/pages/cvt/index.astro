@@ -2,10 +2,11 @@
 import { cvtPath } from "../../lib/site";
 import CvtLayout from "../../layouts/CvtLayout.astro";
 import WhatsAppLookupSteps from "../../components/cvt-home/WhatsAppLookupSteps.astro";
+import WhatsAppQr from "../../components/cvt-home/WhatsAppQr.astro";
 import VisionTeaser from "../../components/cvt-home/VisionTeaser.astro";
 import { cvtWhatsAppUrl } from "../../lib/nav";
 import { cvtAppUrl } from "../../lib/site";
-import { cvtLiveLabel, cvtPilotCapabilities, cvtPilotLabel, cvtPlatformTagline, cvtProductName } from "../../lib/cvt-narrative";
+import { cvtPilotCapabilities, cvtPilotLabel, cvtPlatformTagline, cvtProductName } from "../../lib/cvt-narrative";
 
 const howItWorks = [
   {
@@ -35,40 +36,32 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
 
 <CvtLayout
   title="CVT — Trust. Visibility. Accountability."
-  description="CVT is a trust platform for mobile identities. Verify a plate on WhatsApp in Kampala — build reputation that travels with you."
+  description="CVT is a trust platform for mobile identities. Scan to verify a plate on WhatsApp in Kampala — build reputation that travels with you."
 >
   <!-- Hero -->
   <section class="section-band border-b border-hairline">
-    <div class="grid gap-12 lg:grid-cols-[1fr_minmax(280px,360px)] lg:items-start">
+    <div class="grid gap-12 lg:grid-cols-[1fr_minmax(260px,300px)] lg:items-start">
       <div>
         <p class="eyebrow-mono">{cvtProductName}</p>
         <h1 class="display-xl mt-4 max-w-2xl">{cvtPlatformTagline}</h1>
-        <p class="mt-5 text-xl text-ink">Verify a boda or taxi in Kampala on WhatsApp. Build portable trust that travels with you.</p>
+        <p class="mt-5 text-xl text-ink">Scan to verify a boda or taxi on WhatsApp. Build portable trust that travels with you.</p>
         <p class="mt-4 max-w-xl text-body">
           CVT turns verification, qualifications and accountable records into reputation workers and businesses can prove — across employers, insurers and customers.
         </p>
 
         <div class="mt-10 flex flex-wrap gap-3">
-          <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Try WhatsApp lookup</a>
+          <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Open WhatsApp</a>
           <a href={cvtPath("partners")} class="btn-outline">For partners</a>
         </div>
       </div>
 
-      <div class="code-mockup">
-        <p class="text-mute mb-3 text-xs uppercase tracking-widest">{cvtLiveLabel} · WhatsApp</p>
-        <p><span class="text-primary">→</span> Send plate photo</p>
-        <p><span class="text-primary">→</span> <span class="text-body">+256 792 497830</span></p>
-        <p class="mt-4 text-mute">// response</p>
-        <p class="text-primary-soft">status: verified</p>
-        <p>vehicle: <span class="text-ink">Boda · CVT-RDR-2026-000042</span></p>
-        <p>standing: <span class="text-primary">Good Standing</span></p>
-      </div>
+      <WhatsAppQr />
     </div>
   </section>
 
   <!-- What's live -->
   <section id="whats-live" class="section-band section-divider border-t border-hairline bg-canvas-soft/30 scroll-mt-20">
-    <p class="eyebrow-mono">{cvtLiveLabel}</p>
+    <p class="eyebrow-mono">Live now</p>
     <h2 class="display-md mt-4">What's live — {cvtPilotLabel}</h2>
     <p class="map-lead mt-4 max-w-3xl">
       Boda bodas, taxis and special hire in Kampala. Verification, lookups and trust records are operational on the registry at{" "}

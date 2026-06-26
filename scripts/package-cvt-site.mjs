@@ -81,7 +81,7 @@ if (!indexHtml.includes("CVT — Trust")) {
   console.error("dist-cvt/index.html is not the CVT homepage — check build:cvt output");
   process.exit(1);
 }
-if (/HAY|CareHome|JasiLab — Research/i.test(indexHtml)) {
+if (/HAY|CareHome|JasiLab — Research|Research · Products/i.test(indexHtml)) {
   console.error("dist-cvt/index.html contains JasiLab product content — wrong assets packaged");
   process.exit(1);
 }

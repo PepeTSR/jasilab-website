@@ -70,14 +70,8 @@ const footerNav = getCvtFooterNav();
       </div>
     </div>
 
-    <div class="mt-10 flex flex-col gap-2 border-t border-hairline pt-6 text-sm text-mute sm:flex-row sm:items-center sm:justify-between">
-      <p>© {new Date().getFullYear()} CVT · Built by <a href={jasilabUrl} class="text-body hover:text-primary-soft">JasiLab</a></p>
-      {!isCvtRootSite && (
-        <p>
-          Product home:{" "}
-          <a href="https://cvt.co.ug" class="text-body hover:text-primary-soft">cvt.co.ug</a>
-        </p>
-      )}
+    <div class="mt-10 border-t border-hairline pt-6 text-center text-xs text-mute">
+      <p>© {new Date().getFullYear()} CVT · Created by <a href={jasilabUrl} class="text-body hover:text-primary-soft">JasiLab</a></p>
     </div>
   </div>
 </footer>
