@@ -1,3 +1,0 @@
-# Redirect legacy jasilab.net/cvt paths to cvt.co.ug
-/cvt https://cvt.co.ug/ 301
-/cvt/* https://cvt.co.ug/:splat 301

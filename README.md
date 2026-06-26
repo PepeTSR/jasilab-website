@@ -36,7 +36,7 @@ npm run preview:cvt
 
 - Build: `npm run build`
 - Deploy: `npx wrangler deploy`
-- Redirects `/cvt/*` → `cvt.co.ug` via `public/_redirects`
+- Serves JasiLab at `/` and CVT at `/cvt` — no redirect to cvt.co.ug
 
 **cvt.co.ug** (second Worker — create in Cloudflare Dashboard):
 

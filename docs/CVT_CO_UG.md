@@ -1,12 +1,13 @@
 # CVT on cvt.co.ug
 
-CVT public marketing content moved from `jasilab.net/cvt` to **https://cvt.co.ug** (root paths).
+CVT has its own product home at **https://cvt.co.ug**. JasiLab remains at **https://jasilab.net** (including `/cvt`).
 
 ## Architecture
 
 - **One repo** (`jasilab-website`), two Cloudflare Workers:
-  - `jasilab-website` → jasilab.net (JasiLab + redirects)
-  - `cvt-website` → cvt.co.ug (CVT pages at `/`, not `/cvt`)
+  - `jasilab-website` → **jasilab.net** (JasiLab + CVT at `/cvt`)
+  - `cvt-website` → **cvt.co.ug** (CVT pages at `/`, not `/cvt`)
+- **No forced redirect** from jasilab.net to cvt.co.ug — both sites coexist
 - **Path helper** `src/lib/site.ts` — `PUBLIC_CVT_BASE` empty for cvt.co.ug, `/cvt` for jasilab
 - **Package step** `scripts/package-cvt-site.mjs` lifts `dist/cvt/` → `dist-cvt/` and rewrites links
 
@@ -16,31 +17,34 @@ CVT public marketing content moved from `jasilab.net/cvt` to **https://cvt.co.ug
 2. Connect same GitHub repo
 3. Build command: `npm run build:cvt`
 4. Deploy command: `npx wrangler deploy --config wrangler.cvt.toml`
-5. Settings → Domains → Add **cvt.co.ug**
+5. Settings → Domains → Add **cvt.co.ug** only (not jasilab.net)
 
-## jasilab.net redirects
+## jasilab.net must stay separate
 
-`public/_redirects` sends `/cvt` and `/cvt/*` to cvt.co.ug (301).
+| Domain | Worker | Build |
+|--------|--------|-------|
+| jasilab.net | `jasilab-website` | `npm run build` + `wrangler deploy` |
+| cvt.co.ug | `cvt-website` | `npm run build:cvt` + `wrangler.cvt.toml` |
 
-## Troubleshooting
+**If jasilab.net redirects to cvt.co.ug entirely**, check Cloudflare:
 
-**Homepage shows JasiLab (Research & Products), subpages 404**
+1. **DNS** — `jasilab.net` must not CNAME to `cvt.co.ug`
+2. **Rules → Redirect Rules** — delete any rule sending `jasilab.net/*` → `cvt.co.ug`
+3. **Workers → Domains** — `jasilab.net` on `jasilab-website` only; `cvt.co.ug` on `cvt-website` only
 
-`cvt.co.ug` is attached to the wrong worker or `cvt-website` deployed with the default `wrangler.toml` (`dist/`) instead of `wrangler.cvt.toml` (`dist-cvt/`).
+## Troubleshooting cvt.co.ug
 
-1. **jasilab-website** → Settings → Domains — **remove** `cvt.co.ug` if listed
-2. **cvt-website** → Settings → Builds — confirm:
-   - Build: `npm run build:cvt`
-   - Deploy: `npx wrangler deploy --config wrangler.cvt.toml`
-3. Retry deployment on **cvt-website**
-4. **cvt-website** → Domains — add `cvt.co.ug` (only on this worker)
+**Homepage shows JasiLab, subpages 404**
 
-Quick check after fix: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT — Trust**, not JasiLab.
+`cvt.co.ug` is on the wrong worker or `cvt-website` deployed with `wrangler.toml` (`dist/`) instead of `wrangler.cvt.toml` (`dist-cvt/`).
+
+Quick check: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT — Trust**, not JasiLab.
 
 ## App vs marketing
 
 | URL | Purpose |
 |-----|---------|
-| cvt.co.ug | Public story, vision, guides, concepts |
+| cvt.co.ug | CVT product home |
+| jasilab.net | JasiLab research & products |
+| jasilab.net/cvt | CVT on JasiLab (same content, `/cvt` prefix) |
 | cvt.jasilab.net | Live registry app (workspace-cvt) |
-| jasilab.net | JasiLab lab site |

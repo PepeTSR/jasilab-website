@@ -10,7 +10,7 @@ export const jasiLabNav = [
 
 export const productLinks = [
   {
-    href: "https://cvt.co.ug",
+    href: "/cvt",
     label: "CVT",
     tagline: "Trust platform for mobile identities — live in Kampala commercial transport.",
   },
