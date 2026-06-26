@@ -47,4 +47,4 @@ Quick check: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT —
 | cvt.co.ug | CVT product home |
 | jasilab.net | JasiLab research & products |
 | jasilab.net/cvt | CVT on JasiLab (same content, `/cvt` prefix) |
-| cvt.jasilab.net | Live registry app (workspace-cvt) |
+| cvt.ug | Live registry app (workspace-cvt) |

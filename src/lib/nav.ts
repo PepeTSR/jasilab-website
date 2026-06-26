@@ -1,4 +1,4 @@
-import { cvtPath } from "./site";
+import { cvtAppUrl, cvtPath } from "./site";
 
 export const jasiLabNav = [
   { href: "/research", label: "Research" },
@@ -18,15 +18,31 @@ export const productLinks = [
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
 ] as const;
 
-export function getCvtNav() {
+export type CvtNavItem = {
+  href: string;
+  label: string;
+  external?: boolean;
+};
+
+/** Primary product nav — kept short for cvt.co.ug */
+export function getCvtNav(): CvtNavItem[] {
   return [
     { href: cvtPath(), label: "Home" },
+    { href: cvtPath("#how-it-works"), label: "How it works" },
     { href: cvtPath("vision"), label: "Vision" },
-    { href: cvtPath("map"), label: "Map" },
-    { href: cvtPath("roadmap"), label: "Roadmap" },
+    { href: cvtPath("partners"), label: "Partners" },
+    { href: cvtWhatsAppUrl, label: "Try lookup", external: true },
+  ];
+}
+
+/** Secondary links — footer and explore sections */
+export function getCvtFooterNav(): CvtNavItem[] {
+  return [
     { href: cvtPath("guides"), label: "Guides" },
+    { href: cvtPath("roadmap"), label: "Roadmap" },
+    { href: cvtPath("map"), label: "Map" },
     { href: cvtPath("concepts"), label: "Concepts" },
-    { href: cvtPath("blog"), label: "Blog" },
+    { href: cvtAppUrl, label: "Registry app", external: true },
   ];
 }
 
@@ -42,17 +58,16 @@ export const cvtConcepts = [
   { slug: "hard-search", title: "Hard Search", summary: "Tier 3 — restricted legal disclosure with manual approval." },
 ] as const;
 
-export const cvtAppUrl = "https://cvt.jasilab.net";
-
+export { cvtAppUrl };
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
+
+export const cvtAppHostname = new URL(cvtAppUrl).hostname;
 
 export function getCvtExploreLinks() {
   return [
     { href: cvtPath("vision"), label: "Vision", desc: "Why portable trust matters for Uganda and beyond" },
-    { href: cvtPath("map"), label: "Project map", desc: "From transport to full platform" },
-    { href: cvtPath("roadmap"), label: "Roadmap", desc: "What's live and what's next" },
-    { href: cvtPath("concepts"), label: "Concepts", desc: "Plain-language explainers" },
-    { href: cvtPath("guides"), label: "Guides", desc: "Policies and partner overview" },
+    { href: cvtPath("partners"), label: "Partners", desc: "Insurers, employers and integration" },
+    { href: cvtPath("guides"), label: "Guides", desc: "Policies and frameworks" },
     { href: cvtPath("#whats-live"), label: "Try lookup", desc: "WhatsApp plate verification" },
   ];
 }

@@ -2,6 +2,8 @@
 import BaseLayout from "./BaseLayout.astro";
 import CvtHeader from "../components/CvtHeader.astro";
 import CvtFooter from "../components/CvtFooter.astro";
+import CvtMobileBar from "../components/CvtMobileBar.astro";
+import { isCvtRootSite } from "../lib/site";
 
 interface Props {
   title: string;
@@ -14,9 +16,10 @@ const { title, description } = Astro.props;
 <BaseLayout title={title} description={description}>
   <div class="flex min-h-screen flex-col bg-canvas">
     <CvtHeader />
-    <main class="flex-1">
+    <main class="flex-1 pb-20 sm:pb-0">
       <slot />
     </main>
     <CvtFooter />
+    {isCvtRootSite && <CvtMobileBar />}
   </div>
 </BaseLayout>

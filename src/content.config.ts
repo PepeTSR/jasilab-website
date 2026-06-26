@@ -7,6 +7,8 @@ const cvtGuides = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     order: z.number().default(99),
+    /** When false, guide is partner-only and excluded from the public site build */
+    public: z.boolean().default(true),
   }),
 });
 

@@ -2,9 +2,10 @@
 title: "Partner Integration Guide"
 description: "API authentication, search categories, access tiers, and audit requirements for CVT partners."
 order: 2
+public: false
 ---
 
-This guide covers how partner organisations integrate with CVT Trust Profile APIs on **cvt.jasilab.net**. Every partner lookup requires credentials, **purpose-specific consent**, and a declared search category.
+This guide covers how partner organisations integrate with CVT Trust Profile APIs on **cvt.ug**. Every partner lookup requires credentials, **purpose-specific consent**, and a declared search category.
 
 ## Before you integrate
 
@@ -21,7 +22,7 @@ This guide covers how partner organisations integrate with CVT Trust Profile API
 ## Base URL
 
 ```
-https://cvt.jasilab.net/api/v1/partner/
+https://cvt.ug/api/v1/partner/
 ```
 
 ## Authentication
@@ -101,7 +102,7 @@ SACCOs: **Soft only**. Employers: **never Hard**. See party matrix in [Trust Pro
 
 ## Partner portal
 
-CVT provides a web partner portal at `https://cvt.jasilab.net/{locale}/partner` for manual searches during integration and testing. Production integrations should use the API.
+CVT provides a web partner portal at `https://cvt.ug/{locale}/partner` for manual searches during integration and testing. Production integrations should use the API.
 
 ## Audit and compliance
 

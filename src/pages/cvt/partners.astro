@@ -1,0 +1,97 @@
+---
+import { cvtPath, cvtContactEmail } from "../../lib/site";
+import CvtLayout from "../../layouts/CvtLayout.astro";
+import { getPublicGuides } from "../../lib/cvt-guides";
+
+const publicGuides = await getPublicGuides();
+
+const partnerTypes = [
+  {
+    title: "Insurers",
+    body: "Consent-gated trust signals for underwriting, fleet programmes and risk pooling — without raw accusations affecting standing.",
+  },
+  {
+    title: "Employers & fleets",
+    body: "Verify standing before hire, monitor compliance and access Trust Profiles under explicit worker consent.",
+  },
+  {
+    title: "SACCOs & stages",
+    body: "Extend community reputation into portable records riders and operators can carry beyond one stage or route.",
+  },
+  {
+    title: "Regulators & programmes",
+    body: "Auditable registry, moderated incident workflows and explainable trust — built for informal economies.",
+  },
+];
+
+const accessTiers = [
+  { name: "Soft Search", desc: "Summary standing for screening and routing — no conduct detail." },
+  { name: "Enhanced Search", desc: "Employer-grade detail when a registrant grants purpose-specific consent." },
+  { name: "Hard Search", desc: "Restricted legal disclosure — contract, manual approval and audit only." },
+];
+---
+
+<CvtLayout
+  title="Partners — CVT"
+  description="Partner with CVT for consent-gated trust profiles, registry access and integration — insurers, employers, fleets and programmes in Uganda."
+>
+  <section class="section-band border-b border-hairline">
+    <p class="eyebrow-mono">Partners</p>
+    <h1 class="display-xl mt-4 max-w-3xl">Build on trusted identities</h1>
+    <p class="map-lead mt-5 max-w-2xl">
+      CVT is live in Kampala commercial transport. Partners access consent-gated Trust Profiles and registry signals through governed tiers — not open data dumps.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href={`mailto:${cvtContactEmail}?subject=CVT%20partner%20enquiry`} class="btn-primary">Contact partnerships</a>
+      <a href={cvtPath("guides")} class="btn-outline">Public policy guides</a>
+    </div>
+  </section>
+
+  <section class="section-band section-divider">
+    <p class="map-kicker">Who we work with</p>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {partnerTypes.map((item) => (
+        <div class="card-feature">
+          <h2 class="text-lg font-semibold text-ink-strong">{item.title}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-body">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-band section-divider border-t border-hairline">
+    <p class="map-kicker">Access model</p>
+    <h2 class="display-md mt-4">Governed partner tiers</h2>
+    <p class="map-lead mt-3 max-w-2xl">
+      Every lookup requires partner credentials, declared purpose and registrant consent. Technical integration specs are shared under agreement.
+    </p>
+    <ul class="mt-8 grid gap-4 sm:grid-cols-3">
+      {accessTiers.map((tier) => (
+        <li class="card-soft p-5">
+          <h3 class="font-semibold text-primary-soft">{tier.name}</h3>
+          <p class="mt-2 text-sm text-body">{tier.desc}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section-band section-divider border-t border-hairline bg-canvas-soft/30">
+    <p class="map-kicker">Start here</p>
+    <h2 class="display-md mt-4">Public guides</h2>
+    <p class="map-lead mt-3">Policy overviews available on this site. API documentation and sandbox access are provided during onboarding.</p>
+    <ul class="mt-8 divide-y divide-hairline rounded-md border border-hairline">
+      {publicGuides.map((guide) => (
+        <li>
+          <a href={cvtPath(`guides/${guide.id}`)} class="block px-5 py-4 transition hover:bg-canvas-soft">
+            <p class="font-semibold text-ink-strong">{guide.data.title}</p>
+            {guide.data.description && <p class="mt-1 text-sm text-mute">{guide.data.description}</p>}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-8 text-sm text-mute">
+      Technical integration guide available on request — email{" "}
+      <a href={`mailto:${cvtContactEmail}`} class="text-primary-deep hover:text-primary">{cvtContactEmail}</a>
+    </p>
+  </section>
+</CvtLayout>

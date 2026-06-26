@@ -1,0 +1,33 @@
+---
+import { cvtPath } from "../../lib/site";
+import { cvtLiveLabel, cvtPilotCapabilities, cvtPilotLabel } from "../../lib/cvt-narrative";
+import { cvtWhatsAppUrl } from "../../lib/nav";
+
+const steps = [
+  { title: "Take photo", desc: "Photograph the number plate" },
+  { title: "Send to WhatsApp", desc: "Message CVT on WhatsApp" },
+  { title: "Receive verification", desc: "Get status and vehicle details" },
+  { title: "Help grow the network", desc: "Every lookup expands coverage" },
+];
+---
+
+<div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  {steps.map((step, i) => (
+    <div class="card-feature relative">
+      {i < steps.length - 1 && (
+        <span class="absolute -right-2 top-1/2 hidden -translate-y-1/2 text-mute lg:inline" aria-hidden="true">→</span>
+      )}
+      <p class="code-chip w-fit">{String(i + 1).padStart(2, "0")}</p>
+      <h3 class="mt-3 font-semibold text-ink-strong">{step.title}</h3>
+      <p class="mt-1 text-sm text-body">{step.desc}</p>
+    </div>
+  ))}
+</div>
+
+<p class="mt-8 text-sm text-body">
+  No app install. No account. Send a plate to <strong class="text-ink">+256 792 497830</strong> on WhatsApp.
+</p>
+
+<div class="mt-6 flex flex-wrap gap-3">
+  <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Open WhatsApp</a>
+</div>

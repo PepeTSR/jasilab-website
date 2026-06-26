@@ -1,11 +1,10 @@
 ---
-import { getCvtNav, cvtAppUrl } from "../lib/nav";
-import { cvtContactEmail, isCvtRootSite, jasilabUrl } from "../lib/site";
+import { cvtAppHostname, cvtWhatsAppUrl, getCvtFooterNav, getCvtNav } from "../lib/nav";
+import { cvtContactEmail, cvtAppUrl, isCvtRootSite, jasilabUrl } from "../lib/site";
 import { cvtPlatformTagline } from "../lib/cvt-narrative";
 
-const nav = getCvtNav().filter((item) => item.label !== "Home");
-const platformLinks = nav.slice(0, 4);
-const resourceLinks = nav.slice(4);
+const mainNav = getCvtNav().filter((item) => item.label !== "Home" && item.label !== "Try lookup");
+const footerNav = getCvtFooterNav();
 ---
 
 <footer class="border-t border-hairline bg-canvas-soft/20">
@@ -17,35 +16,42 @@ const resourceLinks = nav.slice(4);
         <p class="mt-2 text-sm text-primary-soft">{cvtPlatformTagline}</p>
         {isCvtRootSite && (
           <p class="mt-4 text-sm text-body">
-            Portable trust for people who provide services — starting with commercial transport in Uganda.
+            Portable trust for service providers — live in Kampala commercial transport.
           </p>
         )}
       </div>
 
       <div>
-        <p class="eyebrow-mono mb-3">Platform</p>
+        <p class="eyebrow-mono mb-3">Product</p>
         <ul class="space-y-2 text-sm">
-          {platformLinks.map((item) => (
-            <li>
-              <a href={item.href} class="text-body hover:text-primary-soft">{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div>
-        <p class="eyebrow-mono mb-3">Resources</p>
-        <ul class="space-y-2 text-sm">
-          {resourceLinks.map((item) => (
+          {mainNav.map((item) => (
             <li>
               <a href={item.href} class="text-body hover:text-primary-soft">{item.label}</a>
             </li>
           ))}
           <li>
-            <a href={cvtAppUrl} class="text-body hover:text-primary-soft" target="_blank" rel="noopener">
-              Live registry ↗
+            <a href={cvtWhatsAppUrl} class="text-body hover:text-primary-soft" target="_blank" rel="noopener">
+              WhatsApp lookup ↗
             </a>
           </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="eyebrow-mono mb-3">More</p>
+        <ul class="space-y-2 text-sm">
+          {footerNav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-body hover:text-primary-soft"
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener" : undefined}
+              >
+                {item.label}{item.external ? " ↗" : ""}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -55,7 +61,11 @@ const resourceLinks = nav.slice(4);
           <li>
             <a href={`mailto:${cvtContactEmail}`} class="hover:text-primary-soft">{cvtContactEmail}</a>
           </li>
-          <li>Partners & insurers welcome</li>
+          <li>
+            <a href={cvtAppUrl} class="hover:text-primary-soft" target="_blank" rel="noopener">
+              {cvtAppHostname} ↗
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -64,7 +74,7 @@ const resourceLinks = nav.slice(4);
       <p>© {new Date().getFullYear()} CVT · Built by <a href={jasilabUrl} class="text-body hover:text-primary-soft">JasiLab</a></p>
       {!isCvtRootSite && (
         <p>
-          This site lives at{" "}
+          Product home:{" "}
           <a href="https://cvt.co.ug" class="text-body hover:text-primary-soft">cvt.co.ug</a>
         </p>
       )}

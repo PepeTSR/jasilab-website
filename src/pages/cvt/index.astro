@@ -1,32 +1,32 @@
 ---
 import { cvtPath } from "../../lib/site";
 import CvtLayout from "../../layouts/CvtLayout.astro";
-import WhatsAppMagic from "../../components/cvt-home/WhatsAppMagic.astro";
-import JourneyPath from "../../components/cvt-home/JourneyPath.astro";
-import DocsFooter from "../../components/cvt-home/DocsFooter.astro";
+import WhatsAppLookupSteps from "../../components/cvt-home/WhatsAppLookupSteps.astro";
+import VisionTeaser from "../../components/cvt-home/VisionTeaser.astro";
 import { cvtWhatsAppUrl } from "../../lib/nav";
-import { cvtLiveLabel, cvtPilotLabel, cvtPilotCapabilities, cvtPlatformTagline, cvtProductName } from "../../lib/cvt-narrative";
+import { cvtAppUrl } from "../../lib/site";
+import { cvtLiveLabel, cvtPilotCapabilities, cvtPilotLabel, cvtPlatformTagline, cvtProductName } from "../../lib/cvt-narrative";
 
 const howItWorks = [
   {
     title: "Verify",
-    body: "Approved staff register people and assets, verify documents, and maintain an auditable registry. Today this covers boda riders, taxis and special hire in Kampala; the same process extends to other service categories.",
+    body: "Approved staff register people and assets, verify documents and maintain an auditable registry — today for boda, taxi and special hire in Kampala.",
   },
   {
     title: "Lookup",
-    body: "Anyone can check verification status through channels people already use. The pilot runs on WhatsApp plate lookup — unknown vehicles are captured and added to the network over time.",
+    body: "Anyone checks verification status on channels people already use. WhatsApp plate lookup is live; unknown plates are captured into the network.",
   },
   {
     title: "Build trust",
-    body: "Trust grows through verified history, training, insurance, and positive conduct. Complaints only affect standing after moderation and review — not from raw accusations.",
+    body: "Standing grows from verified history, training, insurance and conduct. Complaints only affect trust after moderation — not raw accusations.",
   },
   {
     title: "Share with consent",
-    body: "Workers can share their Trust Profile with employers, fleets, insurers or partners. Individuals remain in control of what is disclosed and to whom.",
+    body: "Workers share Trust Profiles with employers, fleets or insurers. Individuals control what is disclosed and to whom.",
   },
   {
     title: "Reward good behaviour",
-    body: "CVT focuses on long-term reputation and rehabilitation rather than punishment. Trust is based on verified facts and evolves over time.",
+    body: "Long-term reputation and rehabilitation over punishment. Trust is explainable and evolves from verified facts.",
   },
 ];
 
@@ -35,7 +35,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
 
 <CvtLayout
   title="CVT — Trust. Visibility. Accountability."
-  description="CVT is a trust platform for mobile identities. Verify through WhatsApp, build reputation that travels with you — live in Kampala commercial transport."
+  description="CVT is a trust platform for mobile identities. Verify a plate on WhatsApp in Kampala — build reputation that travels with you."
 >
   <!-- Hero -->
   <section class="section-band border-b border-hairline">
@@ -43,19 +43,19 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
       <div>
         <p class="eyebrow-mono">{cvtProductName}</p>
         <h1 class="display-xl mt-4 max-w-2xl">{cvtPlatformTagline}</h1>
-        <p class="mt-5 text-xl text-ink">Trusted identities for people who provide services.</p>
+        <p class="mt-5 text-xl text-ink">Verify a boda or taxi in Kampala on WhatsApp. Build portable trust that travels with you.</p>
         <p class="mt-4 max-w-xl text-body">
-          CVT turns verification, qualifications and accountable records into portable reputation — so workers and businesses can prove who they are and earn opportunity through trust.
+          CVT turns verification, qualifications and accountable records into reputation workers and businesses can prove — across employers, insurers and customers.
         </p>
 
         <div class="mt-10 flex flex-wrap gap-3">
-          <a href={cvtPath("vision")} class="btn-outline">Our vision</a>
-          <a href="#whats-live" class="btn-primary">What's live today</a>
+          <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Try WhatsApp lookup</a>
+          <a href={cvtPath("partners")} class="btn-outline">For partners</a>
         </div>
       </div>
 
       <div class="code-mockup">
-        <p class="text-mute mb-3 text-xs uppercase tracking-widest">{cvtLiveLabel} · WhatsApp lookup</p>
+        <p class="text-mute mb-3 text-xs uppercase tracking-widest">{cvtLiveLabel} · WhatsApp</p>
         <p><span class="text-primary">→</span> Send plate photo</p>
         <p><span class="text-primary">→</span> <span class="text-body">+256 792 497830</span></p>
         <p class="mt-4 text-mute">// response</p>
@@ -66,67 +66,32 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     </div>
   </section>
 
-  <!-- What is CVT -->
-  <section id="what-is-cvt" class="section-band section-divider scroll-mt-20">
-    <p class="eyebrow-mono">What we do</p>
-    <h2 class="display-xl mt-4">Trust infrastructure for service providers</h2>
-    <p class="mt-3 text-xl text-primary-soft">{cvtPlatformTagline}</p>
-
-    <div class="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-body">
-      <p>
-        <strong class="text-ink-strong">CVT (Connected Verification Terminal)</strong> helps people build trusted, mobile identities for the services they provide.
-      </p>
-      <p>
-        Through verification, qualifications, experience and accountable service records, workers and businesses earn reputations that travel with them — across employers, insurers, fleets and customers.
-      </p>
-      <p>
-        We launched in commercial transport in Uganda because the trust challenges are urgent and the channels are already in people's pockets. The same platform extends to plumbers, caregivers, tradespeople and small businesses.
-      </p>
-      <p>
-        Whether you are a boda rider, taxi driver, plumber, electrician, nurse, nanny or small business owner, CVT helps you prove who you are, showcase your skills and create opportunities through trust.
-      </p>
-    </div>
-
-    <p class="mt-10 max-w-3xl text-lg text-body">
-      Transport is not our business.<br />
-      <strong class="text-2xl font-semibold text-ink-strong">Trust is.</strong>
-    </p>
-
-    <p class="mt-6">
-      <a href={cvtPath("vision")} class="btn-ghost !px-0 !text-sm">Why trust infrastructure matters →</a>
-    </p>
-  </section>
-
-  <!-- What's live: commercial transport -->
+  <!-- What's live -->
   <section id="whats-live" class="section-band section-divider border-t border-hairline bg-canvas-soft/30 scroll-mt-20">
     <p class="eyebrow-mono">{cvtLiveLabel}</p>
-    <h2 class="display-md mt-4">What's live today — {cvtPilotLabel}</h2>
+    <h2 class="display-md mt-4">What's live — {cvtPilotLabel}</h2>
     <p class="map-lead mt-4 max-w-3xl">
-      Boda bodas, taxis and special hire in Kampala. Real verification, real lookups, real trust records — operational on the registry and through WhatsApp.
+      Boda bodas, taxis and special hire in Kampala. Verification, lookups and trust records are operational on the registry at{" "}
+      <a href={cvtAppUrl} target="_blank" rel="noopener" class="text-primary-deep hover:text-primary">cvt.ug</a>.
     </p>
 
-    <ul class="mt-8 flex flex-wrap gap-2">
+    <ul class="mt-6 flex flex-wrap gap-2">
       {cvtPilotCapabilities.map((f) => (
         <li class="pill-tag-live"><span class="text-primary">✓</span> {f}</li>
       ))}
     </ul>
 
-    <div class="mt-10 flex flex-wrap gap-3">
-      <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Try WhatsApp Lookup</a>
-      <a href={cvtPath("roadmap#live-today")} class="btn-outline">What else is operational</a>
-    </div>
+    <WhatsAppLookupSteps />
   </section>
 
-  <WhatsAppMagic />
-
-  <!-- How it works: general model, pilot today -->
-  <section class="section-band section-divider border-t border-hairline">
+  <!-- How it works -->
+  <section id="how-it-works" class="section-band section-divider border-t border-hairline scroll-mt-20">
     <p class="map-kicker">How it works</p>
     <h2 class="display-md">The trust model</h2>
     <p class="map-lead max-w-3xl">
-      These steps apply to any service provider on CVT. Commercial transport in Kampala is where they run end-to-end today — from registry to Trust Profile.
+      Five steps that apply to any service provider. Commercial transport in Kampala runs them end-to-end today.
     </p>
-    <ol class="mt-10 max-w-3xl space-y-8">
+    <ol class="mt-10 max-w-3xl space-y-6">
       {howItWorks.map((step, i) => (
         <li class="flex gap-5">
           <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border border-primary/40 bg-canvas text-sm font-semibold text-primary">
@@ -141,20 +106,20 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     </ol>
   </section>
 
-  <!-- Trust infrastructure destination -->
+  <!-- Trust Passport -->
   <section id="trust-infrastructure" class="section-band green-divider-band scroll-mt-20">
-    <p class="map-kicker">Where it leads</p>
-    <h2 class="display-md">Trust grows over time</h2>
-    <p class="map-lead">Not a hidden score — a passport built from verified facts. Today's transport registry feeds the same trust layer that will serve plumbers, caregivers and small businesses.</p>
+    <p class="map-kicker">The product</p>
+    <h2 class="display-md">Trust Passport</h2>
+    <p class="map-lead">Not a hidden score — a passport built from verified facts. Today's transport registry feeds the trust layer that will serve other service providers.</p>
 
-    <div class="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-      <a href={cvtPath("concepts/trust-profile")} class="card-feature !py-4 text-sm font-semibold">Trust Profile</a>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+      <span class="card-feature !py-4 text-sm font-semibold">Trust Profile</span>
       <span class="text-xl text-primary/50">+</span>
-      <a href={cvtPath("concepts/trust-timeline")} class="card-feature !py-4 text-sm font-semibold">Trust Timeline</a>
+      <span class="card-feature !py-4 text-sm font-semibold">Trust Timeline</span>
       <span class="text-xl text-primary/50">+</span>
-      <a href={cvtPath("concepts/trust-level")} class="card-feature !py-4 text-sm font-semibold">Trust Level</a>
+      <span class="card-feature !py-4 text-sm font-semibold">Trust Level</span>
       <span class="text-xl text-primary/50">=</span>
-      <a href={cvtPath("concepts/trust-passport")} class="card-feature-emphasis !py-4 text-sm font-semibold text-primary-soft">Trust Passport</a>
+      <span class="card-feature-emphasis !py-4 text-sm font-semibold text-primary-soft">Trust Passport</span>
     </div>
 
     <p class="mt-8 text-center text-sm text-mute">Trust is earned through</p>
@@ -166,6 +131,5 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     </p>
   </section>
 
-  <JourneyPath />
-  <DocsFooter />
+  <VisionTeaser />
 </CvtLayout>

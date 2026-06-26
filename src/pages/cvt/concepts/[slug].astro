@@ -1,5 +1,5 @@
 ---
-import { cvtPath } from "../../../lib/site";
+import { cvtContactEmail, cvtPath } from "../../../lib/site";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 import { cvtConcepts } from "../../../lib/nav";
 
@@ -15,6 +15,6 @@ const { concept } = Astro.props;
     <a href={cvtPath("concepts")} class="btn-ghost !px-0 !py-0 !text-sm">← All concepts</a>
     <h1 class="display-lg mt-6">{concept.title}</h1>
     <p class="mt-6 text-lg text-body">{concept.summary}</p>
-    <p class="mt-8 text-sm text-mute">For partner integrations and detailed policies, see the <a href={cvtPath("guides")}>guides</a> or contact <a href="mailto:hello@jasilab.net">hello@jasilab.net</a>.</p>
+    <p class="mt-8 text-sm text-mute">For partner integrations and detailed policies, see the <a href={cvtPath("guides")}>guides</a> or contact <a href={`mailto:${cvtContactEmail}`}>{cvtContactEmail}</a>.</p>
   </section>
 </CvtLayout>

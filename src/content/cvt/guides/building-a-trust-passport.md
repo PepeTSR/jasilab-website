@@ -57,7 +57,7 @@ Conduct events enter **only after Stage B moderation** completes — never from 
 
 | Channel | URL / endpoint |
 |---------|----------------|
-| **Web passport** | `https://cvt.jasilab.net/{locale}/passport/{verificationId}` |
+| **Web passport** | `https://cvt.ug/{locale}/passport/{verificationId}` |
 | **Public API (JSON)** | `GET /api/v1/passport/{verificationId}?format=json` |
 
 Example JSON fields: `verification_id`, `trust_level`, `standing`, `profile`, `timeline`, `policy_version`, `disclaimers`.

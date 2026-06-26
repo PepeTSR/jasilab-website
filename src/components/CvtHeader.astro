@@ -1,40 +1,57 @@
 ---
-import { getCvtNav, cvtAppUrl } from "../lib/nav";
-import { cvtHomeHref, isActiveCvtNav, isCvtRootSite, jasilabUrl } from "../lib/site";
+import { cvtAppUrl, cvtWhatsAppUrl, getCvtNav, type CvtNavItem } from "../lib/nav";
+import { cvtHomeHref, isActiveCvtNav, isCvtRootSite } from "../lib/site";
 
 const current = Astro.url.pathname;
 const cvtNav = getCvtNav();
 const homeHref = cvtHomeHref();
+
+function navLinkProps(item: CvtNavItem) {
+  if (item.external) {
+    return { href: item.href, target: "_blank", rel: "noopener" };
+  }
+  return { href: item.href };
+}
 ---
 
 <header class="nav-bar sticky top-0 z-50">
   <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-    {isCvtRootSite ? (
-      <a href={homeHref} class="group flex flex-col gap-0.5">
-        <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
-        <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
-      </a>
-    ) : (
-      <div class="flex items-center gap-3">
-        <a href="/" class="eyebrow-mono !text-mute hover:text-body">JasiLab</a>
-        <span class="text-hairline">/</span>
-        <a href={homeHref} class="text-lg font-semibold text-ink-strong">CVT</a>
-      </div>
-    )}
+    <a href={homeHref} class="group flex flex-col gap-0.5">
+      {isCvtRootSite ? (
+        <>
+          <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
+          <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
+        </>
+      ) : (
+        <div class="flex items-center gap-3">
+          <span class="eyebrow-mono !text-mute">JasiLab</span>
+          <span class="text-hairline">/</span>
+          <span class="text-lg font-semibold text-ink-strong">CVT</span>
+        </div>
+      )}
+    </a>
+
     <nav class="flex flex-wrap gap-1">
       {cvtNav.map((item) => (
         <a
-          href={item.href}
+          {...navLinkProps(item)}
           class:list={[
-            isActiveCvtNav(current, item.href, homeHref) ? "nav-link-active" : "nav-link",
+            item.external ? "nav-link" : isActiveCvtNav(current, item.href, homeHref) ? "nav-link-active" : "nav-link",
+            item.external && "text-primary-deep",
           ]}
         >
-          {item.label}
+          {item.label}{item.external ? " ↗" : ""}
         </a>
       ))}
     </nav>
-    <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline hidden shrink-0 !py-2 !text-sm sm:inline-flex">
-      Open registry ↗
-    </a>
+
+    <div class="hidden shrink-0 gap-2 sm:flex">
+      <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
+        Try lookup
+      </a>
+      <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline !py-2 !text-sm">
+        Registry ↗
+      </a>
+    </div>
   </div>
 </header>

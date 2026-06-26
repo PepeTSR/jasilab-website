@@ -7,7 +7,7 @@ Marketing sites for JasiLab and CVT. Deployed to Cloudflare Workers from GitHub.
 | JasiLab | [jasilab.net](https://jasilab.net) | `jasilab-website` | `npm run build` |
 | CVT public | [cvt.co.ug](https://cvt.co.ug) | `cvt-website` | `npm run build:cvt` |
 
-The live CVT registry app remains at **cvt.jasilab.net** (`workspace-cvt` repo).
+The live CVT registry app is at **https://cvt.ug** (`workspace-cvt` repo).
 
 ## Local preview
 

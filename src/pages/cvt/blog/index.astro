@@ -1,15 +1,14 @@
 ---
+import { cvtPath } from "../../../lib/site";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 ---
 
 <CvtLayout title="Blog — CVT">
   <section class="section-band max-w-3xl">
-    <h1 class="display-lg">CVT Blog</h1>
-    <p class="mt-4 text-body">Articles on trust infrastructure, insurance, and mobility.</p>
-    <ul class="mt-10 space-y-4 text-mute">
-      <li class="rounded-md border border-dashed border-hairline p-4">Why Africa needs trust infrastructure</li>
-      <li class="rounded-md border border-dashed border-hairline p-4">Insurance before credit</li>
-      <li class="rounded-md border border-dashed border-hairline p-4">Why complaints should not destroy reputations</li>
-    </ul>
+    <h1 class="display-lg">Blog</h1>
+    <p class="mt-4 text-body">Essays on trust infrastructure, insurance and mobility in Uganda. Articles coming soon.</p>
+    <p class="mt-8">
+      <a href={cvtPath("vision")} class="btn-outline !text-sm">Read the vision essay →</a>
+    </p>
   </section>
 </CvtLayout>

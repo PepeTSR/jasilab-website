@@ -14,6 +14,9 @@ export const jasilabUrl = "https://jasilab.net";
 export const cvtMarketingUrl = "https://cvt.co.ug";
 export const cvtContactEmail = "hello@jasilab.net";
 
+/** Live CVT registry app */
+export const cvtAppUrl = "https://cvt.ug";
+
 /** Build an internal CVT path. Examples: cvtPath(), cvtPath('vision'), cvtPath('#first-pilot'). */
 export function cvtPath(subpath = ""): string {
   if (!subpath) return cvtBase ? `${cvtBase}/` : "/";

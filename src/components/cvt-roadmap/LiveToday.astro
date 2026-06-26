@@ -1,7 +1,8 @@
 ---
 import { cvtPath } from "../../lib/site";
 import { liveTodayItems } from "../../lib/cvt-roadmap";
-import { cvtAppUrl } from "../../lib/nav";
+import { cvtAppHostname } from "../../lib/nav";
+import { cvtAppUrl } from "../../lib/site";
 import { cvtPilotLabel } from "../../lib/cvt-narrative";
 ---
 
@@ -28,7 +29,7 @@ import { cvtPilotLabel } from "../../lib/cvt-narrative";
 
   <p class="mt-8 text-center">
     <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-ghost !text-sm">
-      Try the live registry at cvt.jasilab.net ↗
+      Try the live registry at {cvtAppHostname} ↗
     </a>
     <span class="mx-2 text-mute">·</span>
     <a href={cvtPath("#whats-live")} class="btn-ghost !text-sm">What's live →</a>

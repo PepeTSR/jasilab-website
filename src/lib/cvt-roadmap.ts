@@ -47,7 +47,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
   {
     number: 3,
     title: "Trust Profiles",
-    subtitle: "Live on cvt.jasilab.net",
+    subtitle: "Live on cvt.ug",
     status: "live",
     goal: "Reward good behaviour.",
     features: [
@@ -140,7 +140,7 @@ export const liveTodayItems = [
   },
   {
     title: "Trust Passport & partner search",
-    body: "Public trust passports, consent-gated partner APIs (Soft, Enhanced, Hard Search), and a partner portal on cvt.jasilab.net.",
+    body: "Public trust passports, consent-gated partner APIs (Soft, Enhanced, Hard Search), and a partner portal on cvt.ug.",
   },
   {
     title: "Automatic coverage expansion",
@@ -152,7 +152,7 @@ export const liveTodayItems = [
   },
   {
     title: "Registry & trust infrastructure",
-    body: "Database, lookup, and trust compute systems are operational on cvt.jasilab.net.",
+    body: "Database, lookup, and trust compute systems are operational on cvt.ug.",
   },
 ];
 

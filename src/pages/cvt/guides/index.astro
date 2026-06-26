@@ -1,15 +1,18 @@
 ---
 import { cvtPath } from "../../../lib/site";
-import { getCollection } from "astro:content";
+import { getPublicGuides } from "../../../lib/cvt-guides";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 
-const guides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const guides = await getPublicGuides();
 ---
 
-<CvtLayout title="Guides — CVT" description="How-to documents for integrators, insurers, employers, and CVT operators.">
+<CvtLayout title="Guides — CVT" description="Policy and integration overviews for CVT operators and partners.">
   <section class="section-band max-w-3xl">
     <h1 class="display-lg">Guides</h1>
-    <p class="mt-4 text-body">Policy and integration overviews for operators and partners. Detailed specifications are available under partner agreement.</p>
+    <p class="mt-4 text-body">
+      Public policy overviews for operators and partners. Technical API documentation is available under partner agreement — see{" "}
+      <a href={cvtPath("partners")}>Partners</a>.
+    </p>
     <ul class="mt-10 divide-y divide-hairline rounded-md border border-hairline">
       {guides.map((guide) => (
         <li>
