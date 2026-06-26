@@ -1,4 +1,4 @@
-import { cvtAppUrl, cvtPath } from "./site";
+import { cvtAppUrl, cvtPath, isCvtRootSite } from "./site";
 
 export const jasiLabNav = [
   { href: "/research", label: "Research" },
@@ -24,19 +24,33 @@ export type CvtNavItem = {
   external?: boolean;
 };
 
-/** Primary product nav — kept short for cvt.co.ug */
+/** Primary nav — short product nav on cvt.co.ug; full docs nav on jasilab.net/cvt */
 export function getCvtNav(): CvtNavItem[] {
+  if (isCvtRootSite) {
+    return [
+      { href: cvtPath(), label: "Home" },
+      { href: cvtPath("#how-it-works"), label: "How it works" },
+      { href: cvtPath("vision"), label: "Vision" },
+      { href: cvtPath("partners"), label: "Partners" },
+      { href: cvtWhatsAppUrl, label: "Try lookup", external: true },
+    ];
+  }
+
   return [
     { href: cvtPath(), label: "Home" },
-    { href: cvtPath("#how-it-works"), label: "How it works" },
     { href: cvtPath("vision"), label: "Vision" },
-    { href: cvtPath("partners"), label: "Partners" },
-    { href: cvtWhatsAppUrl, label: "Try lookup", external: true },
+    { href: cvtPath("map"), label: "Map" },
+    { href: cvtPath("roadmap"), label: "Roadmap" },
+    { href: cvtPath("guides"), label: "Guides" },
+    { href: cvtPath("concepts"), label: "Concepts" },
+    { href: cvtPath("blog"), label: "Blog" },
   ];
 }
 
-/** Secondary links — footer and explore sections */
+/** Secondary links — footer on cvt.co.ug only */
 export function getCvtFooterNav(): CvtNavItem[] {
+  if (!isCvtRootSite) return [];
+
   return [
     { href: cvtPath("guides"), label: "Guides" },
     { href: cvtPath("roadmap"), label: "Roadmap" },
@@ -65,10 +79,21 @@ export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 export const cvtAppHostname = new URL(cvtAppUrl).hostname;
 
 export function getCvtExploreLinks() {
+  if (isCvtRootSite) {
+    return [
+      { href: cvtPath("vision"), label: "Vision", desc: "Why portable trust matters for Uganda and beyond" },
+      { href: cvtPath("partners"), label: "Partners", desc: "Insurers, employers and integration" },
+      { href: cvtPath("guides"), label: "Guides", desc: "Policies and frameworks" },
+      { href: cvtPath("#whats-live"), label: "Try lookup", desc: "WhatsApp plate verification" },
+    ];
+  }
+
   return [
     { href: cvtPath("vision"), label: "Vision", desc: "Why portable trust matters for Uganda and beyond" },
-    { href: cvtPath("partners"), label: "Partners", desc: "Insurers, employers and integration" },
-    { href: cvtPath("guides"), label: "Guides", desc: "Policies and frameworks" },
+    { href: cvtPath("map"), label: "Project map", desc: "From transport to full platform" },
+    { href: cvtPath("roadmap"), label: "Roadmap", desc: "What's live and what's next" },
+    { href: cvtPath("concepts"), label: "Concepts", desc: "Plain-language explainers" },
+    { href: cvtPath("guides"), label: "Guides", desc: "Policies and partner overview" },
     { href: cvtPath("#whats-live"), label: "Try lookup", desc: "WhatsApp plate verification" },
   ];
 }

@@ -16,20 +16,18 @@ function navLinkProps(item: CvtNavItem) {
 
 <header class="nav-bar sticky top-0 z-50">
   <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-    <a href={homeHref} class="group flex flex-col gap-0.5">
-      {isCvtRootSite ? (
-        <>
-          <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
-          <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
-        </>
-      ) : (
-        <div class="flex items-center gap-3">
-          <span class="eyebrow-mono !text-mute">JasiLab</span>
-          <span class="text-hairline">/</span>
-          <span class="text-lg font-semibold text-ink-strong">CVT</span>
-        </div>
-      )}
-    </a>
+    {isCvtRootSite ? (
+      <a href={homeHref} class="group flex flex-col gap-0.5">
+        <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
+        <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
+      </a>
+    ) : (
+      <div class="flex items-center gap-3">
+        <a href="/" class="eyebrow-mono !text-mute hover:text-body">JasiLab</a>
+        <span class="text-hairline">/</span>
+        <a href={homeHref} class="text-lg font-semibold text-ink-strong">CVT</a>
+      </div>
+    )}
 
     <nav class="flex flex-wrap gap-1">
       {cvtNav.map((item) => (
@@ -45,13 +43,19 @@ function navLinkProps(item: CvtNavItem) {
       ))}
     </nav>
 
-    <div class="hidden shrink-0 gap-2 sm:flex">
-      <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
-        Try lookup
+    {isCvtRootSite ? (
+      <div class="hidden shrink-0 gap-2 sm:flex">
+        <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2 !text-sm">
+          Try lookup
+        </a>
+        <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline !py-2 !text-sm">
+          Registry ↗
+        </a>
+      </div>
+    ) : (
+      <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline hidden shrink-0 !py-2 !text-sm sm:inline-flex">
+        Open registry ↗
       </a>
-      <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-outline !py-2 !text-sm">
-        Registry ↗
-      </a>
-    </div>
+    )}
   </div>
 </header>
