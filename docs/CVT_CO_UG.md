@@ -40,6 +40,10 @@ CVT has its own product home at **https://cvt.co.ug**. JasiLab remains at **http
 
 Quick check: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT — Trust**, not JasiLab.
 
+**Homepage shows HAY, CareHome or “Research & Products”**
+
+Same root cause — `cvt.co.ug` is serving the JasiLab `dist/` build. The CVT homepage has no other JasiLab products. Redeploy **cvt-website** only (`build:cvt` + `wrangler.cvt.toml`).
+
 ## App vs marketing
 
 | URL | Purpose |
