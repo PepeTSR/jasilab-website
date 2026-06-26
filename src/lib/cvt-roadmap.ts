@@ -1,3 +1,5 @@
+import { cvtPath } from "./site";
+
 export type RoadmapPhaseStatus = "live" | "building" | "planned";
 
 export type RoadmapPhase = {
@@ -35,7 +37,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     goal: "Build accountability.",
     features: [
       { label: "Public reporting of dangerous driving", done: true },
-      { label: "Complaint moderation", done: true, href: "/cvt/guides/moderation-framework" },
+      { label: "Complaint moderation", done: true, href: cvtPath("guides/moderation-framework") },
       { label: "Evidence collection", done: true },
       { label: "Repeat incident tracking", done: true },
       { label: "Investigation workflows", done: true },
@@ -49,12 +51,12 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     status: "live",
     goal: "Reward good behaviour.",
     features: [
-      { label: "Trust Passport", done: true, href: "/cvt/guides/building-a-trust-passport" },
-      { label: "Trust Timeline", done: true, href: "/cvt/concepts/trust-timeline" },
-      { label: "Trust Levels", done: true, href: "/cvt/concepts/trust-level" },
-      { label: "Good Standing", done: true, href: "/cvt/concepts/good-standing" },
+      { label: "Trust Passport", done: true, href: cvtPath("guides/building-a-trust-passport") },
+      { label: "Trust Timeline", done: true, href: cvtPath("concepts/trust-timeline") },
+      { label: "Trust Levels", done: true, href: cvtPath("concepts/trust-level") },
+      { label: "Good Standing", done: true, href: cvtPath("concepts/good-standing") },
       { label: "Training signals", done: true },
-      { label: "Insurance signals", done: true, href: "/cvt/guides/insurance" },
+      { label: "Insurance signals", done: true, href: cvtPath("guides/insurance") },
       { label: "Verification history", done: true },
       { label: "Clean periods", done: true },
     ],
@@ -67,11 +69,11 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     status: "building",
     goal: "Allow organisations to consume trust data with consent.",
     features: [
-      { label: "Consent framework", done: true, href: "/cvt/guides/consent-framework" },
-      { label: "Soft Search", done: true, href: "/cvt/concepts/soft-search" },
-      { label: "Enhanced Search", done: true, href: "/cvt/concepts/enhanced-search" },
-      { label: "Hard Search (contracted insurers)", done: true, href: "/cvt/concepts/hard-search" },
-      { label: "Partner portal and APIs", done: true, href: "/cvt/guides/partner-integration" },
+      { label: "Consent framework", done: true, href: cvtPath("guides/consent-framework") },
+      { label: "Soft Search", done: true, href: cvtPath("concepts/soft-search") },
+      { label: "Enhanced Search", done: true, href: cvtPath("concepts/enhanced-search") },
+      { label: "Hard Search (contracted insurers)", done: true, href: cvtPath("concepts/hard-search") },
+      { label: "Partner portal and APIs", done: true, href: cvtPath("guides/partner-integration") },
       { label: "Production partner integrations" },
     ],
     impact: "Trust becomes useful beyond verification.",
@@ -84,7 +86,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     features: [
       { label: "Education and certificates" },
       { label: "Languages and trade skills" },
-      { label: "Employment history", href: "/cvt/guides/employment" },
+      { label: "Employment history", href: cvtPath("guides/employment") },
       { label: "Recommendations" },
     ],
     impact: "Help people access better jobs and opportunities — beyond transport.",
@@ -95,8 +97,8 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     status: "planned",
     goal: "Expand beyond the transport pilot into other vehicle types and professions.",
     features: [
-      { label: "Commercial vehicles (trucks, buses, fleet)", href: "/cvt/roadmap#phases" },
-      { label: "Private (non-commercial) vehicle owners", href: "/cvt/roadmap#phases" },
+      { label: "Commercial vehicles (trucks, buses, fleet)", href: cvtPath("roadmap#phases") },
+      { label: "Private (non-commercial) vehicle owners", href: cvtPath("roadmap#phases") },
       { label: "Other service professions (plumbers, caregivers, etc.)" },
     ],
     impact: "One identity across multiple roles.",
@@ -107,7 +109,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     status: "planned",
     goal: "Connect trust to risk pooling.",
     features: [
-      { label: "Insurance continuity tracking", href: "/cvt/guides/insurance" },
+      { label: "Insurance continuity tracking", href: cvtPath("guides/insurance") },
       { label: "Claims history (partner agreements)" },
       { label: "Underwriting support APIs" },
     ],
@@ -119,7 +121,7 @@ export const trustRoadmapPhases: RoadmapPhase[] = [
     status: "planned",
     goal: "Enable access to credit — carefully and with consent.",
     features: [
-      { label: "Financing decision support", href: "/cvt/guides/consent-framework" },
+      { label: "Financing decision support", href: cvtPath("guides/consent-framework") },
       { label: "Alternative trust signals" },
       { label: "Possible CRB integration (long term, separate programme)" },
     ],
@@ -154,9 +156,11 @@ export const liveTodayItems = [
   },
 ];
 
-export const siteLayers = [
-  { label: "Vision", href: "/cvt/vision", desc: "Why portable trust matters" },
-  { label: "First pilot", href: "/cvt#first-pilot", desc: "Commercial transport — live today" },
-  { label: "Project Map", href: "/cvt/map", desc: "From pilot to full platform" },
-  { label: "Roadmap", href: "/cvt/roadmap", desc: "What's live and what comes next" },
-] as const;
+export function getSiteLayers() {
+  return [
+    { label: "Vision", href: cvtPath("vision"), desc: "Why portable trust matters" },
+    { label: "First pilot", href: cvtPath("#first-pilot"), desc: "Commercial transport — live today" },
+    { label: "Project Map", href: cvtPath("map"), desc: "From pilot to full platform" },
+    { label: "Roadmap", href: cvtPath("roadmap"), desc: "What's live and what comes next" },
+  ];
+}

@@ -1,44 +1,49 @@
-# jasilab.net
+# jasilab.net + cvt.co.ug
 
-Marketing site for JasiLab and CVT. Deployed to Cloudflare Workers from GitHub.
+Marketing sites for JasiLab and CVT. Deployed to Cloudflare Workers from GitHub.
 
-- **This site:** `jasilab.net` — research, products, CVT story at `/cvt`
-- **CVT app (live registry):** `cvt.jasilab.net` — separate repo (`workspace-cvt`)
+| Site | Domain | Worker | Build |
+|------|--------|--------|-------|
+| JasiLab | [jasilab.net](https://jasilab.net) | `jasilab-website` | `npm run build` |
+| CVT public | [cvt.co.ug](https://cvt.co.ug) | `cvt-website` | `npm run build:cvt` |
 
-## Local preview (dev server)
+The live CVT registry app remains at **cvt.jasilab.net** (`workspace-cvt` repo).
+
+## Local preview
 
 ```bash
 cd jasilab-website
 npm install
-npm run dev
+npm run dev          # jasilab.net — http://localhost:4321
+npm run dev:cvt      # cvt.co.ug paths — http://localhost:4322 (pages still under /cvt in dev)
 ```
 
-Open **http://localhost:4321**
+| Page | JasiLab URL | Production CVT URL |
+|------|-------------|-------------------|
+| JasiLab home | http://localhost:4321/ | https://jasilab.net/ |
+| CVT landing | http://localhost:4321/cvt | https://cvt.co.ug/ |
+| CVT vision | http://localhost:4321/cvt/vision | https://cvt.co.ug/vision |
 
-| Page | URL |
-|------|-----|
-| JasiLab home | http://localhost:4321/ |
-| CVT landing | http://localhost:4321/cvt |
-| CVT vision | http://localhost:4321/cvt/vision |
-| CVT concepts | http://localhost:4321/cvt/concepts |
-| CVT guides | http://localhost:4321/cvt/guides |
-
-Production-like preview after build:
+Production-like CVT preview:
 
 ```bash
-npm run build
-npm run preview
+npm run preview:cvt
 ```
 
-## Cloudflare Workers
+## Deploy
 
-Settings are in [`wrangler.toml`](./wrangler.toml).
+**jasilab.net** (default Cloudflare Workers Build):
 
-| Setting | Value |
-|---------|-------|
-| Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
-| Node.js | 22 (`.node-version`) |
-| Production branch | `main` |
+- Build: `npm run build`
+- Deploy: `npx wrangler deploy`
+- Redirects `/cvt/*` → `cvt.co.ug` via `public/_redirects`
 
-Technical specifications live in the CVT product repo (`workspace-cvt/docs`) and are shared with partners under agreement — not published on this marketing site.
+**cvt.co.ug** (second Worker — create in Cloudflare Dashboard):
+
+- Build: `npm run build:cvt`
+- Deploy: `npx wrangler deploy --config wrangler.cvt.toml`
+- Add custom domain **cvt.co.ug** on the `cvt-website` worker
+
+## Technical specifications
+
+Detailed specs live in `workspace-cvt/docs/` and are shared with partners under agreement — not published on either marketing site.

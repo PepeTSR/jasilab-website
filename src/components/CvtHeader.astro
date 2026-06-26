@@ -1,23 +1,25 @@
 ---
-import { cvtNav, cvtAppUrl } from "../lib/nav";
+import { getCvtNav, cvtAppUrl } from "../lib/nav";
+import { cvtHomeHref, isActiveCvtNav, isCvtRootSite, jasilabUrl } from "../lib/site";
+
 const current = Astro.url.pathname;
+const cvtNav = getCvtNav();
+const homeHref = cvtHomeHref();
 ---
 
 <header class="nav-bar sticky top-0 z-50">
   <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-8">
     <div class="flex items-center gap-3">
-      <a href="/" class="eyebrow-mono !text-mute hover:text-body">JasiLab</a>
+      <a href={isCvtRootSite ? jasilabUrl : "/"} class="eyebrow-mono !text-mute hover:text-body">JasiLab</a>
       <span class="text-hairline">/</span>
-      <a href="/cvt" class="text-lg font-semibold text-ink-strong">CVT</a>
+      <a href={homeHref} class="text-lg font-semibold text-ink-strong">CVT</a>
     </div>
     <nav class="flex flex-wrap gap-1">
       {cvtNav.map((item) => (
         <a
           href={item.href}
           class:list={[
-            current === item.href || (item.href !== "/cvt" && current.startsWith(item.href))
-              ? "nav-link-active"
-              : "nav-link",
+            isActiveCvtNav(current, item.href, homeHref) ? "nav-link-active" : "nav-link",
           ]}
         >
           {item.label}

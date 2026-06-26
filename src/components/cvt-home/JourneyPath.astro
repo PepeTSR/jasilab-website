@@ -1,5 +1,8 @@
 ---
-import { cvtJourneySteps } from "../../lib/cvt-narrative";
+import { getCvtJourneySteps } from "../../lib/cvt-narrative";
+import { cvtPath } from "../../lib/site";
+
+const journeySteps = getCvtJourneySteps();
 ---
 
 <section class="section-band section-divider border-t border-hairline" id="journey">
@@ -10,7 +13,7 @@ import { cvtJourneySteps } from "../../lib/cvt-narrative";
   </p>
 
   <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    {cvtJourneySteps.map((item) => (
+    {journeySteps.map((item) => (
       <li>
         <a href={item.href} class="card-feature group flex h-full flex-col">
           <p class="code-chip w-fit">{item.step}</p>
@@ -23,6 +26,6 @@ import { cvtJourneySteps } from "../../lib/cvt-narrative";
   </ol>
 
   <p class="mt-8 text-center">
-    <a href="/cvt/map" class="btn-outline !text-sm">See the full project map →</a>
+    <a href={cvtPath("map")} class="btn-outline !text-sm">See the full project map →</a>
   </p>
 </section>

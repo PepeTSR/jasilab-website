@@ -1,5 +1,6 @@
 ---
-import { cvtExploreLinks } from "../../lib/nav";
+import { getCvtExploreLinks } from "../../lib/nav";
+const exploreLinks = getCvtExploreLinks();
 ---
 
 <section class="section-band section-divider border-t border-hairline">
@@ -10,7 +11,7 @@ import { cvtExploreLinks } from "../../lib/nav";
   </p>
 
   <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {cvtExploreLinks.map((link) => (
+    {exploreLinks.map((link) => (
       <a href={link.href} class="card-feature group block">
         <p class="font-semibold text-ink-strong group-hover:text-primary-soft">{link.label}</p>
         <p class="mt-1 text-sm text-mute">{link.desc}</p>

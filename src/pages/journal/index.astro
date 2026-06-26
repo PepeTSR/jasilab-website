@@ -1,11 +1,12 @@
 ---
 import JasiLabLayout from "../../layouts/JasiLabLayout.astro";
+import { cvtMarketingUrl } from "../../lib/site";
 ---
 
 <JasiLabLayout title="Journal — JasiLab">
   <section class="section-band max-w-3xl">
     <h1 class="display-lg">Journal</h1>
-    <p class="mt-6 text-body">Essays and updates from JasiLab. CVT-specific articles live in the <a href="/cvt/blog">CVT blog</a>.</p>
+    <p class="mt-6 text-body">Essays and updates from JasiLab. CVT-specific articles live on the <a href={`${cvtMarketingUrl}/blog`}>CVT blog</a>.</p>
     <p class="mt-8 rounded-md border border-dashed border-hairline p-8 text-center text-sm text-mute">First posts coming soon.</p>
   </section>
 </JasiLabLayout>

@@ -1,3 +1,5 @@
+import { cvtPath } from "./site";
+
 export const jasiLabNav = [
   { href: "/research", label: "Research" },
   { href: "/products", label: "Products" },
@@ -7,20 +9,26 @@ export const jasiLabNav = [
 ] as const;
 
 export const productLinks = [
-  { href: "/cvt", label: "CVT", tagline: "Public trust platform for mobile identities — starting with commercial transport in Uganda." },
+  {
+    href: "https://cvt.co.ug",
+    label: "CVT",
+    tagline: "Public trust platform for mobile identities — starting with commercial transport in Uganda.",
+  },
   { href: "/products/hay", label: "HAY", tagline: "Coming soon." },
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
 ] as const;
 
-export const cvtNav = [
-  { href: "/cvt", label: "Home" },
-  { href: "/cvt/vision", label: "Vision" },
-  { href: "/cvt/map", label: "Map" },
-  { href: "/cvt/roadmap", label: "Roadmap" },
-  { href: "/cvt/guides", label: "Guides" },
-  { href: "/cvt/concepts", label: "Concepts" },
-  { href: "/cvt/blog", label: "Blog" },
-] as const;
+export function getCvtNav() {
+  return [
+    { href: cvtPath(), label: "Home" },
+    { href: cvtPath("vision"), label: "Vision" },
+    { href: cvtPath("map"), label: "Map" },
+    { href: cvtPath("roadmap"), label: "Roadmap" },
+    { href: cvtPath("guides"), label: "Guides" },
+    { href: cvtPath("concepts"), label: "Concepts" },
+    { href: cvtPath("blog"), label: "Blog" },
+  ];
+}
 
 export const cvtConcepts = [
   { slug: "trust-profile", title: "Trust Profile", summary: "Current profile, timeline, and trust level derived from verified facts." },
@@ -38,11 +46,13 @@ export const cvtAppUrl = "https://cvt.jasilab.net";
 
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
-export const cvtExploreLinks = [
-  { href: "/cvt/vision", label: "Vision", desc: "Why portable trust matters — transport is the first pilot" },
-  { href: "/cvt/map", label: "Project map", desc: "From pilot to full platform" },
-  { href: "/cvt/roadmap", label: "Roadmap", desc: "What's live and what comes next" },
-  { href: "/cvt/concepts", label: "Concepts", desc: "Plain-language explainers" },
-  { href: "/cvt/guides", label: "Guides", desc: "Policies and integration overview" },
-  { href: "/cvt#first-pilot", label: "Transport pilot", desc: "Try WhatsApp plate lookup" },
-] as const;
+export function getCvtExploreLinks() {
+  return [
+    { href: cvtPath("vision"), label: "Vision", desc: "Why portable trust matters — transport is the first pilot" },
+    { href: cvtPath("map"), label: "Project map", desc: "From pilot to full platform" },
+    { href: cvtPath("roadmap"), label: "Roadmap", desc: "What's live and what comes next" },
+    { href: cvtPath("concepts"), label: "Concepts", desc: "Plain-language explainers" },
+    { href: cvtPath("guides"), label: "Guides", desc: "Policies and integration overview" },
+    { href: cvtPath("#first-pilot"), label: "Transport pilot", desc: "Try WhatsApp plate lookup" },
+  ];
+}

@@ -1,9 +1,13 @@
 ---
+import { cvtPath } from "../../../lib/site";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 import ProjectMapStack from "../../../components/cvt-roadmap/ProjectMapStack.astro";
 import LiveToday from "../../../components/cvt-roadmap/LiveToday.astro";
 import PhaseCard from "../../../components/cvt-roadmap/PhaseCard.astro";
-import { trustRoadmapPhases, siteLayers } from "../../../lib/cvt-roadmap";
+import { trustRoadmapPhases, getSiteLayers } from "../../../lib/cvt-roadmap";
+
+const siteLayers = getSiteLayers();
+const roadmapHref = cvtPath("roadmap");
 
 const sections = [
   { id: "live-today", label: "Transport pilot" },
@@ -32,7 +36,7 @@ const sections = [
             href={layer.href}
             class:list={[
               "anchor-pill",
-              layer.href === "/cvt/roadmap" && "border-primary/40 bg-canvas-soft text-primary-soft",
+              layer.href === roadmapHref && "border-primary/40 bg-canvas-soft text-primary-soft",
             ]}
           >
             {layer.label}
@@ -71,19 +75,19 @@ const sections = [
           <h3 class="text-lg font-semibold text-ink-strong">Public</h3>
           <p class="mt-2 text-sm text-mute">Problem · Solution · Roadmap · Why it matters</p>
           <ul class="mt-4 space-y-2 text-sm text-body">
-            <li><a href="/cvt" class="hover:text-primary-soft">CVT home</a></li>
-            <li><a href="/cvt/map" class="hover:text-primary-soft">Project map</a></li>
-            <li><a href="/cvt/vision" class="hover:text-primary-soft">Vision</a></li>
-            <li><a href="/cvt/concepts" class="hover:text-primary-soft">Concepts</a></li>
+            <li><a href={cvtPath()} class="hover:text-primary-soft">CVT home</a></li>
+            <li><a href={cvtPath("map")} class="hover:text-primary-soft">Project map</a></li>
+            <li><a href={cvtPath("vision")} class="hover:text-primary-soft">Vision</a></li>
+            <li><a href={cvtPath("concepts")} class="hover:text-primary-soft">Concepts</a></li>
           </ul>
         </div>
         <div class="card-soft">
           <h3 class="text-lg font-semibold text-ink-strong">Builders & partners</h3>
           <p class="mt-2 text-sm text-mute">Guides · Concepts · Partner enquiries</p>
           <ul class="mt-4 space-y-2 text-sm text-body">
-            <li><a href="/cvt/guides" class="hover:text-primary-soft">Integration guides</a></li>
-            <li><a href="/cvt/concepts" class="hover:text-primary-soft">Concept explainers</a></li>
-            <li><a href="/cvt/guides/partner-integration" class="hover:text-primary-soft">Partner overview</a></li>
+            <li><a href={cvtPath("guides")} class="hover:text-primary-soft">Integration guides</a></li>
+            <li><a href={cvtPath("concepts")} class="hover:text-primary-soft">Concept explainers</a></li>
+            <li><a href={cvtPath("guides/partner-integration")} class="hover:text-primary-soft">Partner overview</a></li>
             <li><a href="mailto:hello@jasilab.net" class="hover:text-primary-soft">Request technical specs</a></li>
           </ul>
         </div>

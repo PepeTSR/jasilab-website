@@ -1,0 +1,9 @@
+# CVT public marketing site — https://cvt.co.ug
+name = "cvt-website"
+compatibility_date = "2024-09-23"
+
+[assets]
+directory = "./dist-cvt"
+
+[vars]
+SITE_URL = "https://cvt.co.ug"

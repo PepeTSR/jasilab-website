@@ -1,11 +1,14 @@
 ---
+import { cvtPath } from "../../../lib/site";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 import UserLayer from "../../../components/cvt-map/UserLayer.astro";
 import EcosystemMap from "../../../components/cvt-map/EcosystemMap.astro";
 import PassportMap from "../../../components/cvt-map/PassportMap.astro";
 import VisionMap from "../../../components/cvt-map/VisionMap.astro";
 import { cvtAppUrl } from "../../../lib/nav";
-import { cvtJourneySteps } from "../../../lib/cvt-narrative";
+import { getCvtJourneySteps } from "../../../lib/cvt-narrative";
+
+const cvtJourneySteps = getCvtJourneySteps();
 
 const sections = [
   { id: "user-layer", label: "First pilot" },
@@ -50,7 +53,7 @@ const sections = [
     <section class="card-soft px-6 py-10 text-center sm:px-10">
       <h2 class="display-md">Implementation roadmap</h2>
       <p class="map-lead mx-auto mt-3">Eight phases — from the transport pilot through trust profiles, new categories, insurance and inclusion.</p>
-      <a href="/cvt/roadmap" class="btn-primary mt-6">View the full roadmap →</a>
+      <a href={cvtPath("roadmap")} class="btn-primary mt-6">View the full roadmap →</a>
     </section>
   </div>
 
@@ -61,8 +64,8 @@ const sections = [
         <p class="mt-1 text-sm text-mute">Start with the vision essay, or try the live transport pilot.</p>
       </div>
       <div class="flex flex-wrap gap-3">
-        <a href="/cvt/vision" class="btn-outline !py-2.5 !text-sm">Vision essay</a>
-        <a href="/cvt#first-pilot" class="btn-outline !py-2.5 !text-sm">Transport pilot</a>
+        <a href={cvtPath("vision")} class="btn-outline !py-2.5 !text-sm">Vision essay</a>
+        <a href={cvtPath("#first-pilot")} class="btn-outline !py-2.5 !text-sm">Transport pilot</a>
         <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2.5 !text-sm">Live app ↗</a>
       </div>
     </div>

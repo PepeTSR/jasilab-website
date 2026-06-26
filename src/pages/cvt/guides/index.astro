@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../../lib/site";
 import { getCollection } from "astro:content";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 
@@ -12,7 +13,7 @@ const guides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.order ?
     <ul class="mt-10 divide-y divide-hairline rounded-md border border-hairline">
       {guides.map((guide) => (
         <li>
-          <a href={`/cvt/guides/${guide.id}`} class="block px-5 py-4 transition hover:bg-canvas-soft">
+          <a href={cvtPath(`guides/${guide.id}`)} class="block px-5 py-4 transition hover:bg-canvas-soft">
             <p class="font-semibold text-ink-strong">{guide.data.title}</p>
             {guide.data.description && <p class="mt-1 text-sm text-mute">{guide.data.description}</p>}
           </a>

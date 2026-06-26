@@ -1,11 +1,12 @@
 ---
+import { cvtPath } from "../../lib/site";
 import MapNode from "./MapNode.astro";
 
 const pillars = [
-  { title: "PEOPLE", items: "Identity · Skills · Experience", href: "/cvt/concepts/trust-profile" },
-  { title: "VEHICLES", items: "Plates · Verification · Reports", href: "/cvt/roadmap#phases" },
-  { title: "TRUST", items: "Timeline · Standing · Passport", href: "/cvt/guides/building-a-trust-passport" },
-  { title: "OPPORTUNITIES", items: "Employment · Insurance · Finance", href: "/cvt/guides/partner-integration" },
+  { title: "PEOPLE", items: "Identity · Skills · Experience", href: cvtPath("concepts/trust-profile") },
+  { title: "VEHICLES", items: "Plates · Verification · Reports", href: cvtPath("roadmap#phases") },
+  { title: "TRUST", items: "Timeline · Standing · Passport", href: cvtPath("guides/building-a-trust-passport") },
+  { title: "OPPORTUNITIES", items: "Employment · Insurance · Finance", href: cvtPath("guides/partner-integration") },
   { title: "ECOSYSTEM", items: "Public · Employers · Insurers · Fleets · Banks · SACCOs", href: "#ecosystem" },
 ];
 ---

@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../lib/site";
 import { liveTodayItems } from "../../lib/cvt-roadmap";
 import { cvtAppUrl } from "../../lib/nav";
 import { cvtPilotLabel } from "../../lib/cvt-narrative";
@@ -30,6 +31,6 @@ import { cvtPilotLabel } from "../../lib/cvt-narrative";
       Try the live registry at cvt.jasilab.net ↗
     </a>
     <span class="mx-2 text-mute">·</span>
-    <a href="/cvt#first-pilot" class="btn-ghost !text-sm">Transport pilot on jasilab.net →</a>
+    <a href={cvtPath("#first-pilot")} class="btn-ghost !text-sm">Transport pilot home →</a>
   </p>
 </section>

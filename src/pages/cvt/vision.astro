@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../lib/site";
 import CvtLayout from "../../layouts/CvtLayout.astro";
 
 const serviceCategories = [
@@ -121,10 +122,10 @@ const longTermItems = [
     </div>
 
     <div class="mt-12 flex flex-wrap gap-3 border-t border-hairline pt-8">
-      <a href="/cvt#first-pilot" class="btn-primary !py-2.5 !text-sm">See the transport pilot</a>
-      <a href="/cvt/map" class="btn-outline !py-2.5 !text-sm">Project map</a>
-      <a href="/cvt/roadmap" class="btn-outline !py-2.5 !text-sm">Implementation roadmap</a>
-      <a href="/cvt/concepts" class="btn-outline !py-2.5 !text-sm">Explore concepts</a>
+      <a href={cvtPath("#first-pilot")} class="btn-primary !py-2.5 !text-sm">See the transport pilot</a>
+      <a href={cvtPath("map")} class="btn-outline !py-2.5 !text-sm">Project map</a>
+      <a href={cvtPath("roadmap")} class="btn-outline !py-2.5 !text-sm">Implementation roadmap</a>
+      <a href={cvtPath("concepts")} class="btn-outline !py-2.5 !text-sm">Explore concepts</a>
     </div>
   </article>
 </CvtLayout>

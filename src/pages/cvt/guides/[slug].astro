@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../../lib/site";
 import { getCollection, render } from "astro:content";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 
@@ -19,7 +20,7 @@ const allGuides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.orde
       <nav class="mt-4 space-y-1">
         {allGuides.map((g) => (
           <a
-            href={`/cvt/guides/${g.id}`}
+            href={cvtPath(`guides/${g.id}`)}
             class:list={[
               "block rounded-sm px-3 py-2 text-sm",
               g.id === guide.id ? "nav-link-active" : "nav-link",
@@ -32,7 +33,7 @@ const allGuides = (await getCollection("cvtGuides")).sort((a, b) => (a.data.orde
     </aside>
     <article class="doc-panel min-w-0 flex-1">
       <header class="mb-8 border-b border-hairline pb-6">
-        <a href="/cvt/guides" class="text-sm text-primary-deep hover:text-primary">← All guides</a>
+        <a href={cvtPath("guides")} class="text-sm text-primary-deep hover:text-primary">← All guides</a>
         {guide.data.description && <p class="mt-3 text-body">{guide.data.description}</p>}
       </header>
       <div class="doc-content">

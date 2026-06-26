@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../lib/site";
 import MapNode from "./MapNode.astro";
 import { cvtPilotLabel } from "../../lib/cvt-narrative";
 ---
@@ -16,9 +17,9 @@ import { cvtPilotLabel } from "../../lib/cvt-narrative";
     </div>
     <div class="map-connector map-connector-down mx-auto h-8 w-px" aria-hidden="true"></div>
     <div class="grid gap-4 sm:grid-cols-3 sm:gap-6">
-      <MapNode label="WhatsApp" sub="Lookup" href="/cvt#first-pilot" />
-      <MapNode label="Passport" sub="& Profile" href="/cvt/concepts/trust-passport" />
-      <MapNode label="Reports" sub="& Feedback" href="/cvt/guides/moderation-framework" />
+      <MapNode label="WhatsApp" sub="Lookup" href={cvtPath("#first-pilot")} />
+      <MapNode label="Passport" sub="& Profile" href={cvtPath("concepts/trust-passport")} />
+      <MapNode label="Reports" sub="& Feedback" href={cvtPath("guides/moderation-framework")} />
     </div>
     <div class="map-connector map-connector-merge mx-auto mt-0 h-10 w-full max-w-md" aria-hidden="true">
       <svg class="h-full w-full" viewBox="0 0 400 40" preserveAspectRatio="none" fill="none">
@@ -26,7 +27,7 @@ import { cvtPilotLabel } from "../../lib/cvt-narrative";
       </svg>
     </div>
     <div class="flex justify-center">
-      <MapNode label="Good Standing" variant="hub" href="/cvt/concepts/good-standing" class="min-w-[10rem]" />
+      <MapNode label="Good Standing" variant="hub" href={cvtPath("concepts/good-standing")} class="min-w-[10rem]" />
     </div>
   </div>
 
@@ -35,6 +36,6 @@ import { cvtPilotLabel } from "../../lib/cvt-narrative";
   </blockquote>
 
   <p class="mt-6">
-    <a href="/cvt/vision#transport-pilot" class="btn-ghost !px-0 !text-sm">Read why transport is the first pilot →</a>
+    <a href={cvtPath("vision#transport-pilot")} class="btn-ghost !px-0 !text-sm">Read why transport is the first pilot →</a>
   </p>
 </section>

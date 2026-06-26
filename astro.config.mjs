@@ -1,12 +1,14 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
-import tailwindcss from '@tailwindcss/vite';
+const siteUrl = process.env.PUBLIC_SITE_URL ?? "https://jasilab.net";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jasilab.net",
+  site: siteUrl,
   vite: {
     plugins: [tailwindcss()],
+    envPrefix: ["PUBLIC_"],
   },
 });

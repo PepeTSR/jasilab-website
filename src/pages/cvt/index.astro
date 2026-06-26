@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../lib/site";
 import CvtLayout from "../../layouts/CvtLayout.astro";
 import WhatsAppMagic from "../../components/cvt-home/WhatsAppMagic.astro";
 import JourneyPath from "../../components/cvt-home/JourneyPath.astro";
@@ -48,7 +49,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
         </p>
 
         <div class="mt-10 flex flex-wrap gap-3">
-          <a href="/cvt/vision" class="btn-outline">Read the vision</a>
+          <a href={cvtPath("vision")} class="btn-outline">Read the vision</a>
           <a href="#first-pilot" class="btn-primary">See the transport pilot</a>
         </div>
       </div>
@@ -92,7 +93,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     </p>
 
     <p class="mt-6">
-      <a href="/cvt/vision" class="btn-ghost !px-0 !text-sm">Why trust infrastructure matters →</a>
+      <a href={cvtPath("vision")} class="btn-ghost !px-0 !text-sm">Why trust infrastructure matters →</a>
     </p>
   </section>
 
@@ -112,7 +113,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
 
     <div class="mt-10 flex flex-wrap gap-3">
       <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Try WhatsApp Lookup</a>
-      <a href="/cvt/roadmap#live-today" class="btn-outline">What else is operational</a>
+      <a href={cvtPath("roadmap#live-today")} class="btn-outline">What else is operational</a>
     </div>
   </section>
 
@@ -147,13 +148,13 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     <p class="map-lead">Not a hidden score — a passport built from verified facts. The transport pilot feeds the same trust layer that will serve plumbers, caregivers and small businesses.</p>
 
     <div class="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-      <a href="/cvt/concepts/trust-profile" class="card-feature !py-4 text-sm font-semibold">Trust Profile</a>
+      <a href={cvtPath("concepts/trust-profile")} class="card-feature !py-4 text-sm font-semibold">Trust Profile</a>
       <span class="text-xl text-primary/50">+</span>
-      <a href="/cvt/concepts/trust-timeline" class="card-feature !py-4 text-sm font-semibold">Trust Timeline</a>
+      <a href={cvtPath("concepts/trust-timeline")} class="card-feature !py-4 text-sm font-semibold">Trust Timeline</a>
       <span class="text-xl text-primary/50">+</span>
-      <a href="/cvt/concepts/trust-level" class="card-feature !py-4 text-sm font-semibold">Trust Level</a>
+      <a href={cvtPath("concepts/trust-level")} class="card-feature !py-4 text-sm font-semibold">Trust Level</a>
       <span class="text-xl text-primary/50">=</span>
-      <a href="/cvt/concepts/trust-passport" class="card-feature-emphasis !py-4 text-sm font-semibold text-primary-soft">Trust Passport</a>
+      <a href={cvtPath("concepts/trust-passport")} class="card-feature-emphasis !py-4 text-sm font-semibold text-primary-soft">Trust Passport</a>
     </div>
 
     <p class="mt-8 text-center text-sm text-mute">Trust is earned through</p>
@@ -161,7 +162,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
       {trustEarned.map((t) => <span class="pill-tag">{t}</span>)}
     </div>
     <p class="mt-8 text-center">
-      <a href="/cvt/guides/building-a-trust-passport" class="btn-ghost !text-sm">How to build a Trust Passport →</a>
+      <a href={cvtPath("guides/building-a-trust-passport")} class="btn-ghost !text-sm">How to build a Trust Passport →</a>
     </p>
   </section>
 

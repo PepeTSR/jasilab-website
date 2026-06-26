@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../../lib/site";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 import { cvtConcepts } from "../../../lib/nav";
 ---
@@ -9,7 +10,7 @@ import { cvtConcepts } from "../../../lib/nav";
     <p class="mt-4 max-w-2xl text-body">Plain-language explainers for how CVT thinks about trust, standing and partner access.</p>
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {cvtConcepts.map((c) => (
-        <a href={`/cvt/concepts/${c.slug}`} class="card-feature group block">
+        <a href={cvtPath(`concepts/${c.slug}`)} class="card-feature group block">
           <h2 class="font-semibold text-ink-strong group-hover:text-primary-soft">{c.title}</h2>
           <p class="mt-2 text-sm text-mute">{c.summary}</p>
         </a>

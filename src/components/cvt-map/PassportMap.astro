@@ -1,4 +1,5 @@
 ---
+import { cvtPath } from "../../lib/site";
 import MapNode from "./MapNode.astro";
 ---
 
@@ -9,13 +10,13 @@ import MapNode from "./MapNode.astro";
 
   <div class="ecosystem-grid mt-10">
     <div class="flex justify-center">
-      <MapNode label="Trust Passport" variant="hub" class="min-w-[11rem]" href="/cvt/guides/building-a-trust-passport" />
+      <MapNode label="Trust Passport" variant="hub" class="min-w-[11rem]" href={cvtPath("guides/building-a-trust-passport")} />
     </div>
     <div class="mx-auto mt-2 h-8 w-px bg-hairline" aria-hidden="true"></div>
     <div class="grid gap-4 sm:grid-cols-3">
-      <MapNode label="Trust Profile" href="/cvt/concepts/trust-profile" />
-      <MapNode label="Trust Timeline" href="/cvt/concepts/trust-timeline" />
-      <MapNode label="Trust Level" href="/cvt/concepts/trust-level" />
+      <MapNode label="Trust Profile" href={cvtPath("concepts/trust-profile")} />
+      <MapNode label="Trust Timeline" href={cvtPath("concepts/trust-timeline")} />
+      <MapNode label="Trust Level" href={cvtPath("concepts/trust-level")} />
     </div>
     <div class="mx-auto mt-2 h-8 w-full max-w-md text-hairline">
       <svg class="h-full w-full" viewBox="0 0 400 32" preserveAspectRatio="none" fill="none" aria-hidden="true">
@@ -23,7 +24,7 @@ import MapNode from "./MapNode.astro";
       </svg>
     </div>
     <div class="flex justify-center">
-      <MapNode label="Good Standing" variant="highlight" href="/cvt/concepts/good-standing" class="min-w-[10rem]" />
+      <MapNode label="Good Standing" variant="highlight" href={cvtPath("concepts/good-standing")} class="min-w-[10rem]" />
     </div>
 
     <p class="mt-8 text-center eyebrow-mono !text-[11px] !tracking-[0.2em] text-mute">Future additions</p>
