@@ -4,7 +4,7 @@ import { cvtPath } from "../../lib/site";
 import WhatsAppLookupSteps from "./WhatsAppLookupSteps.astro";
 import WhatsAppQr from "./WhatsAppQr.astro";
 import VisionTeaser from "./VisionTeaser.astro";
-import { cvtApplyWizardUrl } from "../../lib/nav";
+import { cvtApplyUrl } from "../../lib/nav";
 import { cvtAppUrl } from "../../lib/site";
 import {
   cvtPilotCapabilities,
@@ -30,7 +30,7 @@ import {
       </p>
 
       <div class="mt-10 flex flex-wrap gap-3">
-        <a href={cvtApplyWizardUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
+        <a href={cvtApplyUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
         <a href={cvtPath("partners")} class="btn-outline">For partners</a>
       </div>
     </div>

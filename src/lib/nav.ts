@@ -98,8 +98,8 @@ export { cvtAppUrl };
 export const cvtWhatsAppPhone = "+256 792 497830";
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
-/** Public self-service registration wizard (locale-prefixed on cvt.ug). */
-export const cvtApplyWizardUrl = `${cvtAppUrl}/en/apply/wizard`;
+/** Public apply landing page (locale-prefixed on cvt.ug). */
+export const cvtApplyUrl = `${cvtAppUrl}/en/apply`;
 
 /** Enterprise partner portal on cvt.ug. */
 export const cvtEnterpriseUrl = `${cvtAppUrl}/enterprise`;
@@ -125,7 +125,7 @@ export function getCvtPrimaryCta(pathname?: string): CvtPrimaryCta {
     return getCvtEnterpriseCta();
   }
   if (isProductTheme) {
-    return { href: cvtApplyWizardUrl, label: "Get verified", external: true };
+    return { href: cvtApplyUrl, label: "Get verified", external: true };
   }
   return { href: cvtWhatsAppUrl, label: "Try lookup", external: true };
 }

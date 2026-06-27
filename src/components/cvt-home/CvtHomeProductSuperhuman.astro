@@ -5,7 +5,7 @@ import PlatformHomeSection from "../cvt-platform/PlatformHomeSection.astro";
 import ShTealCta from "../cvt-shell/ShTealCta.astro";
 import WhatsAppLookupSteps from "./WhatsAppLookupSteps.astro";
 import VisionTeaser from "./VisionTeaser.astro";
-import { cvtApplyWizardUrl } from "../../lib/nav";
+import { cvtApplyUrl } from "../../lib/nav";
 import { cvtAppUrl, cvtPath } from "../../lib/site";
 import { cvtPilotCapabilities, cvtPilotLabel } from "../../lib/cvt-narrative";
 import {
@@ -37,7 +37,7 @@ import {
     <WhatsAppLookupSteps showQr={false} />
 
     <div class="mt-8 flex flex-wrap gap-3">
-      <a href={cvtApplyWizardUrl} target="_blank" rel="noopener" class="sh-btn-primary">Get verified</a>
+      <a href={cvtApplyUrl} target="_blank" rel="noopener" class="sh-btn-primary">Get verified</a>
       <a href={cvtPath("platform")} class="sh-btn-outline">Platform products</a>
     </div>
   </div>

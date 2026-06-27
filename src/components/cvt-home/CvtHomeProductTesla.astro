@@ -1,7 +1,7 @@
 ---
 /** Tesla theme home — full product story + platform link (cvt.co.ug experimental skin). */
 import { cvtPath, cvtPublicAsset } from "../../lib/site";
-import { cvtApplyWizardUrl, getCvtPrimaryCta } from "../../lib/nav";
+import { cvtApplyUrl, getCvtPrimaryCta } from "../../lib/nav";
 import { cvtAppUrl } from "../../lib/site";
 import {
   cvtPilotCapabilities,
@@ -56,7 +56,7 @@ const heroImage = cvtPublicAsset("hero-puzzle-connect.png");
     <WhatsAppLookupSteps />
 
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={cvtApplyWizardUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
+      <a href={cvtApplyUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
       <a href={cvtPath("platform")} class="btn-outline">Platform products</a>
     </div>
   </div>
