@@ -1,4 +1,4 @@
-import { cvtAppUrl, cvtPath, isCvtRootSite } from "./site";
+import { cvtAppUrl, cvtMarketingUrl, cvtPath, isCvtRootSite } from "./site";
 import { isProductTheme, isSuperhumanTheme } from "./cvt-theme";
 
 export const jasiLabNav = [
@@ -101,17 +101,28 @@ export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 /** Public apply landing page (locale-prefixed on cvt.ug). */
 export const cvtApplyUrl = `${cvtAppUrl}/en/apply`;
 
+/** Verified member portal on the public site (cvt.co.ug). */
+export const cvtMyCvtUrl = `${cvtMarketingUrl}/en/my-cvt`;
+
 /** Enterprise partner portal on cvt.ug. */
 export const cvtEnterpriseUrl = `${cvtAppUrl}/enterprise`;
 
 export type CvtPrimaryCta = {
   href: string;
   label: string;
-  external: true;
+  /** Opens in a new tab when true (default). */
+  external?: boolean;
 };
 
 export function getCvtEnterpriseCta(): CvtPrimaryCta {
   return { href: cvtEnterpriseUrl, label: "Enterprise", external: true };
+}
+
+function getCvtMyCvtCta(): CvtPrimaryCta {
+  if (isCvtRootSite && !import.meta.env.DEV) {
+    return { href: "/en/my-cvt/", label: "My CVT", external: false };
+  }
+  return { href: cvtMyCvtUrl, label: "My CVT", external: true };
 }
 
 export function isPartnersPath(pathname: string): boolean {
@@ -130,8 +141,14 @@ export function getCvtPrimaryCta(pathname?: string): CvtPrimaryCta {
   return { href: cvtWhatsAppUrl, label: "Try lookup", external: true };
 }
 
-/** Top-right header button — Enterprise on Partners, otherwise primary CTA. */
+/** Top-right header button — My CVT (or Enterprise on Partners). */
 export function getCvtHeaderCta(pathname: string): CvtPrimaryCta {
+  if (isPartnersPath(pathname)) {
+    return getCvtEnterpriseCta();
+  }
+  if (isProductTheme) {
+    return getCvtMyCvtCta();
+  }
   return getCvtPrimaryCta(pathname);
 }
 
