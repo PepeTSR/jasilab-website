@@ -1,4 +1,4 @@
-import { cvtAppUrl, cvtMarketingUrl, cvtPath, isCvtRootSite } from "./site";
+import { cvtAppUrl, cvtPath, cvtPublicAppUrl, isCvtRootSite } from "./site";
 import { isProductTheme, isSuperhumanTheme } from "./cvt-theme";
 
 export const jasiLabNav = [
@@ -98,11 +98,11 @@ export { cvtAppUrl };
 export const cvtWhatsAppPhone = "+256 792 497830";
 export const cvtWhatsAppUrl = "https://wa.me/256792497830";
 
-/** Public apply landing page (locale-prefixed on cvt.ug). */
-export const cvtApplyUrl = `${cvtAppUrl}/en/apply`;
+/** Public apply landing page on the Next.js app (www.cvt.co.ug). */
+export const cvtApplyUrl = `${cvtPublicAppUrl}/en/apply`;
 
-/** Verified member portal on the public site (cvt.co.ug). */
-export const cvtMyCvtUrl = `${cvtMarketingUrl}/en/my-cvt`;
+/** Verified member portal on the public app (www.cvt.co.ug). */
+export const cvtMyCvtUrl = `${cvtPublicAppUrl}/en/my-cvt`;
 
 /** Enterprise partner portal on cvt.ug. */
 export const cvtEnterpriseUrl = `${cvtAppUrl}/enterprise`;
@@ -119,9 +119,6 @@ export function getCvtEnterpriseCta(): CvtPrimaryCta {
 }
 
 function getCvtMyCvtCta(): CvtPrimaryCta {
-  if (isCvtRootSite && !import.meta.env.DEV) {
-    return { href: "/en/my-cvt/", label: "My CVT", external: false };
-  }
   return { href: cvtMyCvtUrl, label: "My CVT", external: true };
 }
 

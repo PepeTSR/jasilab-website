@@ -44,11 +44,27 @@ Quick check: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT —
 
 Same root cause — `cvt.co.ug` is serving the JasiLab `dist/` build. The CVT homepage has no other JasiLab products. Redeploy **cvt-website** only (`build:cvt` + `wrangler.cvt.toml`).
 
+**`/en/apply`, `/en/my-cvt`, etc. return 404 on apex**
+
+The marketing worker serves **`cvt.co.ug`** (homepage, `/platform/`, …). The Next.js app (apply, my-cvt, lookup) runs on **`www.cvt.co.ug`** (Vercel).
+
+Add a **Cloudflare Redirect Rule** on the `cvt.co.ug` zone:
+
+| Setting | Value |
+|---------|--------|
+| **When** | Hostname equals `cvt.co.ug` AND URI Path matches regex `^/(en\|lg)(/|$)` or starts with `/plate` |
+| **Then** | Dynamic redirect to `https://www.cvt.co.ug${uri.path}` (302) |
+
+Working URLs today: `https://www.cvt.co.ug/en/my-cvt`, `https://www.cvt.co.ug/en/apply`.
+
+Marketing links should use **`www.cvt.co.ug`** for app routes (`src/lib/site.ts` → `cvtPublicAppUrl`).
+
 ## App vs marketing
 
 | URL | Purpose |
 |-----|---------|
-| cvt.co.ug | CVT product home |
+| cvt.co.ug | CVT marketing homepage (Cloudflare Worker) |
+| www.cvt.co.ug | Public app — apply, my-cvt, lookup (Vercel) |
 | jasilab.net | JasiLab research & products |
 | jasilab.net/cvt | CVT on JasiLab (same content, `/cvt` prefix) |
-| cvt.ug | Live registry app (workspace-cvt) |
+| cvt.ug | Staff portal (Vercel) |
