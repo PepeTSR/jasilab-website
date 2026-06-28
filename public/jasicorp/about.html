@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Jasi Corp.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,550&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/logo.jpg">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('jasicorp-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body class="track-dark">
+  <header class="site-header nav-bar-dark">
+    <a href="index.html" class="wordmark">
+      <img src="images/logo.jpg" alt="Jasi Corp.">
+      <span>Jasi Corp.</span>
+    </a>
+    <nav class="nav-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="online-sales.html" class="nav-link">Online Sales</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn btn-outline-on-dark">Get a quote</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <div class="theme-toggle-row">
+      <span>Theme</span>
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="online-sales.html">Online Sales</a>
+  </nav>
+
+  <main>
+    <section class="cinematic-hero">
+      <div class="cinematic-hero-inner">
+        <p class="eyebrow">Management team</p>
+        <h1 class="display-xxl">People who deliver.</h1>
+        <p class="body-lg">Our team of reliable and professional individuals is at hand to serve our clientele diligently.</p>
+      </div>
+      <div class="cinematic-photo-wrap">
+        <img class="cinematic-photo" src="images/hero-fleet.jpg" alt="Transport and fleet operations">
+      </div>
+    </section>
+
+    <section class="team-section">
+      <div class="section-inner">
+        <div class="team-grid">
+          <article class="team-card">
+            <img src="images/diana.jpg" alt="Diana Kyomuhendo" class="team-photo">
+            <h3 class="heading-lg">Diana Kyomuhendo</h3>
+            <p class="caption">CEO — The Boss</p>
+            <p>Diana has varied management experience across production and manufacturing, having led different teams to success. She brings an inclusive, ethical leadership style and a can-do flair that challenges industrial norms.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-photo-placeholder">LW</div>
+            <h3 class="heading-lg">Lawrence Wakabi</h3>
+            <p class="caption">Operations Manager — Corporate</p>
+            <p>Lawrence creates strategic partnerships ensuring stakeholders' objectives are met as we navigate a volatile logistics and transport sector. He coordinates key accounts.</p>
+          </article>
+          <article class="team-card">
+            <img src="images/abdul.jpg" alt="Abdul Kakeeto" class="team-photo">
+            <h3 class="heading-lg">Abdul Kakeeto</h3>
+            <p class="caption">Operations Manager — Transport</p>
+            <p>Abdul handles day-to-day operations leading our expanding fleet of vans and HGV trucks, with employee oversight and input into core management strategy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ops-band track-dark">
+      <div class="section-inner">
+        <p class="eyebrow" style="color: var(--link-cool-1);">Operations team</p>
+        <h2 class="display-lg">Unrivalled service across every contract.</h2>
+        <p class="body-lg" style="color: var(--shade-40); max-width: 720px; margin-top: 16px;">Our officers and support staff maintain impeccable compliance with safety regulation, the Highway Code, and respect for colleagues and everyone they interact with.</p>
+        <div class="ops-names">
+          <span class="pill-tag-shade">Charles — Transport Officer</span>
+          <span class="pill-tag-shade">Abdullah — Transport Support</span>
+          <span class="pill-tag-shade">Colin — Fleet Maintenance Lead</span>
+          <span class="pill-tag-shade">Jacob — Transport Officer</span>
+          <span class="pill-tag-shade">Rogers — Transport Officer</span>
+          <span class="pill-tag-shade">Henry — Transport Officer</span>
+          <span class="pill-tag-shade">Alan — Transport Support</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-band-dark" style="padding-top: 64px;">
+      <div class="section-inner">
+        <p class="eyebrow" style="color: var(--link-cool-1);">Our fleet</p>
+        <h2 class="display-xl">From Sprinter vans to HGV trucks.</h2>
+        <div class="photo-frame-grid">
+          <div class="card-photo-frame">
+            <img src="images/fleet-sprinter.jpg" alt="Mercedes Sprinter vans">
+          </div>
+          <div class="card-photo-frame">
+            <img src="images/fleet-hgv.jpg" alt="Iveco and MAN HGV trucks">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer footer-dark">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark">
+          <img src="images/logo.jpg" alt="Jasi Corp.">
+        </a>
+        <p>Unit E16, Orthodox Road,<br>Kyadondo Plot 5552, Kampala, Uganda</p>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <h4>Main menu</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="online-sales.html">Online Sales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Copyright ©2024 Jasi Corp. All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

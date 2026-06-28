@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Sales — Jasi Corp.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,550&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/logo.jpg">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('jasicorp-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body class="track-light">
+  <header class="site-header nav-bar-light">
+    <a href="index.html" class="wordmark">
+      <img src="images/logo.jpg" alt="Jasi Corp.">
+      <span>Jasi Corp.</span>
+    </a>
+    <nav class="nav-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="online-sales.html" class="nav-link active">Online Sales</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn btn-outline-on-light">Contact sales</a>
+      <a href="mailto:info@jasicorp.com?subject=Van%20Hire%20Booking" class="btn btn-primary-pill">Book now</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav light">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <div class="theme-toggle-row">
+      <span>Theme</span>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="online-sales.html">Online Sales</a>
+  </nav>
+
+  <main class="page-light">
+    <div class="page-light-inner">
+      <p class="eyebrow">Online sales</p>
+      <h1 class="display-lg">Book transport directly.</h1>
+      <p class="body-md">Professional van hire with driver — ideal for business deliveries, relocations, and event logistics across Kampala.</p>
+
+      <div class="pricing-grid" style="margin-bottom: 64px;">
+        <article class="card-pricing card-pricing-featured">
+          <span class="pill-tag-mint">Most popular</span>
+          <h2 class="heading-xl">Van hire — day charge</h2>
+          <p class="display-md">UGX 250,000</p>
+          <p class="body-md">Charge to hire a van with a driver for the day. Includes professional driver and vehicle for local routes.</p>
+          <a href="mailto:info@jasicorp.com?subject=Van%20Hire%20Booking%20Request&body=I%20would%20like%20to%20book%20a%20van%20hire%20(day%20charge)%20for%20the%20following%20date%3A%0A%0ALocation%3A%0A%0AAdditional%20notes%3A" class="btn btn-aloe-pill">Request booking</a>
+        </article>
+        <article class="card-pricing">
+          <span class="pill-tag-shade">Logistics</span>
+          <h2 class="heading-xl">Custom distribution</h2>
+          <p class="display-md">Quote</p>
+          <p class="body-md">Tailor-made logistics and flexible storage solutions for businesses with specialist requirements.</p>
+          <a href="contact.html" class="btn btn-primary-pill">Get a quote</a>
+        </article>
+        <article class="card-pricing">
+          <span class="pill-tag-shade">Enterprise</span>
+          <h2 class="heading-xl">Supply chain</h2>
+          <p class="display-md">Quote</p>
+          <p class="body-md">End-to-end supply chain management with leading distribution partners and full visibility.</p>
+          <a href="contact.html" class="btn btn-outline-on-light">Contact sales</a>
+        </article>
+      </div>
+
+      <div class="product-showcase">
+        <div class="product-image">
+          <img src="images/van-hire.jpg" alt="Van Hire - Day Charge">
+        </div>
+        <div>
+          <h2 class="heading-xl" style="margin-bottom: 16px;">What's included</h2>
+          <ul style="list-style: none; display: grid; gap: 12px;">
+            <li class="body-md" style="color: var(--shade-50);">Van with professional driver for a full day</li>
+            <li class="body-md" style="color: var(--shade-50);">Ideal for Kampala and surrounding areas</li>
+            <li class="body-md" style="color: var(--shade-50);">Business deliveries, relocations, and events</li>
+            <li class="body-md" style="color: var(--shade-50);">Part of Jasi Corp's expanding Sprinter fleet</li>
+          </ul>
+          <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="mailto:info@jasicorp.com?subject=Van%20Hire%20Booking" class="btn btn-aloe-pill">Request booking</a>
+            <a href="contact.html" class="btn btn-outline-on-light">Ask a question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer footer-light">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark">
+          <img src="images/logo.jpg" alt="Jasi Corp.">
+        </a>
+        <p>Unit E16, Orthodox Road,<br>Kyadondo Plot 5552, Kampala, Uganda</p>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <h4>Main menu</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="online-sales.html">Online Sales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Copyright ©2024 Jasi Corp. All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

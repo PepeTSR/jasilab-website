@@ -15,6 +15,11 @@ export const productLinks = [
     label: "CVT",
     tagline: "Trust platform for mobile identities — live in Kampala commercial transport.",
   },
+  {
+    href: "/jasicorp/",
+    label: "Jasi Corp.",
+    tagline: "Logistics, distribution, and transport across Uganda and globally.",
+  },
   { href: "/products/hay", label: "HAY", tagline: "Coming soon." },
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
 ] as const;

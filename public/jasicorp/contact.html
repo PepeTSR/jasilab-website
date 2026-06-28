@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Jasi Corp.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,550&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/logo.jpg">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('jasicorp-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body class="track-light">
+  <header class="site-header nav-bar-light">
+    <a href="index.html" class="wordmark">
+      <img src="images/logo.jpg" alt="Jasi Corp.">
+      <span>Jasi Corp.</span>
+    </a>
+    <nav class="nav-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+      <a href="online-sales.html" class="nav-link">Online Sales</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="online-sales.html" class="btn btn-primary-pill">Book van hire</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav light">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <div class="theme-toggle-row">
+      <span>Theme</span>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="online-sales.html">Online Sales</a>
+  </nav>
+
+  <main class="page-light">
+    <div class="page-light-inner">
+      <p class="eyebrow">Get in touch</p>
+      <h1 class="display-lg">We'd love to hear from you.</h1>
+      <p class="body-md">Reach our Uganda or UK offices — or send us a message about your logistics requirements.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 class="heading-md">Uganda office</h3>
+          <p>Unit E16, Orthodox Road, Namungoona</p>
+          <p>Kyadondo Plot 5552, Kampala, Uganda</p>
+          <a href="https://www.google.com/maps/place/Unit+E16,+Orthodox+Road,+Namungoona,+Kampala" target="_blank" rel="noopener">View on map</a>
+        </div>
+        <div class="contact-card">
+          <h3 class="heading-md">United Kingdom</h3>
+          <a href="tel:+447825586255">+44 782 5586 255</a>
+        </div>
+        <div class="contact-card">
+          <h3 class="heading-md">Phone</h3>
+          <a href="tel:+256781451642">+256 781 451 642</a>
+          <a href="tel:+256775541475">+256 77 5541 475</a>
+          <a href="tel:+256713215191">+256 71 3215 191</a>
+        </div>
+        <div class="contact-card">
+          <h3 class="heading-md">Email &amp; hours</h3>
+          <a href="mailto:info@jasicorp.com">info@jasicorp.com</a>
+          <p style="margin-top: 16px;">Monday–Friday: 9:00 AM – 5:00 PM</p>
+          <p>Saturday: 10:00 AM – 3:00 PM</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 64px; max-width: 480px;">
+        <h2 class="heading-xl" style="margin-bottom: 16px;">Send a message</h2>
+        <form action="mailto:info@jasicorp.com" method="get" enctype="text/plain">
+          <input type="hidden" name="subject" value="Website Enquiry">
+          <div style="margin-bottom: 12px;">
+            <input class="text-input" type="text" name="body" placeholder="Tell us about your logistics needs…" required>
+          </div>
+          <button type="submit" class="btn btn-primary-pill">Send message</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer footer-light">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark">
+          <img src="images/logo.jpg" alt="Jasi Corp.">
+        </a>
+        <p>Unit E16, Orthodox Road,<br>Kyadondo Plot 5552, Kampala, Uganda</p>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <h4>Main menu</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="online-sales.html">Online Sales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Copyright ©2024 Jasi Corp. All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

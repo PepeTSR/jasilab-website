@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jasi Corp. — Dynamic Logistics Solutions</title>
+  <meta name="description" content="Reliable logistics solutions locally and globally. Custom distribution, supply chain management, and transport services in Uganda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,550&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/logo.jpg">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('jasicorp-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body class="track-dark">
+  <header class="site-header nav-bar-dark">
+    <a href="index.html" class="wordmark">
+      <img src="images/logo.jpg" alt="Jasi Corp.">
+      <span>Jasi Corp.</span>
+    </a>
+    <nav class="nav-center">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="online-sales.html" class="nav-link">Online Sales</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn btn-outline-on-dark">Get a quote</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav">
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    <div class="theme-toggle-row">
+      <span>Theme</span>
+      <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="online-sales.html">Online Sales</a>
+  </nav>
+
+  <main>
+    <section class="cinematic-hero">
+      <div class="cinematic-hero-inner">
+        <p class="eyebrow">Established since 2008</p>
+        <h1 class="display-xxl">Dynamic solutions for logistics that move.</h1>
+        <p class="body-lg">Reliable logistics locally and globally — and formidable partnerships that enhance operational efficiency and effectiveness.</p>
+        <div class="cinematic-hero-actions">
+          <a href="contact.html" class="btn btn-outline-on-dark">Get a quote</a>
+          <a href="online-sales.html" class="btn btn-outline-on-dark">Book van hire</a>
+        </div>
+      </div>
+      <div class="cinematic-photo-wrap">
+        <img class="cinematic-photo" src="images/hero-warehouse.jpg" alt="Warehouse and logistics operations">
+      </div>
+    </section>
+
+    <section class="feature-band-dark">
+      <div class="section-inner">
+        <h2 class="display-xl">Built for businesses that need to deliver.</h2>
+        <div class="features-grid">
+          <article class="card-feature-cinematic">
+            <h3 class="heading-xl">Custom logistics &amp; distribution</h3>
+            <p>Tailor-made services to meet divergent customer needs — flexible storage and efficient distribution in Uganda and globally.</p>
+          </article>
+          <article class="card-feature-cinematic">
+            <h3 class="heading-xl">Supply chain management</h3>
+            <p>Leading distribution partners for every client — temperature sensitive, time sensitive, hazardous, or oversized goods.</p>
+          </article>
+        </div>
+
+        <div class="visibility-spotlight">
+          <div class="visibility-spotlight-copy">
+            <p class="eyebrow">Visibility &amp; tracking</p>
+            <h3 class="display-md">Know where every delivery stands.</h3>
+            <p class="body-lg">SMS and email delivery updates, online tracking, and proof of delivery through tailored web ordering systems — so recipients can select alternative options and your team stays in control.</p>
+          </div>
+          <div class="visibility-spotlight-image card-photo-frame">
+            <img src="images/visibility-tracking.png" alt="Fleet tracking dashboard with live map routes and delivery status">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="track-light" style="padding: 128px 24px;">
+      <div class="pistachio-band">
+        <p class="eyebrow">Our partners</p>
+        <h2 class="display-lg">Trusted across public and private sectors.</h2>
+        <p class="body-md" style="color: var(--shade-50); max-width: 560px;">We have worked with a diverse range of partners and continue to evolve in a challenging, dynamic marketplace.</p>
+        <div class="partners-strip">
+          <span class="partner-name">DHL</span>
+          <span class="partner-name">Jasi Consults (UK) Ltd</span>
+          <span class="partner-name">Bridge Logistics (Uganda) Ltd</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer footer-dark">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="wordmark">
+          <img src="images/logo.jpg" alt="Jasi Corp.">
+        </a>
+        <p>Unit E16, Orthodox Road,<br>Kyadondo Plot 5552, Kampala, Uganda</p>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <h4>Main menu</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="online-sales.html">Online Sales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Copyright ©2024 Jasi Corp. All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
