@@ -1,6 +1,6 @@
 # CVT public marketing site — https://cvt.co.ug
 # NEVER deploy with wrangler.toml (that uploads ./dist = JasiLab homepage).
-# Build: npm run build:cvt   Deploy: npx wrangler deploy --config wrangler.cvt.toml
+# Build: npm run build:cvt:superhuman   Deploy: npx wrangler deploy --config wrangler.cvt.toml
 name = "cvt-website"
 compatibility_date = "2024-09-23"
 
@@ -10,7 +10,7 @@ html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"
 
 [build]
-command = "npm run build:cvt"
+command = "npm run build:cvt:superhuman"
 cwd = "."
 watch_dir = "src"
 

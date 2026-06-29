@@ -15,7 +15,7 @@ CVT has its own product home at **https://cvt.co.ug**. JasiLab remains at **http
 
 1. Dashboard → Workers & Pages → Create → `cvt-website`
 2. Connect same GitHub repo
-3. Build command: `npm run build:cvt`
+3. Build command: `npm run build:cvt:superhuman`
 4. Deploy command: `npx wrangler deploy --config wrangler.cvt.toml`
 5. Settings → Domains → Add **cvt.co.ug** only (not jasilab.net)
 
@@ -24,7 +24,7 @@ CVT has its own product home at **https://cvt.co.ug**. JasiLab remains at **http
 | Domain | Worker | Build |
 |--------|--------|-------|
 | jasilab.net | `jasilab-website` | `npm run build` + `wrangler deploy` |
-| cvt.co.ug | `cvt-website` | `npm run build:cvt` + `wrangler.cvt.toml` |
+| cvt.co.ug | `cvt-website` | `npm run build:cvt:superhuman` + `wrangler.cvt.toml` |
 
 **If jasilab.net redirects to cvt.co.ug entirely**, check Cloudflare:
 
@@ -42,7 +42,16 @@ Quick check: `curl -s https://cvt.co.ug/ | grep '<title>'` should show **CVT —
 
 **Homepage shows HAY, CareHome or “Research & Products”**
 
-Same root cause — `cvt.co.ug` is serving the JasiLab `dist/` build. The CVT homepage has no other JasiLab products. Redeploy **cvt-website** only (`build:cvt` + `wrangler.cvt.toml`).
+Same root cause — `cvt.co.ug` is serving the JasiLab `dist/` build. The CVT homepage has no other JasiLab products. Redeploy **cvt-website** only (`build:cvt:superhuman` + `wrangler.cvt.toml`).
+
+**Homepage looks like jasilab.net/cvt (dark product layout, no scroll hero)**
+
+The worker was built with the **default** theme (`npm run build:cvt`), not **superhuman** (`npm run build:cvt:superhuman`). Same title, wrong skin — matches `localhost:4322`, not `localhost:4324`.
+
+```bash
+curl -s https://cvt-website.levitumwine50.workers.dev/ | grep -oE 'theme-superhuman|sh-scroll'
+# Expected: both present after correct deploy
+```
 
 **`/en/apply`, `/en/my-cvt`, etc. return 404 on apex**
 

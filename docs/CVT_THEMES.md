@@ -39,7 +39,7 @@ npm run deploy:cvt:tesla
 
 ## Deploy (GitHub Actions)
 
-**Push to `main`** deploys the **default** theme.
+**Push to `main`** deploys the **superhuman** theme (matches `npm run dev:cvt:superhuman` / port 4324).
 
 **Actions → Deploy cvt.co.ug → Run workflow** and choose:
 

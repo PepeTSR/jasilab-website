@@ -8,7 +8,7 @@
 | Setting | Correct value |
 |---------|----------------|
 | Production branch | `main` |
-| **Build command** | `npm run build:cvt` |
+| **Build command** | `npm run build:cvt:superhuman` |
 | **Deploy command** | `npx wrangler deploy --config wrangler.cvt.toml` |
 | Root directory | `/` (repo root) |
 
@@ -27,8 +27,10 @@ If `cvt.co.ug` shows **JasiLab — Research & Products**, the domain is on **`ja
 
 ```bash
 curl -s https://cvt.co.ug/ | grep -o '<title>[^<]*'
-# Expected: CVT — Trust. Visibility. Accountability.
-# Wrong:    JasiLab — Research & Products
+# Expected title: CVT — Trust. Visibility. Accountability.
+# Expected skin: superhuman (grep theme-superhuman or sh-scroll in HTML)
+# Wrong title:   JasiLab — Research & Products (wrangler.toml / dist/)
+# Wrong skin:    default dark product home (same as jasilab.net/cvt — build:cvt without :superhuman)
 ```
 
 Local build check:

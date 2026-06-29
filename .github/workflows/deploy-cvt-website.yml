@@ -8,7 +8,7 @@ on:
       theme:
         description: "Theme to deploy"
         required: true
-        default: default
+        default: superhuman
         type: choice
         options:
           - default
@@ -44,7 +44,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "value=${{ inputs.theme }}" >> "$GITHUB_OUTPUT"
           else
-            echo "value=default" >> "$GITHUB_OUTPUT"
+            echo "value=superhuman" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build CVT site

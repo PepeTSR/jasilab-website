@@ -29,4 +29,21 @@ if (/JasiLab — Research|Research · Products|products\/hay|products\/carehome/
   process.exit(1);
 }
 
-console.log("verify-cvt-worker-assets: dist-cvt OK for cvt-website worker");
+const themeFile = join(root, "dist-cvt", ".cvt-build-theme");
+const theme = existsSync(themeFile) ? readFileSync(themeFile, "utf8").trim() : "";
+
+if (theme !== "superhuman") {
+  console.error(
+    `verify-cvt-worker-assets: expected superhuman theme for cvt.co.ug (got "${theme || "unknown"}") — run npm run build:cvt:superhuman`,
+  );
+  process.exit(1);
+}
+
+if (!html.includes("theme-superhuman") || !html.includes("sh-scroll")) {
+  console.error(
+    "verify-cvt-worker-assets: dist-cvt is the legacy default CVT skin (jasilab.net/cvt style), not the cvt.co.ug superhuman homepage",
+  );
+  process.exit(1);
+}
+
+console.log("verify-cvt-worker-assets: dist-cvt OK for cvt-website worker (superhuman)");

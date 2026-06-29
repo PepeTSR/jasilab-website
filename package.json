@@ -16,7 +16,7 @@
     "build:cvt:tesla": "node scripts/build-cvt.mjs tesla",
     "verify:cvt:themes": "node scripts/verify-cvt-themes.mjs",
     "deploy": "wrangler deploy",
-    "deploy:cvt": "npm run build:cvt && wrangler deploy --config wrangler.cvt.toml",
+    "deploy:cvt": "npm run build:cvt:superhuman && wrangler deploy --config wrangler.cvt.toml",
     "deploy:cvt:superhuman": "npm run build:cvt:superhuman && wrangler deploy --config wrangler.cvt.toml",
     "deploy:cvt:tesla": "npm run build:cvt:tesla && wrangler deploy --config wrangler.cvt.toml",
     "preview": "astro preview --host 0.0.0.0 --port 4321",
