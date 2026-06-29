@@ -50,6 +50,9 @@ jobs:
       - name: Build CVT site
         run: node scripts/build-cvt.mjs ${{ steps.theme.outputs.value }}
 
+      - name: Verify CVT worker assets
+        run: node scripts/verify-cvt-worker-assets.mjs
+
       - name: Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
