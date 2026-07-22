@@ -11,9 +11,9 @@ export const jasiLabNav = [
 
 export const productLinks = [
   {
-    href: "/cvt",
+    href: "https://cvt.co.ug",
     label: "CVT",
-    tagline: "Trust platform for mobile identities — live in Kampala commercial transport.",
+    tagline: "Trust platform for mobile identities — live in Kampala. Product home: cvt.co.ug.",
   },
   { href: "/products/hay", label: "HAY", tagline: "Coming soon." },
   { href: "/products/carehome", label: "CareHome Optimisation", tagline: "Coming soon." },
@@ -33,6 +33,7 @@ export function getCvtNav(pathname = ""): CvtNavItem[] {
       { href: cvtPath("#how-it-works"), label: "How it works" },
     ];
     if (isProductTheme) {
+      items.push({ href: cvtPath("vision"), label: "Vision" });
       items.push({ href: cvtPath("platform"), label: "Platform" });
       items.push({ href: cvtPath("guides"), label: "Guides" });
     } else {
@@ -65,7 +66,6 @@ export function getCvtFooterNav(): CvtNavItem[] {
 
   if (isProductTheme) {
     return [
-      { href: cvtPath("vision"), label: "Vision" },
       { href: cvtPath("roadmap"), label: "Roadmap" },
       { href: cvtPath("map"), label: "Map" },
       { href: cvtPath("concepts"), label: "Concepts" },

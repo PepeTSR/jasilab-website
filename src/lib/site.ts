@@ -25,7 +25,9 @@ export const jasilabUrl = "https://jasilab.net";
 export const cvtMarketingUrl = "https://cvt.co.ug";
 /** Next.js public app (apply, my-cvt, lookup) — Vercel; apex is marketing worker only. */
 export const cvtPublicAppUrl = "https://www.cvt.co.ug";
-export const cvtContactEmail = "hello@jasilab.net";
+/** Public CVT contact on cvt.co.ug; lab inbox remains on jasilab.net. */
+export const cvtContactEmail = isCvtRootSite ? "hello@cvt.ug" : "hello@jasilab.net";
+export const jasilabContactEmail = "hello@jasilab.net";
 
 /** Live CVT registry app */
 export const cvtAppUrl = "https://cvt.ug";

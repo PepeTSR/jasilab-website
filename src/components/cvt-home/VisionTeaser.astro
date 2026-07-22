@@ -1,14 +1,39 @@
 ---
 import { cvtPath } from "../../lib/site";
+import { isSuperhumanTheme } from "../../lib/cvt-theme";
 ---
 
-<section class="section-band section-divider border-t border-hairline bg-canvas-soft/20">
-  <p class="map-kicker">Vision</p>
-  <h2 class="display-md">Trust that travels with you</h2>
-  <p class="map-lead mt-4 max-w-2xl">
-    CVT is building portable reputation for informal economies — starting in Uganda, starting with commercial transport. People should own their standing, and trust should be earned from verified facts.
-  </p>
-  <p class="mt-6">
-    <a href={cvtPath("vision")} class="btn-outline !text-sm">Read the full vision →</a>
-  </p>
-</section>
+{
+  isSuperhumanTheme ? (
+    <section class="sh-section sh-section--muted scroll-mt-20">
+      <div class="sh-section__inner">
+        <p class="sh-eyebrow">Vision</p>
+        <h2 class="sh-display-xl">Trust that travels with you</h2>
+        <p class="sh-lead max-w-3xl">
+          Much of Uganda’s economy runs on relationships, referrals and reputation — trust that is real but hard to carry beyond a stage, SACCO or neighbourhood. CVT turns verified facts into portable standing for service providers, starting with commercial transport.
+        </p>
+        <p class="mt-6 max-w-3xl text-base text-[#4a4768]">
+          Transport is not our business. <strong class="text-[#1b1938]">Trust, visibility and accountability are.</strong>
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={cvtPath("vision")} class="sh-btn-primary">Read the full vision →</a>
+          <a href={cvtPath("map")} class="sh-btn-outline">Project map</a>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="section-band section-divider border-t border-hairline bg-canvas-soft/20">
+      <p class="map-kicker">Vision</p>
+      <h2 class="display-md">Trust that travels with you</h2>
+      <p class="map-lead mt-4 max-w-2xl">
+        Much of Uganda’s economy runs on relationships and reputation that do not travel. CVT builds portable standing from verified facts — starting with commercial transport, aimed at service providers across informal economies.
+      </p>
+      <p class="mt-4 max-w-2xl text-body">
+        Transport is not our business. <strong class="text-ink-strong">Trust, visibility and accountability are.</strong>
+      </p>
+      <p class="mt-6">
+        <a href={cvtPath("vision")} class="btn-outline !text-sm">Read the full vision →</a>
+      </p>
+    </section>
+  )
+}

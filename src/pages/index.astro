@@ -24,7 +24,8 @@ const isDevCvtRoot = import.meta.env.DEV && isCvtRootSite;
       JasiLab researches and builds systems that turn verified facts into portable trust — starting with mobility in Uganda.
     </p>
     <div class="mt-10 flex flex-wrap gap-3">
-      <a href="/cvt" class="btn-primary">Explore CVT</a>
+      <a href="https://cvt.co.ug" class="btn-primary">Explore CVT</a>
+      <a href="/cvt" class="btn-outline">CVT on JasiLab</a>
       <a href="/research" class="btn-outline">Research</a>
     </div>
   </section>
@@ -33,7 +34,12 @@ const isDevCvtRoot = import.meta.env.DEV && isCvtRootSite;
     <h2 class="display-md">Products</h2>
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {productLinks.map((p) => (
-        <a href={p.href} class="card-feature group block">
+        <a
+          href={p.href}
+          class="card-feature group block"
+          target={p.href.startsWith("http") ? "_blank" : undefined}
+          rel={p.href.startsWith("http") ? "noopener" : undefined}
+        >
           <h3 class="text-xl font-semibold text-ink-strong group-hover:text-primary-soft">{p.label}</h3>
           <p class="mt-2 text-sm text-body">{p.tagline}</p>
         </a>

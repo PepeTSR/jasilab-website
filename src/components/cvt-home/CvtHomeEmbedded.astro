@@ -1,6 +1,6 @@
 ---
-/** JasiLab embed (/cvt) — fuller docs-style homepage; unchanged when cvt.co.ug is polished. */
-import { cvtPath } from "../../lib/site";
+/** JasiLab embed (/cvt) — lab product spotlight; full product home is cvt.co.ug. */
+import { cvtMarketingUrl, cvtPath } from "../../lib/site";
 import WhatsAppMagic from "./WhatsAppMagic.astro";
 import JourneyPath from "./JourneyPath.astro";
 import DocsFooter from "./DocsFooter.astro";
@@ -39,6 +39,14 @@ const howItWorks = [
 const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good conduct"];
 ---
 
+<section class="section-band border-b border-hairline bg-canvas-soft/40">
+  <p class="text-sm text-body">
+    <strong class="text-ink-strong">Product home:</strong>{" "}
+    <a href={cvtMarketingUrl} class="text-primary-deep hover:text-primary">cvt.co.ug</a>
+    {" "}— get verified, WhatsApp lookup, vision, platform maturity and partner guides. This page is the JasiLab product spotlight.
+  </p>
+</section>
+
 <!-- Hero -->
 <section class="section-band border-b border-hairline">
   <div class="grid gap-12 lg:grid-cols-[1fr_minmax(280px,360px)] lg:items-start">
@@ -51,8 +59,9 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
       </p>
 
       <div class="mt-10 flex flex-wrap gap-3">
-        <a href={cvtPath("vision")} class="btn-outline">Our vision</a>
-        <a href="#whats-live" class="btn-primary">What's live today</a>
+        <a href={cvtMarketingUrl} class="btn-primary">Open cvt.co.ug</a>
+        <a href={`${cvtMarketingUrl}/vision/`} class="btn-outline">Vision on cvt.co.ug</a>
+        <a href="#whats-live" class="btn-ghost !px-0">What's live ↓</a>
       </div>
     </div>
 
@@ -94,7 +103,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
   </p>
 
   <p class="mt-6">
-    <a href={cvtPath("vision")} class="btn-ghost !px-0 !text-sm">Why trust infrastructure matters →</a>
+    <a href={`${cvtMarketingUrl}/vision/`} class="btn-ghost !px-0 !text-sm">Full vision essay on cvt.co.ug →</a>
   </p>
 </section>
 
@@ -113,7 +122,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
 
   <div class="mt-10 flex flex-wrap gap-3">
     <a href={cvtWhatsAppUrl} target="_blank" rel="noopener" class="btn-primary">Try WhatsApp Lookup</a>
-    <a href={cvtPath("roadmap#live-today")} class="btn-outline">What else is operational</a>
+    <a href={`${cvtMarketingUrl}/roadmap/`} class="btn-outline">Roadmap on cvt.co.ug</a>
   </div>
 </section>
 
@@ -160,7 +169,7 @@ const trustEarned = ["Verification", "Time", "Training", "Insurance", "Good cond
     {trustEarned.map((t) => <span class="pill-tag">{t}</span>)}
   </div>
   <p class="mt-8 text-center">
-    <a href={cvtPath("guides/building-a-trust-passport")} class="btn-ghost !text-sm">How to build a Trust Passport →</a>
+    <a href={`${cvtMarketingUrl}/guides/building-a-trust-passport/`} class="btn-ghost !text-sm">Trust Passport guide on cvt.co.ug →</a>
   </p>
 </section>
 

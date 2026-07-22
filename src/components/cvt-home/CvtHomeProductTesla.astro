@@ -30,7 +30,7 @@ const heroImage = cvtPublicAsset("hero-puzzle-connect.png");
     <h1 class="tesla-hero__title">CVT</h1>
     <p class="tesla-hero__promo">Live in Kampala commercial transport</p>
     <p class="tesla-hero__subtitle">{cvtPlatformTagline}</p>
-    <p class="tesla-hero__subtitle">One platform — many products. Verify riders and plates on WhatsApp today.</p>
+    <p class="tesla-hero__subtitle">Built as a trust layer — not another ride app. Verify riders and plates on WhatsApp today.</p>
 
     <div class="tesla-hero__actions">
       <a href={primaryCta.href} target="_blank" rel="noopener" class="btn-primary">{primaryCta.label}</a>
@@ -57,7 +57,7 @@ const heroImage = cvtPublicAsset("hero-puzzle-connect.png");
 
     <div class="mt-8 flex flex-wrap justify-center gap-3">
       <a href={cvtApplyUrl} target="_blank" rel="noopener" class="btn-primary">Get verified</a>
-      <a href={cvtPath("platform")} class="btn-outline">Platform products</a>
+      <a href={cvtPath("vision")} class="btn-outline">Our vision</a>
     </div>
   </div>
 </section>
@@ -66,9 +66,12 @@ const heroImage = cvtPublicAsset("hero-puzzle-connect.png");
   <div class="tesla-panel__inner">
     <h2 class="tesla-panel__title">The CVT platform</h2>
     <p class="tesla-panel__lead">
-      Public trust infrastructure — Verify, Connect, Passport and more on one auditable layer.
+      Public trust infrastructure — Verify, Connect and Passport live today, with clear maturity for pilots.
     </p>
-    <a href={cvtPath("platform")} class="btn-primary mt-8">Explore all products</a>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={cvtPath("platform")} class="btn-primary">Platform &amp; maturity</a>
+      <a href={cvtPath("vision")} class="btn-outline">Read the vision</a>
+    </div>
   </div>
 </section>
 
