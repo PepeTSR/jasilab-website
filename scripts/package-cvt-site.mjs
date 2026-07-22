@@ -22,11 +22,18 @@ mkdirSync(out, { recursive: true });
 
 cpSync(cvtSrc, out, { recursive: true });
 
-for (const item of ["_astro", "favicon.svg", "_headers"]) {
+for (const item of ["_astro", "favicon.svg", "favicon.png", "favicon.ico", "_headers"]) {
   const src = join(dist, item);
   if (existsSync(src)) {
     cpSync(src, join(out, item), { recursive: true });
   }
+}
+
+// Prefer CVT mark as PNG favicon when present under packaged assets
+const packagedLogo = join(out, "logo.png");
+const packagedFavicon = join(out, "favicon.png");
+if (existsSync(packagedLogo) && !existsSync(packagedFavicon)) {
+  cpSync(packagedLogo, packagedFavicon);
 }
 
 function rewriteHtml(html) {

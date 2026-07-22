@@ -34,7 +34,8 @@ const canonical = new URL(pathname, Astro.site ?? "http://localhost:4321");
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={metaDescription} />
     {isCvtRootSite && <meta name="generator" content="cvt-website" />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/cvt/logo.png" />
     {!skipInterFont && (
       <>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

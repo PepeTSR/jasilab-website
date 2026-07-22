@@ -47,15 +47,19 @@ function ctaLinkProps(cta: { href: string; external?: boolean }) {
     ]}
   >
     {isCvtRootSite ? (
-      <a href={homeHref} class="group flex flex-col gap-0.5">
-        {isSuperhumanTheme ? (
-          <span class="sh-wordmark">CVT</span>
-        ) : isTeslaTheme ? (
-          <span class="tesla-wordmark">CVT</span>
+      <a href={homeHref} class="group inline-flex items-center gap-2" aria-label="CVT home">
+        {isSuperhumanTheme || isTeslaTheme || lightNav || heroNav ? (
+          <img
+            src={lightNav ? "/cvt/logo.png" : "/cvt/logo-white.png"}
+            alt="CVT"
+            class="h-9 w-auto"
+            height="36"
+            decoding="async"
+          />
         ) : (
           <>
-            <span class="text-lg font-semibold tracking-tight text-ink-strong group-hover:text-primary-soft">CVT</span>
-            <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute">Connected Verification Terminal</span>
+            <img src="/cvt/logo.png" alt="CVT" class="h-9 w-auto" height="36" decoding="async" />
+            <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute hidden sm:inline">Connected Verification Terminal</span>
           </>
         )}
       </a>
@@ -63,7 +67,9 @@ function ctaLinkProps(cta: { href: string; external?: boolean }) {
       <div class="flex items-center gap-3">
         <a href="/" class="eyebrow-mono !text-mute hover:text-body">JasiLab</a>
         <span class="text-hairline">/</span>
-        <a href={homeHref} class="text-lg font-semibold text-ink-strong">CVT</a>
+        <a href={homeHref} class="inline-flex items-center" aria-label="CVT">
+          <img src="/cvt/logo.png" alt="CVT" class="h-8 w-auto" height="32" decoding="async" />
+        </a>
       </div>
     )}
 
