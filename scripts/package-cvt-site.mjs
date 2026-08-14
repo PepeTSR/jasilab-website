@@ -86,7 +86,7 @@ const themeLabel = process.argv[2] ?? "default";
 writeFileSync(join(out, ".cvt-build-theme"), `${themeLabel}\n`);
 
 const indexHtml = readFileSync(join(out, "index.html"), "utf8");
-if (!indexHtml.includes("CVT — Trust")) {
+if (!indexHtml.includes("CVT - Trust") && !indexHtml.includes("CVT — Trust")) {
   console.error("dist-cvt/index.html is not the CVT homepage — check build:cvt output");
   process.exit(1);
 }

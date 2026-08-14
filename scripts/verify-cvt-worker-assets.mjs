@@ -17,7 +17,7 @@ if (!existsSync(indexPath)) {
 
 const html = readFileSync(indexPath, "utf8");
 
-if (!html.includes("CVT — Trust")) {
+if (!html.includes("CVT - Trust") && !html.includes("CVT — Trust")) {
   console.error("verify-cvt-worker-assets: dist-cvt is not the CVT marketing homepage");
   process.exit(1);
 }
