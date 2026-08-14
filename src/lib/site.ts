@@ -13,60 +13,60 @@ export const isCvtRootSite = cvtBase === "";
  * Production build:cvt lifts dist/cvt → dist-cvt root, so links stay at /.
  */
 export function getCvtHrefBase(): string {
-  if (cvtBase !== "") return cvtBase;
-  if (import.meta.env.DEV) return "/cvt";
-  return "";
+ if (cvtBase !== "") return cvtBase;
+ if (import.meta.env.DEV) return "/cvt";
+ return "";
 }
 
 export const publicSiteUrl =
-  import.meta.env.PUBLIC_SITE_URL ?? (isCvtRootSite ? "https://cvt.co.ug" : "https://jasilab.net");
+ import.meta.env.PUBLIC_SITE_URL ?? (isCvtRootSite ? "https://cvt.co.ug" : "https://jasilab.net");
 
 export const jasilabUrl = "https://jasilab.net";
 export const cvtMarketingUrl = "https://cvt.co.ug";
-/** Next.js public app (apply, my-cvt, lookup) — Vercel; apex is marketing worker only. */
+/** Next.js public app (apply, my-cvt, lookup) - Vercel; apex is marketing worker only. */
 export const cvtPublicAppUrl = "https://www.cvt.co.ug";
 /** Public CVT contact on cvt.co.ug; lab inbox remains on jasilab.net. */
-export const cvtContactEmail = isCvtRootSite ? "hello@cvt.ug" : "hello@jasilab.net";
+export const cvtContactEmail = isCvtRootSite ? "ops@cvt.ug" : "hello@jasilab.net";
 export const jasilabContactEmail = "hello@jasilab.net";
 
 /** Live CVT registry app */
 export const cvtAppUrl = "https://cvt.ug";
 
 /**
- * Public asset path under public/cvt/ — dev serves /cvt/*; packaged cvt.co.ug uses /.
+ * Public asset path under public/cvt/ - dev serves /cvt/*; packaged cvt.co.ug uses /.
  * package-cvt-site.mjs also rewrites src="/cvt/ in HTML.
  */
 export function cvtPublicAsset(filename: string): string {
-  const clean = filename.replace(/^\//, "");
-  const base = getCvtHrefBase();
-  return base ? `${base}/${clean}` : `/${clean}`;
+ const clean = filename.replace(/^\//, "");
+ const base = getCvtHrefBase();
+ return base ? `${base}/${clean}` : `/${clean}`;
 }
 
 /** Build an internal CVT path. Examples: cvtPath(), cvtPath('vision'), cvtPath('#how-it-works'). */
 export function cvtPath(subpath = ""): string {
-  const base = getCvtHrefBase();
-  if (!subpath) return base ? `${base}/` : "/";
-  if (subpath.startsWith("#")) return base ? `${base}/${subpath}` : `/${subpath}`;
-  const clean = subpath.replace(/^\//, "").replace(/\/$/, "");
-  const path = base ? `${base}/${clean}` : `/${clean}`;
-  // cvt.co.ug uses trailingSlash: always — dev must match or routes 404
-  return isCvtRootSite ? `${path}/` : path;
+ const base = getCvtHrefBase();
+ if (!subpath) return base ? `${base}/` : "/";
+ if (subpath.startsWith("#")) return base ? `${base}/${subpath}` : `/${subpath}`;
+ const clean = subpath.replace(/^\//, "").replace(/\/$/, "");
+ const path = base ? `${base}/${clean}` : `/${clean}`;
+ // cvt.co.ug uses trailingSlash: always - dev must match or routes 404
+ return isCvtRootSite ? `${path}/` : path;
 }
 
 export function cvtHomeHref(): string {
-  const base = getCvtHrefBase();
-  return base ? `${base}/` : "/";
+ const base = getCvtHrefBase();
+ return base ? `${base}/` : "/";
 }
 
 export function isActiveCvtNav(pathname: string, href: string, homeHref: string): boolean {
-  const norm = (p: string) => p.replace(/\/$/, "") || "/";
-  const path = norm(pathname);
-  const home = norm(homeHref);
-  const link = norm(href);
-  const base = norm(getCvtHrefBase());
+ const norm = (p: string) => p.replace(/\/$/, "") || "/";
+ const path = norm(pathname);
+ const home = norm(homeHref);
+ const link = norm(href);
+ const base = norm(getCvtHrefBase());
 
-  if (link === home || link === base || href === "/") {
-    return path === "/" || path === home || path === base || path === "/cvt";
-  }
-  return path === link || path.startsWith(`${link}/`);
+ if (link === home || link === base || href === "/") {
+ return path === "/" || path === home || path === base || path === "/cvt";
+ }
+ return path === link || path.startsWith(`${link}/`);
 }

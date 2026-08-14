@@ -2,7 +2,6 @@
 import { cvtPath } from "../../../lib/site";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 import ProjectMapStack from "../../../components/cvt-roadmap/ProjectMapStack.astro";
-import LiveToday from "../../../components/cvt-roadmap/LiveToday.astro";
 import PhaseCard from "../../../components/cvt-roadmap/PhaseCard.astro";
 import { trustRoadmapPhases, getSiteLayers } from "../../../lib/cvt-roadmap";
 import { cvtContactEmail } from "../../../lib/site";
@@ -11,7 +10,6 @@ const siteLayers = getSiteLayers();
 const roadmapHref = cvtPath("roadmap");
 
 const sections = [
-  { id: "live-today", label: "Live today" },
   { id: "project-map", label: "Project map" },
   { id: "phases", label: "Phases" },
   { id: "audiences", label: "Audiences" },
@@ -19,14 +17,14 @@ const sections = [
 ---
 
 <CvtLayout
-  title="Roadmap — CVT"
-  description="CVT is live in Kampala commercial transport. Here's what's operational and where the platform is headed next."
+  title="Roadmap - CVT"
+  description="Where CVT is headed - from portable trust for service providers to partners, skills and inclusion."
 >
   <section class="section-band border-b border-hairline">
     <p class="eyebrow-mono">Roadmap</p>
     <h1 class="display-xl mt-4 max-w-3xl">Building trust infrastructure</h1>
     <p class="map-lead mt-5">
-      CVT launched in commercial transport — vehicle verification, incident reporting and Trust Passport are operational in Kampala. This roadmap shows what's live and what comes next.
+      This roadmap shows the journey toward portable trust for people who provide services - and the partner and inclusion layers that follow.
     </p>
 
     <div class="mt-10 flex flex-wrap items-center gap-2 text-sm">
@@ -54,13 +52,12 @@ const sections = [
   </section>
 
   <div class="mx-auto max-w-6xl space-y-24 px-4 py-16 sm:px-6 sm:py-20">
-    <LiveToday />
     <ProjectMapStack />
 
     <section class="map-section" id="phases">
       <p class="map-kicker">Phases</p>
       <h2 class="map-heading">Journey to trust infrastructure</h2>
-      <p class="map-lead">Not a software backlog — a story of what exists, what comes next, and why each step matters.</p>
+      <p class="map-lead">Not a software backlog - a story of direction and why each step matters.</p>
       <div class="mt-10 space-y-6">
         {trustRoadmapPhases.map((phase) => (
           <PhaseCard phase={phase} />
@@ -68,34 +65,34 @@ const sections = [
       </div>
     </section>
 
-    <section class="map-section" id="audiences">
-      <p class="map-kicker">Two audiences</p>
-      <h2 class="map-heading">For everyone · For partners</h2>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2">
-        <div class="card-soft">
-          <h3 class="text-lg font-semibold text-ink-strong">Public</h3>
-          <p class="mt-2 text-sm text-mute">Problem · Solution · Roadmap · Why it matters</p>
-          <ul class="mt-4 space-y-2 text-sm text-body">
-            <li><a href={cvtPath()} class="hover:text-primary-soft">CVT home</a></li>
-            <li><a href={cvtPath("map")} class="hover:text-primary-soft">Project map</a></li>
-            <li><a href={cvtPath("vision")} class="hover:text-primary-soft">Vision</a></li>
-            <li><a href={cvtPath("concepts")} class="hover:text-primary-soft">Concepts</a></li>
-          </ul>
-        </div>
-        <div class="card-soft">
-          <h3 class="text-lg font-semibold text-ink-strong">Builders & partners</h3>
-          <p class="mt-2 text-sm text-mute">Guides · Concepts · Partner enquiries</p>
-          <ul class="mt-4 space-y-2 text-sm text-body">
-            <li><a href={cvtPath("guides")} class="hover:text-primary-soft">Integration guides</a></li>
-            <li><a href={cvtPath("concepts")} class="hover:text-primary-soft">Concept explainers</a></li>
-            <li><a href={cvtPath("guides/partner-integration")} class="hover:text-primary-soft">Partner overview</a></li>
-            <li><a href={`mailto:${cvtContactEmail}`} class="hover:text-primary-soft">Request technical specs</a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="mt-8 text-center text-sm text-mute">
-        Partner enquiries: <a href={`mailto:${cvtContactEmail}`} class="hover:text-primary-soft">{cvtContactEmail}</a>
-      </p>
-    </section>
-  </div>
+ <section class="map-section" id="audiences">
+ <p class="map-kicker">Two audiences</p>
+ <h2 class="map-heading">For everyone · For partners</h2>
+ <div class="mt-10 grid gap-6 sm:grid-cols-2">
+ <div class="card-soft">
+ <h3 class="text-lg font-semibold text-ink-strong">Public</h3>
+ <p class="mt-2 text-sm text-mute">Problem · Solution · Roadmap · Why it matters</p>
+ <ul class="mt-4 space-y-2 text-sm text-body">
+ <li><a href={cvtPath()} class="hover:text-primary-soft">CVT home</a></li>
+ <li><a href={cvtPath("map")} class="hover:text-primary-soft">Project map</a></li>
+ <li><a href={cvtPath("vision")} class="hover:text-primary-soft">Vision</a></li>
+ <li><a href={cvtPath("concepts")} class="hover:text-primary-soft">Concepts</a></li>
+ </ul>
+ </div>
+ <div class="card-soft">
+ <h3 class="text-lg font-semibold text-ink-strong">Builders & partners</h3>
+ <p class="mt-2 text-sm text-mute">Guides · Concepts · Partner enquiries</p>
+ <ul class="mt-4 space-y-2 text-sm text-body">
+ <li><a href={cvtPath("guides")} class="hover:text-primary-soft">Integration guides</a></li>
+ <li><a href={cvtPath("concepts")} class="hover:text-primary-soft">Concept explainers</a></li>
+ <li><a href={cvtPath("guides/partner-integration")} class="hover:text-primary-soft">Partner overview</a></li>
+ <li><a href={`mailto:${cvtContactEmail}`} class="hover:text-primary-soft">Request technical specs</a></li>
+ </ul>
+ </div>
+ </div>
+ <p class="mt-8 text-center text-sm text-mute">
+ Partner enquiries: <a href={`mailto:${cvtContactEmail}`} class="hover:text-primary-soft">{cvtContactEmail}</a>
+ </p>
+ </section>
+ </div>
 </CvtLayout>

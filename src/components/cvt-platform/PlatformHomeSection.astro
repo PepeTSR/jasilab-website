@@ -1,7 +1,6 @@
 ---
 import { cvtAppUrl, cvtPath } from "../../lib/site";
-import { cvtPlatformStatement, getFeaturedProducts, platformLayers } from "../../lib/cvt-products";
-import ProductGrid from "./ProductGrid.astro";
+import { cvtPlatformStatement, platformLayers } from "../../lib/cvt-products";
 
 const appHost = cvtAppUrl.replace("https://", "");
 ---
@@ -9,11 +8,13 @@ const appHost = cvtAppUrl.replace("https://", "");
 <section id="platform" class="sh-section sh-section--soft scroll-mt-20">
   <div class="sh-section__inner">
     <p class="sh-eyebrow">The CVT Platform</p>
-    <h2 class="sh-display-xl">One trust layer, live products</h2>
+    <h2 class="sh-display-xl">One trust layer</h2>
     <p class="sh-lead">{cvtPlatformStatement}</p>
     <p class="sh-lead sh-lead--sm">
-      Live app — registration, lookup and registry — at{" "}
-      <a href={cvtAppUrl} target="_blank" rel="noopener" class="font-semibold underline underline-offset-2">{appHost} ↗</a>.
+      Registry, apply and My CVT live at{" "}
+      <a href={cvtAppUrl} target="_blank" rel="noopener" class="font-semibold underline underline-offset-2">{appHost} ↗</a>
+      {" "}and{" "}
+      <a href="https://www.cvt.co.ug/en/my-cvt" target="_blank" rel="noopener" class="font-semibold underline underline-offset-2">www.cvt.co.ug</a>.
     </p>
 
     <div class="cvt-platform-stack" aria-hidden="true">
@@ -26,21 +27,9 @@ const appHost = cvtAppUrl.replace("https://", "");
       <div class="cvt-platform-stack__layer">Trust Profiles</div>
     </div>
 
-    <h3 class="sh-display-md mt-12">Live today</h3>
-    <p class="sh-lead sh-lead--sm">Already delivering value in Kampala commercial transport.</p>
-    <ProductGrid products={getFeaturedProducts()} compact />
-  </div>
-</section>
-
-<section class="sh-section scroll-mt-20">
-  <div class="sh-section__inner sh-section__inner--center">
-    <h2 class="sh-display-md">See maturity clearly</h2>
-    <p class="sh-lead sh-lead--sm">
-      Verify is the hero product today. Platform lists live and pilot surfaces only — longer-horizon ideas sit on Vision and Roadmap.
-    </p>
-    <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={cvtPath("platform")} class="btn-primary">Platform &amp; maturity →</a>
-      <a href={cvtPath("vision")} class="btn-outline">Read the vision</a>
+    <div class="mt-12 flex flex-wrap gap-3">
+      <a href={cvtPath("platform")} class="btn-primary">Explore the platform →</a>
+      <a href={cvtPath("partners")} class="btn-outline">For partners</a>
     </div>
   </div>
 </section>

@@ -11,63 +11,63 @@ import { getCvtJourneySteps } from "../../../lib/cvt-narrative";
 const cvtJourneySteps = getCvtJourneySteps();
 
 const sections = [
-  { id: "user-layer", label: "What's live" },
-  { id: "ecosystem", label: "Ecosystem" },
-  { id: "trust-passport", label: "Trust Passport" },
-  { id: "vision", label: "Full vision" },
+ { id: "user-layer", label: "What's live" },
+ { id: "ecosystem", label: "Ecosystem" },
+ { id: "trust-passport", label: "Trust Passport" },
+ { id: "vision", label: "Full vision" },
 ];
 ---
 
-<CvtLayout title="The CVT Map — Connected Verification Terminal" description="Visual map of CVT — from live transport in Kampala to portable trust infrastructure for Africa.">
-  <section class="section-band border-b border-hairline">
-    <p class="eyebrow-mono">The CVT Map</p>
-    <h1 class="display-xl mt-4 max-w-3xl">From transport to trust infrastructure</h1>
-    <p class="map-lead mt-5">
-      Commercial transport in Kampala is where CVT started. This map shows how today's plate lookup connects to the Trust Passport, partner ecosystem and long-term vision.
-    </p>
+<CvtLayout title="The CVT Map - Connected Verification Terminal" description="Visual map of CVT - from live transport in Kampala to portable trust infrastructure for Africa.">
+ <section class="section-band border-b border-hairline">
+ <p class="eyebrow-mono">The CVT Map</p>
+ <h1 class="display-xl mt-4 max-w-3xl">From transport to trust infrastructure</h1>
+ <p class="map-lead mt-5">
+ Commercial transport in Kampala is where CVT started. This map shows how today's plate lookup connects to the Trust Passport, partner ecosystem and long-term vision.
+ </p>
 
-    <nav class="mt-8 flex flex-wrap gap-2" aria-label="Map sections">
-      {sections.map((s) => (
-        <a href={`#${s.id}`} class="anchor-pill">{s.label}</a>
-      ))}
-    </nav>
+ <nav class="mt-8 flex flex-wrap gap-2" aria-label="Map sections">
+ {sections.map((s) => (
+ <a href={`#${s.id}`} class="anchor-pill">{s.label}</a>
+ ))}
+ </nav>
 
-    <ol class="mt-10 flex flex-wrap gap-2 text-sm">
-      {cvtJourneySteps.map((step, i) => (
-        <>
-          {i > 0 && <span class="text-mute self-center" aria-hidden="true">→</span>}
-          <li>
-            <a href={step.href} class="anchor-pill">{step.title}</a>
-          </li>
-        </>
-      ))}
-    </ol>
-  </section>
+ <ol class="mt-10 flex flex-wrap gap-2 text-sm">
+ {cvtJourneySteps.map((step, i) => (
+ <>
+ {i > 0 && <span class="text-mute self-center" aria-hidden="true">→</span>}
+ <li>
+ <a href={step.href} class="anchor-pill">{step.title}</a>
+ </li>
+ </>
+ ))}
+ </ol>
+ </section>
 
-  <div class="mx-auto max-w-6xl space-y-24 px-4 py-16 sm:px-6 sm:py-20">
-    <UserLayer />
-    <EcosystemMap />
-    <PassportMap />
-    <VisionMap />
+ <div class="mx-auto max-w-6xl space-y-24 px-4 py-16 sm:px-6 sm:py-20">
+ <UserLayer />
+ <EcosystemMap />
+ <PassportMap />
+ <VisionMap />
 
-    <section class="card-soft px-6 py-10 text-center sm:px-10">
-      <h2 class="display-md">Implementation roadmap</h2>
-      <p class="map-lead mx-auto mt-3">Eight phases — from live transport through trust profiles, new categories, insurance and inclusion.</p>
-      <a href={cvtPath("roadmap")} class="btn-primary mt-6">View the full roadmap →</a>
-    </section>
-  </div>
+ <section class="card-soft px-6 py-10 text-center sm:px-10">
+ <h2 class="display-md">Implementation roadmap</h2>
+ <p class="map-lead mx-auto mt-3">Eight phases - from live transport through trust profiles, new categories, insurance and inclusion.</p>
+ <a href={cvtPath("roadmap")} class="btn-primary mt-6">View the full roadmap →</a>
+ </section>
+ </div>
 
-  <section class="section-band border-t border-hairline bg-canvas-soft/30">
-    <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-      <div>
-        <p class="text-lg font-semibold text-ink-strong">Explore further</p>
-        <p class="mt-1 text-sm text-mute">Read the vision essay, or try WhatsApp lookup.</p>
-      </div>
-      <div class="flex flex-wrap gap-3">
-        <a href={cvtPath("vision")} class="btn-outline !py-2.5 !text-sm">Vision essay</a>
-        <a href={cvtPath("#whats-live")} class="btn-outline !py-2.5 !text-sm">What's live</a>
-        <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2.5 !text-sm">cvt.ug ↗</a>
-      </div>
-    </div>
-  </section>
+ <section class="section-band border-t border-hairline bg-canvas-soft/30">
+ <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+ <div>
+ <p class="text-lg font-semibold text-ink-strong">Explore further</p>
+ <p class="mt-1 text-sm text-mute">Read the vision essay, or try WhatsApp lookup.</p>
+ </div>
+ <div class="flex flex-wrap gap-3">
+ <a href={cvtPath("vision")} class="btn-outline !py-2.5 !text-sm">Vision essay</a>
+      <a href={cvtPath("platform")} class="btn-outline !py-2.5 !text-sm">Platform</a>
+ <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-primary !py-2.5 !text-sm">cvt.ug ↗</a>
+ </div>
+ </div>
+ </section>
 </CvtLayout>

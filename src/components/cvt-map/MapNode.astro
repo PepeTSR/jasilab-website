@@ -1,35 +1,35 @@
 ---
-/** Reusable node for CVT map diagrams — Voltagent hairline cards */
+/** Reusable node for CVT map diagrams - Voltagent hairline cards */
 interface Props {
-  label: string;
-  sub?: string;
-  href?: string;
-  variant?: "default" | "hub" | "highlight" | "future" | "done";
-  class?: string;
+ label: string;
+ sub?: string;
+ href?: string;
+ variant?: "default" | "hub" | "highlight" | "future" | "done";
+ class?: string;
 }
 
 const { label, sub, href, variant = "default", class: className = "" } = Astro.props;
 
 const variants = {
-  default: "border-hairline bg-canvas text-ink",
-  hub: "border-2 border-primary/70 bg-canvas text-ink-strong shadow-[0_0_15px_rgba(0,217,146,0.15)]",
-  highlight: "border-primary/50 bg-canvas-soft text-primary-soft",
-  future: "border-dashed border-hairline bg-canvas text-mute",
-  done: "border-primary/30 bg-canvas-soft text-primary-soft",
+ default: "border-hairline bg-canvas text-ink",
+ hub: "border-2 border-primary/70 bg-canvas text-ink-strong shadow-[0_0_15px_rgba(0,217,146,0.15)]",
+ highlight: "border-primary/50 bg-canvas-soft text-primary-soft",
+ future: "border-dashed border-hairline bg-canvas text-mute",
+ done: "border-primary/30 bg-canvas-soft text-primary-soft",
 };
 
 const Tag = href ? "a" : "div";
 ---
 
 <Tag
-  href={href}
-  class:list={[
-    "map-node block rounded-md border px-4 py-3 text-center text-sm transition",
-    variants[variant],
-    href && "hover:border-primary/50 hover:shadow-[0_0_15px_rgba(92,88,85,0.2)]",
-    className,
-  ]}
+ href={href}
+ class:list={[
+ "map-node block rounded-md border px-4 py-3 text-center text-sm transition",
+ variants[variant],
+ href && "hover:border-primary/50 hover:shadow-[0_0_15px_rgba(92,88,85,0.2)]",
+ className,
+ ]}
 >
-  <span class="block font-semibold tracking-wide">{label}</span>
-  {sub && <span class="mt-0.5 block text-xs text-body">{sub}</span>}
+ <span class="block font-semibold tracking-wide">{label}</span>
+ {sub && <span class="mt-0.5 block text-xs text-body">{sub}</span>}
 </Tag>

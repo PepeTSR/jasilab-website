@@ -7,60 +7,60 @@ const journeySteps = getCvtJourneySteps();
 ---
 
 {
-  isSuperhumanTheme ? (
-    <section class="sh-section scroll-mt-20" id="journey">
-      <div class="sh-section__inner">
-        <p class="sh-eyebrow">The journey</p>
-        <h2 class="sh-display-xl">From vision to what’s live</h2>
-        <p class="sh-lead max-w-3xl">
-          Commercial transport is where CVT started — not where it ends. Follow the path from vision, through what’s live today, to the platform we’re building.
-        </p>
+ isSuperhumanTheme ? (
+ <section class="sh-section scroll-mt-20" id="journey">
+ <div class="sh-section__inner">
+ <p class="sh-eyebrow">The journey</p>
+          <h2 class="sh-display-xl">From vision to platform</h2>
+          <p class="sh-lead max-w-3xl">
+            CVT starts with portable trust for people who provide services. Explore the vision, the platform, the passport, and how partners connect.
+          </p>
 
-        <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {journeySteps.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class="block h-full rounded-xl border border-hairline bg-white/70 px-5 py-5 transition hover:border-[#5b4dff]/40"
-              >
-                <p class="text-xs font-semibold uppercase tracking-wide text-[#5b4dff]">{item.step}</p>
-                <h3 class="mt-3 font-semibold text-[#1b1938]">{item.title}</h3>
-                <p class="mt-2 text-sm text-[#4a4768]">{item.desc}</p>
-                <span class="mt-4 inline-block text-sm font-semibold text-[#5b4dff]">Read more →</span>
-              </a>
-            </li>
-          ))}
-        </ol>
+ <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+ {journeySteps.map((item) => (
+ <li>
+ <a
+ href={item.href}
+ class="block h-full rounded-xl border border-hairline bg-white/70 px-5 py-5 transition hover:border-[#5b4dff]/40"
+ >
+ <p class="text-xs font-semibold uppercase tracking-wide text-[#5b4dff]">{item.step}</p>
+ <h3 class="mt-3 font-semibold text-[#1b1938]">{item.title}</h3>
+ <p class="mt-2 text-sm text-[#4a4768]">{item.desc}</p>
+ <span class="mt-4 inline-block text-sm font-semibold text-[#5b4dff]">Read more →</span>
+ </a>
+ </li>
+ ))}
+ </ol>
 
-        <p class="mt-8 text-center">
-          <a href={cvtPath("map")} class="sh-btn-outline">See the full project map →</a>
-        </p>
-      </div>
-    </section>
-  ) : (
-    <section class="section-band section-divider border-t border-hairline" id="journey">
-      <p class="map-kicker">The journey</p>
-      <h2 class="display-md">From vision to what's live</h2>
+ <p class="mt-8 text-center">
+ <a href={cvtPath("map")} class="sh-btn-outline">See the full project map →</a>
+ </p>
+ </div>
+ </section>
+ ) : (
+ <section class="section-band section-divider border-t border-hairline" id="journey">
+ <p class="map-kicker">The journey</p>
+      <h2 class="display-md">From vision to platform</h2>
       <p class="map-lead">
-        Commercial transport is where CVT started — not where it ends. Follow the path from vision, through what's live today, to the platform we're building.
+        CVT starts with portable trust for people who provide services. Explore the vision, the platform, the passport, and how partners connect.
       </p>
 
-      <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {journeySteps.map((item) => (
-          <li>
-            <a href={item.href} class="card-feature group flex h-full flex-col">
-              <p class="code-chip w-fit">{item.step}</p>
-              <h3 class="mt-3 font-semibold text-ink-strong group-hover:text-primary-soft">{item.title}</h3>
-              <p class="mt-2 flex-1 text-sm text-body">{item.desc}</p>
-              <span class="mt-4 text-sm text-primary">Read more →</span>
-            </a>
-          </li>
-        ))}
-      </ol>
+ <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+ {journeySteps.map((item) => (
+ <li>
+ <a href={item.href} class="card-feature group flex h-full flex-col">
+ <p class="code-chip w-fit">{item.step}</p>
+ <h3 class="mt-3 font-semibold text-ink-strong group-hover:text-primary-soft">{item.title}</h3>
+ <p class="mt-2 flex-1 text-sm text-body">{item.desc}</p>
+ <span class="mt-4 text-sm text-primary">Read more →</span>
+ </a>
+ </li>
+ ))}
+ </ol>
 
-      <p class="mt-8 text-center">
-        <a href={cvtPath("map")} class="btn-outline !text-sm">See the full project map →</a>
-      </p>
-    </section>
-  )
+ <p class="mt-8 text-center">
+ <a href={cvtPath("map")} class="btn-outline !text-sm">See the full project map →</a>
+ </p>
+ </section>
+ )
 }

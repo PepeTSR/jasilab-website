@@ -5,8 +5,8 @@ import { render } from "astro:content";
 import CvtLayout from "../../../layouts/CvtLayout.astro";
 
 export async function getStaticPaths() {
-  const guides = await getPublicGuides();
-  return guides.map((guide) => ({ params: { slug: guide.id }, props: { guide } }));
+ const guides = await getPublicGuides();
+ return guides.map((guide) => ({ params: { slug: guide.id }, props: { guide } }));
 }
 
 const { guide } = Astro.props;
@@ -14,33 +14,33 @@ const { Content } = await render(guide);
 const allGuides = await getPublicGuides();
 ---
 
-<CvtLayout title={`${guide.data.title} — CVT Guides`} description={guide.data.description}>
-  <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 lg:flex-row lg:px-6">
-    <aside class="lg:w-56 lg:shrink-0">
-      <p class="eyebrow-mono !text-[11px] !tracking-[0.2em] text-mute">Guides</p>
-      <nav class="mt-4 space-y-1">
-        {allGuides.map((g) => (
-          <a
-            href={cvtPath(`guides/${g.id}`)}
-            class:list={[
-              "block rounded-sm px-3 py-2 text-sm",
-              g.id === guide.id ? "nav-link-active" : "nav-link",
-            ]}
-          >
-            {g.data.title}
-          </a>
-        ))}
-      </nav>
-    </aside>
-    <article class="doc-panel min-w-0 flex-1">
-      <header class="mb-8 border-b border-hairline pb-6">
-        <a href={cvtPath("guides")} class="text-sm text-primary-deep hover:text-primary">← All guides</a>
-        <h1 class="display-lg mt-4">{guide.data.title}</h1>
-        {guide.data.description && <p class="mt-3 text-body">{guide.data.description}</p>}
-      </header>
-      <div class="doc-content">
-        <Content />
-      </div>
-    </article>
-  </div>
+<CvtLayout title={`${guide.data.title} - CVT Guides`} description={guide.data.description}>
+ <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 lg:flex-row lg:px-6">
+ <aside class="lg:w-56 lg:shrink-0">
+ <p class="eyebrow-mono !text-[11px] !tracking-[0.2em] text-mute">Guides</p>
+ <nav class="mt-4 space-y-1">
+ {allGuides.map((g) => (
+ <a
+ href={cvtPath(`guides/${g.id}`)}
+ class:list={[
+ "block rounded-sm px-3 py-2 text-sm",
+ g.id === guide.id ? "nav-link-active" : "nav-link",
+ ]}
+ >
+ {g.data.title}
+ </a>
+ ))}
+ </nav>
+ </aside>
+ <article class="doc-panel min-w-0 flex-1">
+ <header class="mb-8 border-b border-hairline pb-6">
+ <a href={cvtPath("guides")} class="text-sm text-primary-deep hover:text-primary">← All guides</a>
+ <h1 class="display-lg mt-4">{guide.data.title}</h1>
+ {guide.data.description && <p class="mt-3 text-body">{guide.data.description}</p>}
+ </header>
+ <div class="doc-content">
+ <Content />
+ </div>
+ </article>
+ </div>
 </CvtLayout>

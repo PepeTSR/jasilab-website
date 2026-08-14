@@ -1,6 +1,6 @@
 ---
 import { cvtAppUrl, getCvtHeaderCta, getCvtNav, type CvtNavItem } from "../lib/nav";
-import { cvtHomeHref, isActiveCvtNav, isCvtRootSite } from "../lib/site";
+import { cvtHomeHref, cvtPublicAsset, isActiveCvtNav, isCvtRootSite } from "../lib/site";
 import { isSuperhumanTheme, isTeslaTheme, isProductTheme } from "../lib/cvt-theme";
 import ShDarkModeToggle from "./cvt-shell/ShDarkModeToggle.astro";
 
@@ -15,6 +15,9 @@ const isHome =
   current === "/cvt/";
 const heroNav = isTeslaTheme && isHome;
 const lightNav = isSuperhumanTheme && !isHome;
+/** Brand mark: white logo asset everywhere (ink filter on light headers) */
+const logoWhite = cvtPublicAsset("logo-white.png");
+const logoColour = cvtPublicAsset("logo.png");
 
 function navLinkProps(item: CvtNavItem) {
   if (item.external) {
@@ -48,18 +51,26 @@ function ctaLinkProps(cta: { href: string; external?: boolean }) {
   >
     {isCvtRootSite ? (
       <a href={homeHref} class="group inline-flex items-center gap-2" aria-label="CVT home">
-        {isSuperhumanTheme || isTeslaTheme || lightNav || heroNav ? (
+        {isSuperhumanTheme ? (
           <img
-            src={lightNav ? "/cvt/logo.png" : "/cvt/logo-white.png"}
+            src={logoWhite}
             alt="CVT"
-            class="h-9 w-auto"
+            class:list={["sh-logo h-9 w-auto", lightNav && "sh-logo--ink"]}
             height="36"
             decoding="async"
           />
         ) : (
           <>
-            <img src="/cvt/logo.png" alt="CVT" class="h-9 w-auto" height="36" decoding="async" />
-            <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute hidden sm:inline">Connected Verification Terminal</span>
+            <img
+              src={heroNav ? logoWhite : logoColour}
+              alt="CVT"
+              class="h-9 w-auto"
+              height="36"
+              decoding="async"
+            />
+            {!heroNav && (
+              <span class="eyebrow-mono !text-[10px] !leading-tight !text-mute hidden sm:inline">Connected Verification Terminal</span>
+            )}
           </>
         )}
       </a>
@@ -68,7 +79,7 @@ function ctaLinkProps(cta: { href: string; external?: boolean }) {
         <a href="/" class="eyebrow-mono !text-mute hover:text-body">JasiLab</a>
         <span class="text-hairline">/</span>
         <a href={homeHref} class="inline-flex items-center" aria-label="CVT">
-          <img src="/cvt/logo.png" alt="CVT" class="h-8 w-auto" height="32" decoding="async" />
+          <img src={logoColour} alt="CVT" class="h-8 w-auto" height="32" decoding="async" />
         </a>
       </div>
     )}

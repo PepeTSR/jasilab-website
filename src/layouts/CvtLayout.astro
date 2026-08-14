@@ -5,6 +5,7 @@ import CvtFooter from "../components/CvtFooter.astro";
 import CvtMobileBar from "../components/CvtMobileBar.astro";
 import ProductClosingCta from "../components/cvt-shell/ProductClosingCta.astro";
 import ShTealCta from "../components/cvt-shell/ShTealCta.astro";
+import CvtAnalytics from "../components/cvt-analytics/CvtAnalytics.astro";
 import { cvtHomeHref, isCvtRootSite } from "../lib/site";
 import { isSuperhumanTheme, isTeslaTheme, isProductTheme } from "../lib/cvt-theme";
 import { isPartnersPath } from "../lib/nav";
@@ -66,5 +67,6 @@ const onPartners = isPartnersPath(current);
     </main>
     <CvtFooter />
     {isCvtRootSite && !isTeslaTheme && <CvtMobileBar />}
+    {isCvtRootSite && <CvtAnalytics />}
   </div>
 </BaseLayout>

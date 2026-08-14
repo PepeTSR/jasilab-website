@@ -4,75 +4,75 @@ import MapNode from "../cvt-map/MapNode.astro";
 import { cvtPilotLabel } from "../../lib/cvt-narrative";
 
 const steps = [
-  { title: "Take photo", desc: "Photograph the number plate" },
-  { title: "Send to WhatsApp", desc: "Message CVT on WhatsApp" },
-  { title: "Receive verification", desc: "Get status and vehicle details" },
-  { title: "Help grow the network", desc: "Every lookup expands coverage" },
+ { title: "Take photo", desc: "Photograph the number plate" },
+ { title: "Send to WhatsApp", desc: "Message CVT on WhatsApp" },
+ { title: "Receive verification", desc: "Get status and vehicle details" },
+ { title: "Help grow the network", desc: "Every lookup expands coverage" },
 ];
 ---
 
 <section class="section-band section-divider border-y border-hairline">
-  <p class="map-kicker">{cvtPilotLabel} · Try it now</p>
-  <h2 class="map-heading">The product in four steps</h2>
-  <p class="map-lead">
-    No app install. No account. Send a plate — get an answer. This is how CVT meets the public today; every lookup feeds the trust registry that will serve other service providers.
-  </p>
+ <p class="map-kicker">{cvtPilotLabel} · Try it now</p>
+ <h2 class="map-heading">The product in four steps</h2>
+ <p class="map-lead">
+ No app install. No account. Send a plate - get an answer. This is how CVT meets the public today; every lookup feeds the trust registry that will serve other service providers.
+ </p>
 
-  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    {steps.map((step, i) => (
-      <div class="card-feature relative">
-        {i < steps.length - 1 && (
-          <span class="absolute -right-2 top-1/2 hidden -translate-y-1/2 text-mute lg:inline" aria-hidden="true">→</span>
-        )}
-        <p class="code-chip w-fit">{String(i + 1).padStart(2, "0")}</p>
-        <h3 class="mt-3 font-semibold text-ink-strong">{step.title}</h3>
-        <p class="mt-1 text-sm text-body">{step.desc}</p>
-      </div>
-    ))}
-  </div>
+ <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+ {steps.map((step, i) => (
+ <div class="card-feature relative">
+ {i < steps.length - 1 && (
+ <span class="absolute -right-2 top-1/2 hidden -translate-y-1/2 text-mute lg:inline" aria-hidden="true">→</span>
+ )}
+ <p class="code-chip w-fit">{String(i + 1).padStart(2, "0")}</p>
+ <h3 class="mt-3 font-semibold text-ink-strong">{step.title}</h3>
+ <p class="mt-1 text-sm text-body">{step.desc}</p>
+ </div>
+ ))}
+ </div>
 
-  <p class="mt-8 max-w-2xl text-sm text-body">
-    <strong class="text-ink">Why this matters:</strong> repeated lookups and reports accumulate into history and trust signals — immediate value on the road, and the foundation for portable reputation across the economy.
-  </p>
+ <p class="mt-8 max-w-2xl text-sm text-body">
+ <strong class="text-ink">Why this matters:</strong> repeated lookups and reports accumulate into history and trust signals - immediate value on the road, and the foundation for portable reputation across the economy.
+ </p>
 </section>
 
 <section class="map-section section-band">
-  <p class="map-kicker">Live today · The network</p>
-  <h2 class="map-heading">How transport connects to trust infrastructure</h2>
-  <p class="map-lead">Today's user path — from a plate on WhatsApp to standing that employers and insurers can rely on.</p>
+ <p class="map-kicker">Live today · The network</p>
+ <h2 class="map-heading">How transport connects to trust infrastructure</h2>
+ <p class="map-lead">Today's user path - from a plate on WhatsApp to standing that employers and insurers can rely on.</p>
 
-  <div class="ecosystem-grid mx-auto mt-10 max-w-lg">
-    <div class="flex flex-col items-center gap-0">
-      <MapNode label="Public" variant="highlight" class="w-full max-w-[10rem]" />
-      <div class="h-4 w-px bg-hairline" aria-hidden="true"></div>
-      <MapNode label="WhatsApp Lookup" class="w-full max-w-[12rem]" />
-      <div class="h-4 w-px bg-hairline" aria-hidden="true"></div>
-      <MapNode label="CVT Registry" variant="hub" class="w-full max-w-[12rem]" />
-      <div class="my-3 h-6 w-full max-w-xs text-hairline">
-        <svg viewBox="0 0 200 24" class="h-full w-full" fill="none" aria-hidden="true">
-          <path d="M100 0 V8 M33 8 H167 M33 8 V16 M100 8 V24 M167 8 V16" stroke="currentColor" stroke-width="1" />
-        </svg>
-      </div>
-      <div class="grid w-full grid-cols-3 gap-2">
-        <MapNode label="Drivers" class="!px-2 !py-2 text-xs" />
-        <MapNode label="Vehicles" class="!px-2 !py-2 text-xs" />
-        <MapNode label="Reports" class="!px-2 !py-2 text-xs" />
-      </div>
-      <div class="h-4 w-px bg-hairline" aria-hidden="true"></div>
-      <MapNode label="Trust Profiles" href={cvtPath("concepts/trust-profile")} class="w-full max-w-[12rem]" />
-      <div class="my-3 h-6 w-full max-w-xs text-hairline">
-        <svg viewBox="0 0 200 24" class="h-full w-full" fill="none" aria-hidden="true">
-          <path d="M100 0 V8 M33 8 H167 M33 8 V16 M100 8 V24 M167 8 V16" stroke="currentColor" stroke-width="1" />
-        </svg>
-      </div>
-      <div class="grid w-full grid-cols-3 gap-2">
-        <MapNode label="Employers" href={cvtPath("guides/employment")} class="!px-2 !py-2 text-xs" />
-        <MapNode label="Insurers" href={cvtPath("guides/insurance")} class="!px-2 !py-2 text-xs" />
-        <MapNode label="Fleets" class="!px-2 !py-2 text-xs" />
-      </div>
-    </div>
-  </div>
-  <p class="mt-6 text-center">
-    <a href={cvtPath("map")} class="btn-ghost !text-sm">Explore the full CVT map →</a>
-  </p>
+ <div class="ecosystem-grid mx-auto mt-10 max-w-lg">
+ <div class="flex flex-col items-center gap-0">
+ <MapNode label="Public" variant="highlight" class="w-full max-w-[10rem]" />
+ <div class="h-4 w-px bg-hairline" aria-hidden="true"></div>
+ <MapNode label="WhatsApp Lookup" class="w-full max-w-[12rem]" />
+ <div class="h-4 w-px bg-hairline" aria-hidden="true"></div>
+ <MapNode label="CVT Registry" variant="hub" class="w-full max-w-[12rem]" />
+ <div class="my-3 h-6 w-full max-w-xs text-hairline">
+ <svg viewBox="0 0 200 24" class="h-full w-full" fill="none" aria-hidden="true">
+ <path d="M100 0 V8 M33 8 H167 M33 8 V16 M100 8 V24 M167 8 V16" stroke="currentColor" stroke-width="1" />
+ </svg>
+ </div>
+ <div class="grid w-full grid-cols-3 gap-2">
+ <MapNode label="Drivers" class="!px-2 !py-2 text-xs" />
+ <MapNode label="Vehicles" class="!px-2 !py-2 text-xs" />
+ <MapNode label="Reports" class="!px-2 !py-2 text-xs" />
+ </div>
+ <div class="h-4 w-px bg-hairline" aria-hidden="true"></div>
+ <MapNode label="Trust Profiles" href={cvtPath("concepts/trust-profile")} class="w-full max-w-[12rem]" />
+ <div class="my-3 h-6 w-full max-w-xs text-hairline">
+ <svg viewBox="0 0 200 24" class="h-full w-full" fill="none" aria-hidden="true">
+ <path d="M100 0 V8 M33 8 H167 M33 8 V16 M100 8 V24 M167 8 V16" stroke="currentColor" stroke-width="1" />
+ </svg>
+ </div>
+ <div class="grid w-full grid-cols-3 gap-2">
+ <MapNode label="Employers" href={cvtPath("guides/employment")} class="!px-2 !py-2 text-xs" />
+ <MapNode label="Insurers" href={cvtPath("guides/insurance")} class="!px-2 !py-2 text-xs" />
+ <MapNode label="Fleets" class="!px-2 !py-2 text-xs" />
+ </div>
+ </div>
+ </div>
+ <p class="mt-6 text-center">
+ <a href={cvtPath("map")} class="btn-ghost !text-sm">Explore the full CVT map →</a>
+ </p>
 </section>

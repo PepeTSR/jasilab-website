@@ -2,28 +2,25 @@
 import { isProductTheme } from "../../lib/cvt-theme";
 import { cvtAppUrl, cvtPath } from "../../lib/site";
 import CvtLayout from "../../layouts/CvtLayout.astro";
-import ProductGrid from "../../components/cvt-platform/ProductGrid.astro";
 import {
   cvtPlatformStatement,
-  getHorizonProducts,
-  getPlatformShelfProducts,
+  cvtProducts,
   platformLayers,
-  statusLabels,
 } from "../../lib/cvt-products";
 
 if (!isProductTheme) {
   return Astro.redirect(cvtPath());
 }
 
-const shelf = getPlatformShelfProducts();
-const live = shelf.filter((p) => p.status === "live");
-const building = shelf.filter((p) => p.status === "building" || p.status === "pilot");
-const horizon = getHorizonProducts();
+/** Named products without live / pilot / building maturity shelves */
+const namedProducts = cvtProducts.filter((p) =>
+  ["verify", "connect", "passport", "enterprise", "api", "identity"].includes(p.id),
+);
 ---
 
 <CvtLayout
-  title="Platform — CVT"
-  description="The CVT platform — live trust infrastructure with Verify, Connect and Passport, plus partner pilots. Longer-horizon ideas live on Vision and Roadmap."
+  title="Platform - CVT"
+  description="The CVT platform - trust infrastructure for verified identities, portable standing and partner access under consent."
 >
   <section class="sh-section border-b border-hairline">
     <div class="sh-section__inner">
@@ -31,11 +28,14 @@ const horizon = getHorizonProducts();
       <h1 class="sh-display-xl sh-display-xl--dark">One trust layer</h1>
       <p class="sh-lead sh-lead--dark max-w-3xl">{cvtPlatformStatement}</p>
       <p class="mt-6 text-sm text-mute">
-        The live registry, registration and lookup tools are at{" "}
+        Registry, registration and My CVT are at{" "}
         <a href={cvtAppUrl} target="_blank" rel="noopener" class="font-semibold text-[#1b1938] underline underline-offset-2">
           {cvtAppUrl.replace("https://", "")} ↗
         </a>
-        . This page shows what is live or in pilot — not every future idea.
+        {" "}and{" "}
+        <a href="https://www.cvt.co.ug/en/my-cvt" target="_blank" rel="noopener" class="font-semibold text-[#1b1938] underline underline-offset-2">
+          www.cvt.co.ug
+        </a>.
       </p>
     </div>
   </section>
@@ -70,42 +70,22 @@ const horizon = getHorizonProducts();
 
   <section class="sh-section">
     <div class="sh-section__inner">
-      <h2 class="sh-display-md">Live today</h2>
+      <h2 class="sh-display-md">Products</h2>
       <p class="sh-lead sh-lead--sm max-w-2xl">
-        The public wedge in Kampala commercial transport — what people can use without a partner contract.
-      </p>
-      <ProductGrid products={live} />
-    </div>
-  </section>
-
-  <section class="sh-section sh-section--soft">
-    <div class="sh-section__inner">
-      <h2 class="sh-display-md">Pilot &amp; in development</h2>
-      <p class="sh-lead sh-lead--sm max-w-2xl">
-        Real surfaces for partners and the person-centric spine — maturity varies; ask us before assuming production volume.
-      </p>
-      <ProductGrid products={building} />
-    </div>
-  </section>
-
-  <section class="sh-section">
-    <div class="sh-section__inner">
-      <h2 class="sh-display-md">On the horizon</h2>
-      <p class="sh-lead sh-lead--sm max-w-3xl">
-        These ideas sit on the same trust layer but are not product shelves yet. Read the vision essay and roadmap for the longer arc — we keep them out of the live catalogue so maturity stays honest.
+        What sits on the trust layer - without a live / pilot / roadmap shelf on this page.
       </p>
       <ul class="mt-8 grid gap-4 sm:grid-cols-2">
-        {horizon.map((p) => (
+        {namedProducts.map((p) => (
           <li class="rounded-lg border border-hairline bg-white/60 px-5 py-4">
-            <p class="text-xs font-semibold uppercase tracking-wide text-mute">{statusLabels[p.status]}</p>
-            <p class="mt-1 font-semibold text-[#1b1938]">{p.name}</p>
-            <p class="mt-2 text-sm text-mute">{p.purpose}</p>
+            <p class="font-semibold text-[#1b1938]">{p.name}</p>
+            <p class="mt-1 text-sm text-mute">{p.tagline}</p>
+            <p class="mt-2 text-sm text-body">{p.purpose}</p>
           </li>
         ))}
       </ul>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href={cvtPath("vision")} class="btn-primary">Read the vision →</a>
-        <a href={cvtPath("roadmap")} class="btn-outline">Implementation roadmap</a>
+        <a href={cvtPath("partners")} class="btn-primary">For partners →</a>
+        <a href={cvtPath("vision")} class="btn-outline">Read the vision</a>
       </div>
     </div>
   </section>

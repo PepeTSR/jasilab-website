@@ -7,31 +7,31 @@ import { cvtPilotLabel } from "../../lib/cvt-narrative";
 ---
 
 <section class="map-section" id="live-today">
-  <p class="map-kicker">{cvtPilotLabel}</p>
-  <h2 class="map-heading">What's live today</h2>
-  <p class="map-lead">
-    CVT is operational in Uganda — starting with commercial transport. These capabilities are real, not roadmap promises. They prove the model before it extends to plumbers, caregivers and other service providers.
-  </p>
+ <p class="map-kicker">{cvtPilotLabel}</p>
+ <h2 class="map-heading">What's live today</h2>
+ <p class="map-lead">
+ CVT is operational in Uganda - starting with commercial transport. These capabilities are real, not roadmap promises. They prove the model before it extends to plumbers, caregivers and other service providers.
+ </p>
 
-  <div class="mt-10 grid gap-6 sm:grid-cols-2">
-    {liveTodayItems.map((item) => (
-      <div class="card-feature-emphasis">
-        <div class="flex items-start gap-3">
-          <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-primary/40 bg-canvas text-sm text-primary">✓</span>
-          <div>
-            <h3 class="font-semibold text-ink-strong">{item.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-body">{item.body}</p>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
+ <div class="mt-10 grid gap-6 sm:grid-cols-2">
+ {liveTodayItems.map((item) => (
+ <div class="card-feature-emphasis">
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-primary/40 bg-canvas text-sm text-primary">✓</span>
+ <div>
+ <h3 class="font-semibold text-ink-strong">{item.title}</h3>
+ <p class="mt-2 text-sm leading-relaxed text-body">{item.body}</p>
+ </div>
+ </div>
+ </div>
+ ))}
+ </div>
 
-  <p class="mt-8 text-center">
-    <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-ghost !text-sm">
-      Try the live registry at {cvtAppHostname} ↗
-    </a>
-    <span class="mx-2 text-mute">·</span>
-    <a href={cvtPath("#whats-live")} class="btn-ghost !text-sm">What's live →</a>
-  </p>
+ <p class="mt-8 text-center">
+ <a href={cvtAppUrl} target="_blank" rel="noopener" class="btn-ghost !text-sm">
+ Try the live registry at {cvtAppHostname} ↗
+ </a>
+ <span class="mx-2 text-mute">·</span>
+ <a href={cvtPath("#whats-live")} class="btn-ghost !text-sm">What's live →</a>
+ </p>
 </section>

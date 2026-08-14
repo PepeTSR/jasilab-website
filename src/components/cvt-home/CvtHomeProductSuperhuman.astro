@@ -1,14 +1,11 @@
 ---
-/** Superhuman theme — scroll hero + platform product model */
+/** Superhuman theme - scroll hero + platform product model */
 import ShScrollHero from "./ShScrollHero.astro";
 import PlatformHomeSection from "../cvt-platform/PlatformHomeSection.astro";
 import ShTealCta from "../cvt-shell/ShTealCta.astro";
-import WhatsAppLookupSteps from "./WhatsAppLookupSteps.astro";
 import VisionTeaser from "./VisionTeaser.astro";
 import JourneyPath from "./JourneyPath.astro";
-import { cvtApplyUrl } from "../../lib/nav";
-import { cvtAppUrl, cvtPath } from "../../lib/site";
-import { cvtPilotCapabilities, cvtPilotLabel } from "../../lib/cvt-narrative";
+import { cvtPath } from "../../lib/site";
 import {
   cvtHowItWorksSteps,
   cvtTrustEarned,
@@ -20,34 +17,10 @@ import {
 
 <PlatformHomeSection />
 
-<section id="whats-live" class="sh-section sh-section--muted scroll-mt-20">
-  <div class="sh-section__inner">
-    <p class="sh-eyebrow">Live now</p>
-    <h2 class="sh-display-xl">What's live — {cvtPilotLabel}</h2>
-    <p class="sh-lead max-w-3xl">
-      Boda bodas, taxis and special hire in Kampala. Verification, lookups and trust records are operational on the registry at{" "}
-      <a href={cvtAppUrl} target="_blank" rel="noopener" class="font-semibold underline underline-offset-2">cvt.ug</a>.
-    </p>
-
-    <ul class="sh-pills mt-8">
-      {cvtPilotCapabilities.map((f) => (
-        <li class="pill-tag-live"><span class="text-primary">✓</span> {f}</li>
-      ))}
-    </ul>
-
-    <WhatsAppLookupSteps showQr={false} />
-
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href={cvtApplyUrl} target="_blank" rel="noopener" class="sh-btn-primary">Get verified</a>
-      <a href={cvtPath("vision")} class="sh-btn-outline">Our vision</a>
-    </div>
-  </div>
-</section>
-
 <section id="how-it-works" class="sh-section scroll-mt-20">
   <div class="sh-section__inner">
     <h2 class="sh-display-xl">How the platform works</h2>
-    <p class="sh-lead">Five steps on the same trust layer — commercial transport in Kampala runs them end-to-end today.</p>
+    <p class="sh-lead">Five steps on the same trust layer - verify, look up, build standing, share with consent, and reward good behaviour.</p>
 
     <div class="sh-steps">
       {cvtHowItWorksSteps.map((step, i) => (

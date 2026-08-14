@@ -4,20 +4,20 @@ import CvtLayout from "../../../layouts/CvtLayout.astro";
 import { cvtConcepts } from "../../../lib/nav";
 ---
 
-<CvtLayout title="Concepts — CVT">
-  <section class="section-band">
-    <h1 class="display-lg">Concepts</h1>
-    <p class="mt-4 max-w-2xl text-body">
-      How CVT thinks about trust, standing and partner access. Full explainers are being expanded — see{" "}
-      <a href={cvtPath("guides")}>Guides</a> for detailed policy documents.
-    </p>
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {cvtConcepts.map((c) => (
-        <a href={cvtPath(`concepts/${c.slug}`)} class="card-feature group block">
-          <h2 class="font-semibold text-ink-strong group-hover:text-primary-soft">{c.title}</h2>
-          <p class="mt-2 text-sm text-mute">{c.summary}</p>
-        </a>
-      ))}
-    </div>
-  </section>
+<CvtLayout title="Concepts - CVT">
+ <section class="section-band">
+ <h1 class="display-lg">Concepts</h1>
+ <p class="mt-4 max-w-2xl text-body">
+ How CVT thinks about trust, standing and partner access. Full explainers are being expanded - see{" "}
+ <a href={cvtPath("guides")}>Guides</a> for detailed policy documents.
+ </p>
+ <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+ {cvtConcepts.map((c) => (
+ <a href={cvtPath(`concepts/${c.slug}`)} class="card-feature group block">
+ <h2 class="font-semibold text-ink-strong group-hover:text-primary-soft">{c.title}</h2>
+ <p class="mt-2 text-sm text-mute">{c.summary}</p>
+ </a>
+ ))}
+ </div>
+ </section>
 </CvtLayout>

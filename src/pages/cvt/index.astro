@@ -9,16 +9,16 @@ import { isSuperhumanTheme, isTeslaTheme } from "../../lib/cvt-theme";
 ---
 
 <CvtLayout
-  title="CVT — Trust. Visibility. Accountability."
-  description={
-    isCvtRootSite
-      ? "CVT is a trust platform for mobile identities. Scan to verify a plate on WhatsApp in Kampala — build reputation that travels with you."
-      : "CVT is a trust platform for mobile identities. Verify through WhatsApp, build reputation that travels with you — live in Kampala commercial transport."
-  }
+ title="CVT - Trust. Visibility. Accountability."
+ description={
+ isCvtRootSite
+ ? "CVT is a trust platform for mobile identities. Scan to verify a plate on WhatsApp in Kampala - build reputation that travels with you."
+ : "CVT is a trust platform for mobile identities. Verify through WhatsApp, build reputation that travels with you - live in Kampala commercial transport."
+ }
 >
-  {isCvtRootSite ? (
-    isSuperhumanTheme ? <CvtHomeProductSuperhuman /> :
-    isTeslaTheme ? <CvtHomeProductTesla /> :
-    <CvtHomeProduct />
-  ) : <CvtHomeEmbedded />}
+ {isCvtRootSite ? (
+ isSuperhumanTheme ? <CvtHomeProductSuperhuman /> :
+ isTeslaTheme ? <CvtHomeProductTesla /> :
+ <CvtHomeProduct />
+ ) : <CvtHomeEmbedded />}
 </CvtLayout>
