@@ -1,0 +1,983 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const cities = [
+  { name: "Arua", x: 18, y: 14, delay: "0s" },
+  { name: "Gulu", x: 42, y: 12, delay: "0.4s" },
+  { name: "Lira", x: 52, y: 22, delay: "0.8s" },
+  { name: "Mbale", x: 78, y: 38, delay: "1.1s" },
+  { name: "Jinja", x: 68, y: 52, delay: "0.2s" },
+  { name: "Kampala", x: 58, y: 58, delay: "0s", hub: true },
+  { name: "Entebbe", x: 54, y: 68, delay: "1.4s" },
+  { name: "Masaka", x: 44, y: 72, delay: "0.6s" },
+  { name: "Mbarara", x: 28, y: 78, delay: "1.0s" },
+  { name: "Fort Portal", x: 22, y: 58, delay: "1.3s" },
+  { name: "Kabale", x: 24, y: 90, delay: "0.5s" },
+] as const;
+
+const routes: [number, number][] = [
+  [5, 1], // Kampala-Gulu index via names - use indices into cities
+  [5, 4],
+  [5, 3],
+  [5, 7],
+  [5, 8],
+  [5, 9],
+  [5, 6],
+  [1, 2],
+  [0, 1],
+  [8, 10],
+  [4, 3],
+];
+---
+
+<BaseLayout
+  title="Tambla — The Orange Signal across Uganda"
+  description="Tambla is CVT’s rider app for verified hail across Uganda. Verified bodas. Instant offers. Trust that travels with every ride."
+>
+  <div class="tambla">
+    <div class="tambla-grain" aria-hidden="true"></div>
+
+    <header class="tambla-nav">
+      <a href="/tambla/" class="tambla-brand">
+        <img src="/tambla/app-icon.png" alt="" width="36" height="36" class="tambla-brand-icon" />
+        <span>Tambla</span>
+      </a>
+      <nav class="tambla-nav-links">
+        <a href="#signal">The signal</a>
+        <a href="#uganda">Uganda</a>
+        <a href="#riders">For riders</a>
+        <a href="/tambla/privacy/">Privacy</a>
+      </nav>
+      <a href="#get" class="tambla-btn tambla-btn-sm">Get Tambla</a>
+    </header>
+
+    <main>
+      <section class="tambla-hero">
+        <div class="tambla-hero-copy">
+          <p class="tambla-eyebrow">
+            <span class="tambla-pulse-dot"></span>
+            Soft launch · Uganda
+          </p>
+          <h1>
+            The <em>orange signal</em>
+            <span class="tambla-hero-line2">that finds a verified rider</span>
+          </h1>
+          <p class="tambla-lead">
+            Tambla is ride-hail for Uganda’s working roads — built for bodas who are
+            <strong>CVT-verified</strong>, and for passengers who want a name, a plate, and a
+            trust story before the engine starts.
+          </p>
+          <div class="tambla-hero-actions">
+            <a href="#get" class="tambla-btn">Get the rider app</a>
+            <a href="https://www.cvt.co.ug" class="tambla-btn tambla-btn-ghost" target="_blank" rel="noopener"
+              >Verify with CVT</a
+            >
+          </div>
+          <p class="tambla-meta">A CVT product · by Connected Verification Digital Uganda</p>
+        </div>
+
+        <div class="tambla-hero-stage" aria-hidden="true">
+          <div class="tambla-signal">
+            <span class="tambla-ring"></span>
+            <span class="tambla-ring tambla-ring-2"></span>
+            <span class="tambla-ring tambla-ring-3"></span>
+            <div class="tambla-phone">
+              <img src="/tambla/app-icon.png" alt="" width="72" height="72" />
+              <div class="tambla-phone-card">
+                <strong>New hail nearby</strong>
+                <span>Accept · 90s · verified match</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tambla-strip" id="signal">
+        <div class="tambla-strip-inner">
+          <div>
+            <h2>Hail is a promise.</h2>
+            <p>
+              In Kampala traffic, a random wave means nothing. Tambla turns a hail into a
+              <strong>verified match</strong> — rider standing, plate, and live location — so the
+              orange pulse on the map is not noise. It is accountability on two wheels.
+            </p>
+          </div>
+          <ul class="tambla-pillars">
+            <li>
+              <span class="tambla-pillar-n">01</span>
+              <strong>Verified identity</strong>
+              <p>National ID, LC letter, plate — reviewed through CVT before hails go live.</p>
+            </li>
+            <li>
+              <span class="tambla-pillar-n">02</span>
+              <strong>Instant offers</strong>
+              <p>Nearby Available riders get a loud, high-priority offer. Accept and roll.</p>
+            </li>
+            <li>
+              <span class="tambla-pillar-n">03</span>
+              <strong>Trust that travels</strong>
+              <p>Every completed ride feeds a standing you can take to partners and stages.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tambla-uganda" id="uganda">
+        <div class="tambla-uganda-copy">
+          <p class="tambla-eyebrow">Coverage ambition</p>
+          <h2>From Kampala stages to the whole map.</h2>
+          <p>
+            Uganda moves on bodas — markets at dawn, hospital runs at midnight, upcountry buses
+            that leave a last mile. Tambla’s concept is simple: wherever people hail, a
+            <em>verified</em> rider can answer. Soft launch starts where density is highest;
+            the orange network is drawn for the country.
+          </p>
+          <div class="tambla-city-chips">
+            {cities.map((c) => (
+              <span class:list={[{ hub: c.hub }]}>{c.name}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="tambla-map" role="img" aria-label="Stylised map of Uganda with Tambla city nodes">
+          <svg viewBox="0 0 100 100" class="tambla-map-svg">
+            <defs>
+              <radialGradient id="ugGlow" cx="55%" cy="55%" r="55%">
+                <stop offset="0%" stop-color="#FF5C2D" stop-opacity="0.35"></stop>
+                <stop offset="55%" stop-color="#1B5E20" stop-opacity="0.12"></stop>
+                <stop offset="100%" stop-color="transparent" stop-opacity="0"></stop>
+              </radialGradient>
+              <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF5C2D" stop-opacity="0.7"></stop>
+                <stop offset="100%" stop-color="#0B6E4F" stop-opacity="0.35"></stop>
+              </linearGradient>
+            </defs>
+            <!-- Soft Uganda-ish silhouette -->
+            <path
+              class="tambla-land"
+              d="M34 6 C48 4 62 8 70 14 C78 20 86 28 88 40 C90 52 84 62 78 70 C72 78 66 86 54 92 C42 96 30 94 22 86 C14 78 10 66 12 52 C14 38 18 24 24 14 C28 8 30 7 34 6 Z"
+              fill="url(#ugGlow)"
+              stroke="rgba(255,92,45,0.28)"
+              stroke-width="0.4"
+            ></path>
+            {routes.map(([a, b]) => (
+              <line
+                x1={cities[a].x}
+                y1={cities[a].y}
+                x2={cities[b].x}
+                y2={cities[b].y}
+                stroke="url(#routeGrad)"
+                stroke-width="0.35"
+                stroke-dasharray="1.2 1.1"
+                class="tambla-route"
+              ></line>
+            ))}
+            {cities.map((c) => (
+              <g class:list={["tambla-node", { hub: c.hub }]} style={`--d:${c.delay}`}>
+                <circle cx={c.x} cy={c.y} r={c.hub ? 2.4 : 1.35} class="tambla-node-core"></circle>
+                <circle cx={c.x} cy={c.y} r={c.hub ? 5 : 3.2} class="tambla-node-halo"></circle>
+                <text x={c.x + 3.2} y={c.y + 1.1} class="tambla-node-label">
+                  {c.name}
+                </text>
+              </g>
+            ))}
+          </svg>
+          <p class="tambla-map-caption">The Orange Signal — every node a stage waiting for a trusted hail.</p>
+        </div>
+      </section>
+
+      <section class="tambla-journey">
+        <h2>How a Tambla hail feels</h2>
+        <ol class="tambla-steps">
+          <li>
+            <span>Passenger requests</span>
+            <p>A hail drops into the network — destination, pin, and urgency.</p>
+          </li>
+          <li>
+            <span>Orange offer rings</span>
+            <p>Available verified riders nearby get a high-priority offer on Tambla.</p>
+          </li>
+          <li>
+            <span>Accept &amp; navigate</span>
+            <p>One tap. Map open. The passenger sees a rider who already passed CVT checks.</p>
+          </li>
+          <li>
+            <span>Ride completes</span>
+            <p>Service history builds standing — the trust layer Uganda’s roads have been missing.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="tambla-riders" id="riders">
+        <div class="tambla-riders-panel">
+          <p class="tambla-eyebrow">For riders</p>
+          <h2>Your stage. Your phone. Your standing.</h2>
+          <ul>
+            <li>WhatsApp OTP sign-in — no password to lose at the stage</li>
+            <li>Go <strong>Available</strong> and receive hail offers with live location</li>
+            <li>Background standby engineered for real Android battery life</li>
+            <li>Built on CVT verification — the same trust spine as plate lookup</li>
+          </ul>
+          <a href="#get" class="tambla-btn">Join as a rider</a>
+        </div>
+        <div class="tambla-riders-panel tambla-riders-alt">
+          <p class="tambla-eyebrow">For Uganda</p>
+          <h2>Ride-hail with a spine of trust.</h2>
+          <p>
+            Most apps optimise for speed alone. Tambla optimises for
+            <strong>who shows up</strong>. When verification, hail, and standing share one
+            identity, a boda in Mbale and a stage in Kawempe speak the same language of trust.
+          </p>
+          <p class="tambla-quote">
+            “Not another anonymous pin on a map — a rider you can look up.”
+          </p>
+        </div>
+      </section>
+
+      <section class="tambla-get" id="get">
+        <div class="tambla-get-card">
+          <img src="/tambla/logo.png" alt="Tambla" class="tambla-get-logo" />
+          <h2>Ready when you are.</h2>
+          <p>
+            Tambla is soft-launching on Android. Riders: complete CVT verification, then run
+            Tambla Available on your stage. Passengers: hail through CVT Connect as coverage expands.
+          </p>
+          <div class="tambla-get-actions">
+            <a class="tambla-btn" href="https://www.cvt.co.ug/en/apply" target="_blank" rel="noopener"
+              >Get verified on CVT</a
+            >
+            <a class="tambla-btn tambla-btn-ghost" href="mailto:ops@cvt.ug?subject=Tambla%20rider%20access"
+              >Request rider access</a
+            >
+          </div>
+          <p class="tambla-meta">
+            Android soft launch · package <code>net.jasilab.cvt.tambla</code> · Google Play public listing soon
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="tambla-footer">
+      <div>
+        <strong>Tambla</strong>
+        <span> · A CVT product on JasiLab</span>
+      </div>
+      <div class="tambla-footer-links">
+        <a href="/tambla/privacy/">Privacy</a>
+        <a href="/tambla/delete-account/">Delete account</a>
+        <a href="/tambla/delete-data/">Delete data</a>
+        <a href="https://www.cvt.co.ug" target="_blank" rel="noopener">CVT</a>
+        <a href="/">JasiLab</a>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  .tambla {
+    --t-orange: #ff5c2d;
+    --t-orange-hot: #ff7a4d;
+    --t-orange-deep: #d63f14;
+    --t-green: #1b5e20;
+    --t-green-bright: #0b6e4f;
+    --t-ink: #fff7f2;
+    --t-mute: #c4a99a;
+    --t-asphalt: #0c0a09;
+    --t-panel: #161210;
+    --t-line: rgba(255, 92, 45, 0.28);
+    position: relative;
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(255, 92, 45, 0.22), transparent 60%),
+      radial-gradient(900px 500px at 10% 20%, rgba(11, 110, 79, 0.18), transparent 55%),
+      var(--t-asphalt);
+    color: var(--t-ink);
+    font-family: Inter, system-ui, sans-serif;
+    overflow-x: clip;
+  }
+
+  .tambla a {
+    color: var(--t-orange-hot);
+  }
+
+  .tambla-grain {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .tambla-nav {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.25rem;
+    backdrop-filter: blur(14px);
+    background: rgba(12, 10, 9, 0.72);
+    border-bottom: 1px solid var(--t-line);
+  }
+
+  .tambla-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--t-ink) !important;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: 1.15rem;
+  }
+
+  .tambla-brand-icon {
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255, 92, 45, 0.35), 0 8px 24px rgba(255, 92, 45, 0.25);
+  }
+
+  .tambla-nav-links {
+    display: none;
+    gap: 1.25rem;
+  }
+
+  .tambla-nav-links a {
+    color: var(--t-mute) !important;
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+
+  .tambla-nav-links a:hover {
+    color: var(--t-ink) !important;
+  }
+
+  @media (min-width: 800px) {
+    .tambla-nav {
+      padding-inline: 2rem;
+    }
+    .tambla-nav-links {
+      display: flex;
+    }
+  }
+
+  .tambla-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--t-orange-hot), var(--t-orange-deep));
+    color: #1a0904 !important;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 10px 30px rgba(255, 92, 45, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .tambla-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 36px rgba(255, 92, 45, 0.45);
+  }
+
+  .tambla-btn-sm {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.88rem;
+  }
+
+  .tambla-btn-ghost {
+    background: transparent;
+    color: var(--t-ink) !important;
+    border: 1px solid var(--t-line);
+    box-shadow: none;
+  }
+
+  .tambla-hero {
+    display: grid;
+    gap: 2.5rem;
+    padding: 3.5rem 1.25rem 2.5rem;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 960px) {
+    .tambla-hero {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      padding: 5rem 2rem 3.5rem;
+    }
+  }
+
+  .tambla-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0;
+    color: var(--t-orange);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .tambla-pulse-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--t-orange);
+    box-shadow: 0 0 0 0 rgba(255, 92, 45, 0.7);
+    animation: tamblaPulse 1.8s ease-out infinite;
+  }
+
+  @keyframes tamblaPulse {
+    70% {
+      box-shadow: 0 0 0 12px rgba(255, 92, 45, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 92, 45, 0);
+    }
+  }
+
+  .tambla-hero h1 {
+    margin: 1rem 0 0;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+    color: var(--t-ink);
+  }
+
+  .tambla-hero h1 em {
+    font-style: normal;
+    background: linear-gradient(120deg, #ffb089, var(--t-orange), #ff8f4a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tambla-hero-line2 {
+    display: block;
+    margin-top: 0.2em;
+    color: #f3e7df;
+    font-weight: 560;
+  }
+
+  .tambla-lead {
+    margin: 1.35rem 0 0;
+    max-width: 36rem;
+    color: var(--t-mute);
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+
+  .tambla-lead strong {
+    color: #efe2d8;
+  }
+
+  .tambla-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .tambla-meta {
+    margin: 1.1rem 0 0;
+    color: #8a7367;
+    font-size: 0.85rem;
+  }
+
+  .tambla-meta code {
+    color: #c9b0a2;
+    font-size: 0.8rem;
+  }
+
+  .tambla-hero-stage {
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+  }
+
+  .tambla-signal {
+    position: relative;
+    width: min(100%, 360px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .tambla-ring {
+    position: absolute;
+    inset: 18%;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 92, 45, 0.45);
+    animation: tamblaRing 3.2s ease-out infinite;
+  }
+
+  .tambla-ring-2 {
+    inset: 8%;
+    animation-delay: 0.7s;
+    border-color: rgba(11, 110, 79, 0.35);
+  }
+
+  .tambla-ring-3 {
+    inset: 0;
+    animation-delay: 1.4s;
+  }
+
+  @keyframes tamblaRing {
+    0% {
+      transform: scale(0.72);
+      opacity: 0.85;
+    }
+    100% {
+      transform: scale(1.08);
+      opacity: 0;
+    }
+  }
+
+  .tambla-phone {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem 1.25rem;
+    border-radius: 28px;
+    background: linear-gradient(160deg, #241812, #120e0c 70%);
+    border: 1px solid rgba(255, 92, 45, 0.35);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+      0 30px 80px rgba(0, 0, 0, 0.55),
+      0 0 60px rgba(255, 92, 45, 0.18);
+  }
+
+  .tambla-phone img {
+    border-radius: 18px;
+  }
+
+  .tambla-phone-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 92, 45, 0.12);
+    border: 1px solid rgba(255, 92, 45, 0.28);
+  }
+
+  .tambla-phone-card strong {
+    color: #ffe1d4;
+    font-size: 0.95rem;
+  }
+
+  .tambla-phone-card span {
+    color: var(--t-mute);
+    font-size: 0.8rem;
+  }
+
+  .tambla-strip {
+    border-block: 1px solid var(--t-line);
+    background: linear-gradient(180deg, rgba(255, 92, 45, 0.06), transparent 40%), var(--t-panel);
+  }
+
+  .tambla-strip-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 3.5rem 1.25rem;
+  }
+
+  @media (min-width: 800px) {
+    .tambla-strip-inner {
+      padding: 4rem 2rem;
+    }
+  }
+
+  .tambla-strip h2,
+  .tambla-uganda h2,
+  .tambla-journey h2,
+  .tambla-riders h2,
+  .tambla-get h2 {
+    margin: 0.6rem 0 0;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    color: var(--t-ink);
+    font-weight: 700;
+  }
+
+  .tambla-strip-inner > div > p {
+    margin: 1rem 0 0;
+    max-width: 40rem;
+    color: var(--t-mute);
+    line-height: 1.65;
+  }
+
+  .tambla-pillars {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 800px) {
+    .tambla-pillars {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .tambla-pillars li {
+    padding: 1.25rem;
+    border-radius: 18px;
+    background: rgba(12, 10, 9, 0.55);
+    border: 1px solid rgba(255, 92, 45, 0.18);
+  }
+
+  .tambla-pillar-n {
+    display: block;
+    color: var(--t-orange);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.65rem;
+  }
+
+  .tambla-pillars strong {
+    display: block;
+    color: #fff2ea;
+    font-size: 1.1rem;
+  }
+
+  .tambla-pillars p {
+    margin: 0.5rem 0 0;
+    color: var(--t-mute);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .tambla-uganda {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 960px) {
+    .tambla-uganda {
+      grid-template-columns: 1fr 1.05fr;
+      align-items: center;
+      padding: 5rem 2rem;
+    }
+  }
+
+  .tambla-uganda-copy p {
+    margin: 1rem 0 0;
+    color: var(--t-mute);
+    line-height: 1.65;
+  }
+
+  .tambla-uganda-copy em {
+    font-style: normal;
+    color: var(--t-orange-hot);
+  }
+
+  .tambla-city-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.5rem;
+  }
+
+  .tambla-city-chips span {
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 92, 45, 0.22);
+    color: #e8d2c5;
+    font-size: 0.8rem;
+    background: rgba(255, 92, 45, 0.06);
+  }
+
+  .tambla-city-chips span.hub {
+    background: rgba(255, 92, 45, 0.2);
+    border-color: rgba(255, 92, 45, 0.5);
+    color: #ffe5d8;
+    font-weight: 700;
+  }
+
+  .tambla-map {
+    border-radius: 24px;
+    border: 1px solid rgba(255, 92, 45, 0.22);
+    background:
+      radial-gradient(circle at 60% 55%, rgba(255, 92, 45, 0.12), transparent 45%),
+      #100d0b;
+    padding: 1rem 1rem 0.75rem;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  }
+
+  .tambla-map-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .tambla-node-core {
+    fill: var(--t-orange);
+  }
+
+  .tambla-node.hub .tambla-node-core {
+    fill: #ffd2bf;
+  }
+
+  .tambla-node-halo {
+    fill: none;
+    stroke: rgba(255, 92, 45, 0.55);
+    stroke-width: 0.35;
+    transform-origin: center;
+    animation: tamblaNode 2.8s ease-out infinite;
+    animation-delay: var(--d, 0s);
+  }
+
+  .tambla-node.hub .tambla-node-halo {
+    stroke: rgba(255, 210, 191, 0.7);
+  }
+
+  @keyframes tamblaNode {
+    0% {
+      opacity: 0.9;
+      transform: scale(0.7);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.6);
+    }
+  }
+
+  .tambla-node-label {
+    fill: #d7beb0;
+    font-size: 2.6px;
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  .tambla-route {
+    animation: tamblaDash 8s linear infinite;
+  }
+
+  @keyframes tamblaDash {
+    to {
+      stroke-dashoffset: -24;
+    }
+  }
+
+  .tambla-map-caption {
+    margin: 0.35rem 0 0.25rem;
+    text-align: center;
+    color: #8a7367;
+    font-size: 0.78rem;
+  }
+
+  .tambla-journey {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 4rem;
+  }
+
+  @media (min-width: 800px) {
+    .tambla-journey {
+      padding: 1rem 2rem 5rem;
+    }
+  }
+
+  .tambla-steps {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+    counter-reset: step;
+  }
+
+  @media (min-width: 900px) {
+    .tambla-steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .tambla-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 1.35rem 1.2rem 1.2rem;
+    border-radius: 18px;
+    background: linear-gradient(160deg, rgba(255, 92, 45, 0.1), transparent 55%), #14100e;
+    border: 1px solid rgba(255, 92, 45, 0.18);
+    overflow: hidden;
+  }
+
+  .tambla-steps li::before {
+    content: counter(step, decimal-leading-zero);
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--t-orange);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+
+  .tambla-steps span {
+    display: block;
+    color: #fff1e8;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .tambla-steps p {
+    margin: 0.45rem 0 0;
+    color: var(--t-mute);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .tambla-riders {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 860px) {
+    .tambla-riders {
+      grid-template-columns: 1fr 1fr;
+      padding: 0 2rem 5rem;
+    }
+  }
+
+  .tambla-riders-panel {
+    padding: 1.75rem;
+    border-radius: 22px;
+    background: #15110f;
+    border: 1px solid rgba(255, 92, 45, 0.2);
+  }
+
+  .tambla-riders-alt {
+    background:
+      linear-gradient(145deg, rgba(27, 94, 32, 0.28), transparent 50%),
+      linear-gradient(210deg, rgba(255, 92, 45, 0.16), transparent 45%),
+      #15110f;
+  }
+
+  .tambla-riders ul {
+    margin: 1.25rem 0 1.5rem;
+    padding-left: 1.1rem;
+    color: var(--t-mute);
+    line-height: 1.7;
+  }
+
+  .tambla-riders-alt p {
+    margin: 1rem 0 0;
+    color: var(--t-mute);
+    line-height: 1.65;
+  }
+
+  .tambla-quote {
+    margin-top: 1.5rem !important;
+    padding: 1rem 1.1rem;
+    border-left: 3px solid var(--t-orange);
+    color: #ffe5d8 !important;
+    font-size: 1.05rem;
+    font-weight: 560;
+  }
+
+  .tambla-get {
+    padding: 0 1.25rem 4.5rem;
+  }
+
+  @media (min-width: 800px) {
+    .tambla-get {
+      padding: 0 2rem 5.5rem;
+    }
+  }
+
+  .tambla-get-card {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2.25rem 1.5rem;
+    border-radius: 28px;
+    text-align: center;
+    background:
+      radial-gradient(700px 220px at 50% 0%, rgba(255, 92, 45, 0.28), transparent 60%),
+      linear-gradient(180deg, #1c1410, #120e0c);
+    border: 1px solid rgba(255, 92, 45, 0.35);
+    box-shadow: 0 30px 90px rgba(255, 92, 45, 0.12);
+  }
+
+  @media (min-width: 800px) {
+    .tambla-get-card {
+      padding: 3rem 2.5rem;
+    }
+  }
+
+  .tambla-get-logo {
+    height: 42px;
+    width: auto;
+    margin: 0 auto 1rem;
+    filter: drop-shadow(0 8px 18px rgba(255, 92, 45, 0.35));
+  }
+
+  .tambla-get-card > p {
+    margin: 0.9rem auto 0;
+    max-width: 36rem;
+    color: var(--t-mute);
+    line-height: 1.65;
+  }
+
+  .tambla-get-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.6rem;
+  }
+
+  .tambla-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem 2.5rem;
+    border-top: 1px solid var(--t-line);
+    color: #8a7367;
+    font-size: 0.88rem;
+  }
+
+  @media (min-width: 800px) {
+    .tambla-footer {
+      padding-inline: 2rem;
+    }
+  }
+
+  .tambla-footer strong {
+    color: #e8d2c5;
+  }
+
+  .tambla-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.1rem;
+  }
+
+  .tambla-footer-links a {
+    color: #c4a99a !important;
+    text-decoration: none;
+  }
+
+  .tambla-footer-links a:hover {
+    color: var(--t-orange-hot) !important;
+  }
+</style>

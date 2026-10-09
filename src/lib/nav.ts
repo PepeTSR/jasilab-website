@@ -16,6 +16,12 @@ export const productLinks = [
  tagline: "Trust platform for mobile identities - live in Kampala. Product home: cvt.co.ug.",
  },
  {
+ href: "/tambla/",
+ label: "Tambla",
+ tagline:
+ "The Orange Signal — verified rider hail across Uganda. Soft launching on Android.",
+ },
+ {
  href: "/products/zazu",
  label: "Zazu Africa Safaris",
  tagline:
